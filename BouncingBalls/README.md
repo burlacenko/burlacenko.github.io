@@ -16,12 +16,8 @@ The first ball will be randomly and automatically created. As it bounces at the 
 
 <h2>Roadmap of future improvements:</h2>
 <ul>
-<li>go up and down</li>
-<li>use new images for up and down movement</li>
-<li>accept keyboard arrow inputs</li>
-<li>draw a maze</li>
-<li>place cookies to be eaten by pac man</li>
-<li>bring in the ghosts</li>
+<li>click or touch a ball to destroy it</li>
+<li>after reaching ball limit (100), start to change theis sizes</li>
 </ul>
 
 <h2>MIT License</h2>
