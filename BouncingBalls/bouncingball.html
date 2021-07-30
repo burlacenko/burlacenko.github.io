@@ -1,7 +1,43 @@
 <!DOCTYPE html>
 <head>
-     <title>BouncingBalls Factory for MIT Class</title>
+    <title>BouncingBalls Factory for MIT Class</title>
 </head>
+<script src="./bouncingballFactory.js"></script>
 <body>
-     <script src="./bouncingballFactory.js"></script>
+    <button onclick="buttonGotClicked()">Click me</button>
+    <button onclick="destroyLastBall()">Kill one ball</button>
+    <button onclick="reset()">Reset</button>
+    <p id="demo"></p>
+     <script>
+     window.scrollbars = false; // could not prevent scroll bars from appearing?
+     
+     bouncingBall = {
+            aBall: document, // "document" instead of "ball", because "document" is of the language, but "ball" is ours, but undefined at this point!
+            positionX: Number,
+            positionY: Number,
+            topToBottom: Boolean,
+            leftToRight: Boolean,
+            timeOfBirth: Date(),
+        };
+
+     let allowMovement = true; // a control to turn On and Off
+     var ballCollection = []; // empty array of bouncingBalls to hold all created balls
+     var maxNumberOfBalls = 100;
+     var timeFrame = 25; // in ms
+     var timeDifferenceBetweenNewBalls = 2000; // in ms 
+     var velocityX = 5;
+     var velocityY = 3;
+     var ballWidth = 50;
+     var ballHeight = 50;
+     var red = 0;
+     var green = 0;
+     var blue = 0;
+     var counter = 0;
+
+     // let's make it move
+     console.log("Started");
+
+     createFirstBall();
+     letsMoveAllBalls();
+    </script>
 </body>
