@@ -1,0 +1,24 @@
+this URL is suitable for SSH:
+git@github.com:burlacenko/burlacenko.github.io.git
+
+the https URL is not suitable for SSH:
+https://github.com/burlacenko/burlacenko.github.io.git
+
+
+
+To check if SSH is Ok:
+
+#OpenSSH Authentication deve estar rodando nos serviços
+
+ssh -vT git@github.com
+(from: https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey)
+
+Verify that you have a private key generated and loaded into SSH.
+ssh-add -l -E sha256
+
+
+To push:
+git.exe push --progress "origin" main:main
+
+For Status:
+git status
