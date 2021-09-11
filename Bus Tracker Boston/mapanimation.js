@@ -286,7 +286,7 @@ async function getBusLocations(){
 }
 
 function startFollowingBus() {
-    document.getElementById('startFollowingBus').innerHTML = 'Have a nice ride aroung Boston :)';
+    document.getElementById('startFollowingBus').innerHTML = 'Have a nice ride around Boston :)';
     run();
 }
 
