@@ -296,6 +296,7 @@ function startFollowingBus() {
 // infoDataSet[0].busLocations[0].attributes.latitude 
 // lastBusInfo.busLocations[0].attributes.label (e.g. = "1912")
 // lastBusLocations[0].attributes.occupancy_status
+// lastBusLocations[0].attributes.direction_id
 
 // green: "MANY_SEATS_AVAILABLE"
 // red: "FEW_SEATS_AVAILABLE"
