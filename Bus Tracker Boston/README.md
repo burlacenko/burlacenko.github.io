@@ -4,8 +4,8 @@
 
 
 <h2>Description</h2>
-This is an <em>exercise</em> to practice Web Development in JavaScript and it displays some city buses locations at Boston in real-time.
-Additions made to the original exercise:
+<p>This is an <em>exercise</em> to practice Web Development in JavaScript and it displays some city buses locations at Boston in real-time.</p>
+<p>Additions made to the original exercise:</p>
 <ul>
 <li>It now identifies the current address of the buses given their coordinates (longitude and latitude)</li>
 <li>A marker is plotted for all buses in service</li>
@@ -16,7 +16,7 @@ Additions made to the original exercise:
 	<li>Current Address</li>
 	</ol>
 <li>Each PopUp will show the bus line, its current stop sequence and the current address</li>
-<li>Each marker color shows the bus occupancy status:</li>
+<li>Marker color shows the bus occupancy status:</li>
 	<ol>
 	<li>Green: many seats available</li>
 	<li>Red: few seats available</li>
@@ -31,9 +31,9 @@ Open <strong>index.html</strong> in the browser
 <ul>
 <li>A button to toggle "show all" / "hide all" permanent ballons with each bus information</li>
 <li>Select one bus to be followed (map will keep centering at selected bus)</li>
-Add a combo box to list all availble routes
-Draw a line showing the full route
-Change the icon of the bus rotating it accordingly to its current direction
+<li>Add a combo box to list all availble routes</li>
+<li>Draw a line showing the full route</li>
+<li>Change the icon of the bus rotating it accordingly to its current direction</li>
 </ul>
 
 <h2>MIT License</h2>
