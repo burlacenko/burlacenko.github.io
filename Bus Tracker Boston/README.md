@@ -1,6 +1,7 @@
 <h1>Real Time Bus Tracker</h1>
 <h2>Project for <strong>Part 1: Web Development with JavaScript</h2>
 <h2>MIT xPro Full Stack Development with MERN June 2021</h2>
+>MIT xPRO Professional Certificate in Coding: Full Stack Development with MERN
 
 
 <h2>Description</h2>
