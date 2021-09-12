@@ -1,7 +1,7 @@
 # Real Time Bus Tracker
 >MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development with MERN June 2021
 
-<h2>Description</h2>
+<h2>Title Description</h2>
 <p>This is an <em>exercise</em> to practice Web Development in JavaScript and it displays some city buses locations at Boston in real-time.</p>
 <p>Additions made to the original exercise:</p>
 <ul>
