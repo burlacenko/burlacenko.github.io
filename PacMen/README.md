@@ -6,8 +6,7 @@ This is an <em>exercise</em> to practice Web Development in JavaScript where a P
 
 <h2>How to Run</h2>
 To try locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
-To try a live version, click [here](https://burlacenko.github.io/PacMen/index.html)
-or [here](https://russellpropert.github.io/MIT-MERN/07week/NextTech_PacMen_Factory_Exercise/index.html)
+To try a live version, click;
 To start movement simply click on the PacMan
 Click on the screen to create new PacMen
 
