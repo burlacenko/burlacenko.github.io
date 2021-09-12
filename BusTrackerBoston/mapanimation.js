@@ -112,7 +112,7 @@ function displayBusMarker(busAttribute) {
         // markers[0].marker._popup.setHTML = 'bus xx';
 
         // this WORKS:
-        // markers[0].marker._popup._content.innerHTML = "<button class=\"mapboxgl-popup-close-button\" type=\"button\" aria-label=\"Close popup\">×</button><h3>Bus 2000</h3> <p>Current stop sequence: </p>";
+        // markers[0].marker._popup._content.innerHTML = "<button class=\"mapboxgl-popup-close-button\" type=\"button\" aria-label=\"Close popup\">Ã—</button><h3>Bus 2000</h3> <p>Current stop sequence: </p>";
         //debugger;
         marker.marker._popup.setHTML('<h3>' + 'Bus ' + busAttribute.label + '</h3> <p>' + 'Current stop sequence: ' + busAttribute.current_stop_sequence + '</p>')
 
