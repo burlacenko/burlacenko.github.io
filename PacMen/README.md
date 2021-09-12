@@ -1,4 +1,5 @@
-<h1>PacMen Exercise for <em>MIT Web Development in JavaScript</em> as part of <strong>MIT xPRO Professional Certificate in Coding: Full Stack Development</strong></h1>
+#PacMen Exercise
+>MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development</h1>
 
 <h2>Title Description</h2>
 This is an <em>exercise</em> to practice Web Development in JavaScript where a PacMen factory is created to programmatically multiply elements in the DOM, triggered by the click of a button. Each of them will move about the browser window at their own pace.
