@@ -26,6 +26,7 @@
 
 <h2>How to Run</h2>
 Open <strong>index.html</strong> in the browser
+Hit button "Click here to start following bus moving around Boston"
 
 <h2>Roadmap of future improvements:</h2>
 <ul>
@@ -34,6 +35,7 @@ Open <strong>index.html</strong> in the browser
 <li>Add a combo box to list all availble routes</li>
 <li>Draw a line showing the full route</li>
 <li>Change the icon of the bus rotating it accordingly to its current direction</li>
+<li>Show date time info</li>
 </ul>
 
 <h2>MIT License</h2>
