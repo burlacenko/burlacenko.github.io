@@ -4,7 +4,9 @@
 This is an <em>exercise</em> to practice Web Development in JavaScript where a PacMen factory is created to programmatically multiply elements in the DOM, triggered by the click of a button. Each of them will move about the browser window at their own pace.
 
 <h2>How to Run</h2>
-Open <strong>index.html</strong> in the browser
+To try locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+To try a live version, click [here](https://github.com/burlacenko/burlacenko.github.io/blob/main/PacMen/index.html)
+or [here](https://russellpropert.github.io/MIT-MERN/07week/NextTech_PacMen_Factory_Exercise/index.html)
 To start movement simply click on the PacMan
 Click on the screen to create new PacMen
 
