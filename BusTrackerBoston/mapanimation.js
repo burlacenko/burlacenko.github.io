@@ -38,7 +38,15 @@ function setMarkerHTML(aBusRef, busAndAddress) {
     aBusRef.marker._popup.setHTML('<h3>Bus ' + aBusRef.busName + '</h3> <p>Current stop sequence: ' + busAndAddress.busAttribute.current_stop_sequence + '</p> <p>Address: '+ busAndAddress.address +'</p>');
 }
 
-function setMarkerColor(marker, color) {
+function setMarkerColorBusIcon(marker, color) {
+    let markerElement = marker.getElement();
+    markerElement
+      .querySelectorAll('svg g[fill="' + marker._color + '"]')[0]
+      .setAttribute("fill", color);
+    marker._color = color;
+}
+
+function setMarkerColorDefaultMapboxIcon(marker, color) {
     let markerElement = marker.getElement();
     markerElement
       .querySelectorAll('svg g[fill="' + marker._color + '"]')[0]
@@ -68,7 +76,10 @@ function createNewMarker(aBusName, lngLat) {
     if ((aBusName === '') || (typeof aBusName === 'undefined') || (lngLat === [])) {
         return;
     } else {
-    let aMarker = new mapboxgl.Marker({color: 'blue', draggable: false, rotation: 0})
+    let el = document.createElement('div');
+    el.className = 'marker';        
+    // let aMarker = new mapboxgl.Marker({color: 'blue', draggable: false, rotation: 0})
+    let aMarker = new mapboxgl.Marker(el)
     .setLngLat(lngLat)
     .setPopup(new mapboxgl.Popup({ offset: 25, closeOnClick: true, closeButton: true, className: 'marker-popup' })
                           .setHTML('<h3>' + 'Bus ' + aBusName + '</h3> <p>' + 'Current stop sequence: ' + '</p>'))
@@ -103,17 +114,6 @@ function displayBusMarker(busAttribute) {
 
     if (typeof marker !== 'undefined') {
         marker.marker.setLngLat(lngLat);
-        // update current stop sequence
-        // markers[0].marker._popup._content.innerHTML
-        // markers[0].marker._popup._content.innerText
-
-        // this does NOT work:
-        // markers[0].marker._popup.setText = 'bus xx';
-        // markers[0].marker._popup.setHTML = 'bus xx';
-
-        // this WORKS:
-        // markers[0].marker._popup._content.innerHTML = "<button class=\"mapboxgl-popup-close-button\" type=\"button\" aria-label=\"Close popup\">×</button><h3>Bus 2000</h3> <p>Current stop sequence: </p>";
-        //debugger;
         marker.marker._popup.setHTML('<h3>' + 'Bus ' + busAttribute.label + '</h3> <p>' + 'Current stop sequence: ' + busAttribute.current_stop_sequence + '</p>')
 
         // update address
