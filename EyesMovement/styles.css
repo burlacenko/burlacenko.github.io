@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: #14495e;
+  background-image: linear-gradient(to bottom right, rgb(19, 1, 100), rgb(0, 238, 255));
 }
 
 .eyes {
