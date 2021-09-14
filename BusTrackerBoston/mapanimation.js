@@ -35,15 +35,39 @@ function setMarkerHTML(aBusRef, busAndAddress) {
     // marker._color = color;
 
     // markerElement._popup.setHTML('<h3>Bus ' + aBusRef.busName + '</h3> <p>Current stop sequence: ' + aBusRef.marker.attributes.current_stop_sequence + '</p> <p>Address: '+ busAndAddress.address +'</p>');
-    aBusRef.marker._popup.setHTML('<h3>Bus ' + aBusRef.busName + '</h3> <p>Current stop sequence: ' + busAndAddress.busAttribute.current_stop_sequence + '</p> <p>Address: '+ busAndAddress.address +'</p>');
+    aBusRef.marker._popup.setHTML('<h3>Bus ' + aBusRef.busName + '</h3> <p>Current stop sequence: ' + busAndAddress.busAttribute.current_stop_sequence + '</p> <p>Bearing: ' + busAndAddress.busAttribute.bearing + '</p> <p>Address: '+ busAndAddress.address +'</p>');
 }
 
-function setMarkerColorBusIcon(marker, color) {
+function setMarkerColorBusIcon(marker, color, aBusLocation) {
+    //debugger;
+    // marker._element => is the same as the "markerElement" obtained by "marker.getElement()"
+    // interesting: marker._element.classList;
     let markerElement = marker.getElement();
-    markerElement
-      .querySelectorAll('svg g[fill="' + marker._color + '"]')[0]
-      .setAttribute("fill", color);
-    marker._color = color;
+    // markerElement
+    //   .querySelectorAll('svg g[fill="' + marker._color + '"]')[0]
+    //   .setAttribute("fill", color);
+    // marker._color = color;
+
+    // how about this? document.getElementById('n' + String(position)).classList.toggle('on');
+    // this works now that I set IDs for each marker according to busLocation id given by mapbox!
+    aBusLocation.attributes.bearing;
+    
+    if (color === 'green') {
+        document.getElementById(aBusLocation.id).classList.toggle('markerGreen');
+    } else { if (color === 'red') {
+             document.getElementById(aBusLocation.id).classList.toggle('markerRed');
+            } else {
+                document.getElementById(aBusLocation.id).classList.toggle('markerBlue');
+            }
+            }
+}
+
+function setRotation(busReference) { 
+    // (marker, bearing)
+    // (busReference.marker, aBusLocation.attributes.bearing);
+    // rotate it accordingly to bearing
+    //marker._rotation = bearing;
+    busReference.marker._rotation = busReference.busLocation.attributes.bearing;
 }
 
 function setMarkerColorDefaultMapboxIcon(marker, color) {
@@ -72,20 +96,21 @@ function updateTagOfHTML(componentInnerHTML, tag, newText) {
     let HTML = componentProperty;
 }
 
-function createNewMarker(aBusName, lngLat) {
+function createNewMarker(aBusName, aBusLocation, lngLat) {
     if ((aBusName === '') || (typeof aBusName === 'undefined') || (lngLat === [])) {
         return;
     } else {
-    let el = document.createElement('div');
-    el.className = 'marker';        
+    let mk = document.createElement('div');
+    mk.id = aBusLocation.id;
+    mk.className = 'marker';        
     // let aMarker = new mapboxgl.Marker({color: 'blue', draggable: false, rotation: 0})
-    let aMarker = new mapboxgl.Marker(el)
+    let aMarker = new mapboxgl.Marker(mk)
     .setLngLat(lngLat)
     .setPopup(new mapboxgl.Popup({ offset: 25, closeOnClick: true, closeButton: true, className: 'marker-popup' })
                           .setHTML('<h3>' + 'Bus ' + aBusName + '</h3> <p>' + 'Current stop sequence: ' + '</p>'))
     .addTo(map);     
-
-    allMarkers.push({busName: aBusName, marker: aMarker});
+    // aMarker._element.id has the id given by mapbox    
+    allMarkers.push({busName: aBusName, marker: aMarker, busLocation: aBusLocation}); 
     };
     // to change rotation: marker.setRotation(number)
 }
@@ -102,19 +127,19 @@ function centerMap(coords) {
     });    
 }
 
-function displayBusMarker(busAttribute) {
+function displayBusMarker(aBusLocation) {
     //debugger;
     // locate maker in allMarker array
-    let marker = getMarker(busAttribute.label);
+    let busReference = getMarker(aBusLocation.attributes.label);
 
     // update longitude, latitude
     let lngLat = [];
-    lngLat.push(busAttribute.longitude);
-    lngLat.push(busAttribute.latitude);
+    lngLat.push(aBusLocation.attributes.longitude);
+    lngLat.push(aBusLocation.attributes.latitude);
 
-    if (typeof marker !== 'undefined') {
-        marker.marker.setLngLat(lngLat);
-        marker.marker._popup.setHTML('<h3>' + 'Bus ' + busAttribute.label + '</h3> <p>' + 'Current stop sequence: ' + busAttribute.current_stop_sequence + '</p>')
+    if (typeof busReference !== 'undefined') {
+        busReference.marker.setLngLat(lngLat);
+        busReference.marker._popup.setHTML('<h3>' + 'Bus ' + aBusLocation.attributes.label + '</h3> <p>' + 'Current stop sequence: ' + aBusLocation.attributes.current_stop_sequence + '</p>')
 
         // update address
 
@@ -123,14 +148,17 @@ function displayBusMarker(busAttribute) {
         // green: "MANY_SEATS_AVAILABLE"
         // red: "FEW_SEATS_AVAILABLE"
         // blue: undefined
-        if (busAttribute.occupancy_status === 'MANY_SEATS_AVAILABLE') {
-            setMarkerColor(marker.marker, 'green');
-        } else { if (busAttribute.occupancy_status === 'FEW_SEATS_AVAILABLE') {
-                    setMarkerColor(marker.marker, 'red');
+        if (aBusLocation.attributes.occupancy_status === 'MANY_SEATS_AVAILABLE') {
+            setMarkerColorBusIcon(busReference.marker, 'green', aBusLocation);
+        } else { if (aBusLocation.attributes.occupancy_status === 'FEW_SEATS_AVAILABLE') {
+                setMarkerColorBusIcon(busReference.marker, 'red', aBusLocation);
                 } else {
-                        setMarkerColor(marker.marker, 'blue');
+                    setMarkerColorBusIcon(busReference.marker, 'blue', aBusLocation);
                 }
         };
+
+        // set rotations:
+        setRotation(busReference); //(busReference.marker, aBusLocation.attributes.bearing);
     }
 }
 
@@ -141,6 +169,15 @@ function getMarker(label) {
     });
 
     return busReference; 
+}
+
+function getMarkerByID(elementID) {
+    debugger;
+    let busElement = document.getElementById(elementID);
+    let busReference = allMarkers.find( aMarker => {
+        return aMarker.marker.id === elementID
+    });
+    return ({marker: busReference, element: busElement}); 
 }
 
 function existMarker(label) {
@@ -178,25 +215,18 @@ async function run(){
     
     //debugger;
     lastBusLocations.forEach(aBusLocation => {
+        // ATTENTION: bus "id" is at aBusLocation.id, which if parallel to aBusLocation.attributes
         // look for the marker of this bus
         if(existMarker(aBusLocation.attributes.label)) {
             // update marker position
-            displayBusMarker(aBusLocation.attributes);
+            displayBusMarker(aBusLocation);
         } else {
             // create marker
             createNewMarker(aBusLocation.attributes.label,
+                            aBusLocation,
                             [aBusLocation.attributes.longitude, aBusLocation.attributes.latitude ]);
         }
     });
-    
-    // if (allMarkers.length === 0) {
-    //     createNewMarker(lastBusLocations[0].attributes.label,
-    //                     [lastBusLocations[0].attributes.longitude, lastBusLocations[0].attributes.latitude ]);
-    // }
-
-    // if (allMarkers.length > 0) {
-    //     displayBusMarker(allMarkers[0].marker, lastBusLocations[0].attributes);
-    // }
    
 	// set timer
 	if (limitCounter = -1) {
@@ -287,7 +317,16 @@ async function getBusLocations(){
 
 function startFollowingBus() {
     document.getElementById('startFollowingBus').innerHTML = 'Have a nice ride around Boston :)';
+    
+    // addNavigation makes bus bearings crazy
+    // addNavigation();
+
     run();
+}
+
+function addNavigation(){
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
 }
 
 // run();
@@ -301,3 +340,20 @@ function startFollowingBus() {
 // green: "MANY_SEATS_AVAILABLE"
 // red: "FEW_SEATS_AVAILABLE"
 // blue: undefined
+
+
+// added:
+// bus icon
+// bearing of the vehicle rotates its icon
+// button shadow
+// button hover color
+// bus color accordingly to occupancy
+
+// to do:
+// bus icon change "left" or "right" according to bearing/direction
+
+
+// about bearing: https://docs.mapbox.com/help/glossary/bearing/
+// A bearing is the direction you?re facing, measured clockwise as an angle from true north on a compass.
+// This can also be called a heading. In this system, north is 0°, east is 90°, south is 180°, and west is 270°.
+// When you are viewing a Mapbox map, the bearing rotates the map around its center the specified number of degrees.
