@@ -10,7 +10,7 @@ To start movement click at least once on "Add PacMan" button to create new PacMe
 Click on "Start" to make them move
 <p>Additions made to the original exercise:</p>
 <ul>
-<li>PacMen bounces off any wall it hits</li>
+<li>PacMen bounce off any wall it hits</li>
 <li>Added a "click" property to each PacMan</li>
 	<ol>
 	<li>Click the PacMan to reverse its direction</li>
