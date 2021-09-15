@@ -22,6 +22,7 @@ Click on "Start" to make them move
 
 <h2>Roadmap of future improvements:</h2>
 <ul>
+<li>display a more beautiful popup or tooptip message when mouse hovering a PacMan</li>
 <li>use new images for up and down movement</li>
 <li>accept keyboard arrow inputs</li>
 <li>draw a maze</li>

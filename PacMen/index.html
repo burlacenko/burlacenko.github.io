@@ -5,12 +5,23 @@
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+<h1><span class="hovertext" data-hover="Click on PacMan to reverse direction! CTRL+Click to kill it">   
+    PAC MAN GAME  
+</span></h1>
+
+<button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
+<button id="btnStart" onclick='start()' width='200' height='30'>Start</button>
+<button onclick="destroyLastPacMan()">Kill one PacMan</button>
+<button onclick="reset()">Reset (Kill All)</button>
+
+<div class="tooltip-wrap">    
     <div id='game'>
-        <button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
-        <button id="btnStart" onclick='start()' width='200' height='30'>Start</button>
-        <button onclick="destroyLastPacMan()">Kill one PacMan</button>
-        <button onclick="reset()">Reset (Kill All)</button>
     </div>
+    <div class="tooltip-content">
+        <p>Click on PacMan to reverse direction! CTRL+Click to kill it</p>
+      </div>     
+</div>
+
 
     <script src="./pacmen.js"></script>
 </body>

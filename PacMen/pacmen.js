@@ -29,6 +29,21 @@ function makePac() {
     img.src = './images/pacman1.png';
     img.width = 100;
 
+    // https://sebhastian.com/html-hover-text/
+    // class="hovertext" data-hover="Hello, this is the tooltip"
+    // img.data-hover = 'Hello, this is the tooltip';
+    img.className = 'hovertext';
+    img.setAttribute('data-hover', 'Click me PACMAN');
+
+    img.onmouseover = function () {
+        // set text
+    }
+
+    img.onmouseout = function () {
+        // set text
+    }
+
+
     PacID++;
     img.id = 'pac' + PacID;
 
