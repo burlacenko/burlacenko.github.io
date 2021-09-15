@@ -7,11 +7,21 @@ This is an <em>exercise</em> to practice Web Development in JavaScript where a P
 <h2>How to Run</h2>
 To try a live version, click <a href="https://burlacenko.github.io/PacMen/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 To start movement simply click on the PacMan
-Click on the screen to create new PacMen
+Click on "Add PacMan" button to create new PacMen. New PacMen can be created at any time.
+Click on "Start" to make them move
+<p>Additions made to the original exercise:</p>
+<ul>
+<li>PacMen bounces off any wall it hits</li>
+<li>Added a "click" property to each PacMan</li>
+	<ol>
+	<li>Click the PacMan to reverse its direction</li>
+	<li>CTRL+Click to kill the PacMan</li>
+	</ol>
+<li>Added a Reset button to Kill All and stop the game</li>
+<li>A PopUp was added to show information about that bus when a marker is clicked:</li>
 
 <h2>Roadmap of future improvements:</h2>
 <ul>
-<li>go up and down</li>
 <li>use new images for up and down movement</li>
 <li>accept keyboard arrow inputs</li>
 <li>draw a maze</li>

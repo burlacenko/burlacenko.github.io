@@ -1,12 +1,17 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Simple PacMan for MIT Class</title>
-    <script src="./pacmen.js"></script>
+    <title>PacMen Factory</title>
+    <link rel="stylesheet" href="./styles.css" />
 </head>
-
 <body>
-    <img id="PacMan" src="./images/pacman1.png" width='200' onclick="Run()" style="position:absolute"> </img>
-</body>
+    <div id='game'>
+        <button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
+        <button id="btnStart" onclick='start()' width='200' height='30'>Start</button>
+        <button onclick="destroyLastPacMan()">Kill one PacMan</button>
+        <button onclick="reset()">Reset (Kill All)</button>
+    </div>
 
+    <script src="./pacmen.js"></script>
+</body>
 </html>
