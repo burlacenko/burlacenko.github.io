@@ -17,7 +17,6 @@ Click on "Start" to make them move
 	<li>CTRL+Click to kill the PacMan</li>
 	</ol>
 <li>Added a Reset button to Kill All and stop the game</li>
-<li>A PopUp was added to show information about that bus when a marker is clicked:</li>
 
 <h2>Roadmap of future improvements:</h2>
 <ul>
