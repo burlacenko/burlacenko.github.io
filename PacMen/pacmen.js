@@ -32,16 +32,18 @@ function makePac() {
     // https://sebhastian.com/html-hover-text/
     // class="hovertext" data-hover="Hello, this is the tooltip"
     // img.data-hover = 'Hello, this is the tooltip';
-    img.className = 'hovertext';
-    img.setAttribute('data-hover', 'Click me PACMAN');
+    // img.className = 'hovertext';
+    // img.setAttribute('data-hover', 'Click me PACMAN');
 
-    img.onmouseover = function () {
-        // set text
-    }
+    // img.onmouseover = function () {
+    //     // set text
+    //     elements[currentElement].classList.add('hovertext');        
+    // }
 
-    img.onmouseout = function () {
-        // set text
-    }
+    // img.onmouseout = function () {
+    //     // set text
+    //     elements[maxElement].classList.remove('hovertext');
+    // }
 
 
     PacID++;
