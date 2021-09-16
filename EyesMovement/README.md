@@ -14,9 +14,9 @@ Move the mouse and check the eyes following the pointer;
 </ul>
 
 <h2>MIT License</h2>
-Copyright (c) 2021 <em>Burlacenko<em>
+Copyright (c) 2021 <em>Burlacenko</em>
 
-This project has been modified based on the original exercise of <em>Abel Sanchez<em>
+This project has been modified based on the original exercise of <em>Abel Sanchez</em>
 under MIT xPro Web Development as part of Full Stack Development with MERN June 2021
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
