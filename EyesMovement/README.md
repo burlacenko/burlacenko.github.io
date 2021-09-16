@@ -11,7 +11,6 @@ Move the mouse and check the eyes following the pointer;
 <h2>Roadmap of future improvements:</h2>
 <ul>
 <li>Add a face to make it resemble a person</li>
-<li>Make each eye follow the pointer by its own the point of reference, so that when the pointer is between them, they both</li>
 </ul>
 
 <h2>MIT License</h2>
