@@ -23,6 +23,8 @@ var map = new mapboxgl.Map({
 	center: [-71.104081, 42.365554],
 	zoom: 14
 });
+var routeMain = 1;
+var currentRoute = 1;
 
 function setMarkerHTML(aBusRef, busAndAddress) {
     
@@ -309,14 +311,41 @@ async function getAddress(longitude, latitude){
 
 // Request bus data from MBTA
 async function getBusLocations(){
-	const url = 'https://api-v3.mbta.com/vehicles?filter[route]=1&include=trip';
+    // check for more cool possibilities:
+    // https://www.mbta.com/developers/v3-api
+    // https://api-v3.mbta.com/docs/swagger/index.html
+    // https://github.com/google/transit/blob/master/gtfs/spec/en/reference.md#routestxt
+        // future updates:
+            // BASIC CALLS
+            // The V3 API data model is based on GTFS and GTFS-realtime where applicable. The following calls are available:
+                // alerts
+                // facilities - elevators, escalators, and (coming soon) parking lots, bike racks, etc.
+                // predictions - predicted arrival/departure times
+                // routes
+                // schedules - scheduled arrival/departure times (stop_time)
+                // shapes - stops and maps for branches, including route variations
+                // stops
+                // trips
+                // vehicles - vehicle positions
+
+            // FILTER
+            // /routes retrieves a list, in the data[] object, of all routes.
+            
+            // ADD subways:
+                // /routes?filter[type]=0,1 retrieves only the routes with a route type of 0 or 1 (subway)
+                // /routes/Orange retrieves only the route with `route_id="Orange"`
+            
+	// filtered route 1:
+    const url = 'https://api-v3.mbta.com/vehicles?filter[route]='+routeMain+'&include=trip';
+	// not filtered:
+    // const url = 'https://api-v3.mbta.com/vehicles';
 	const response = await fetch(url);
 	const json     = await response.json();
 	return json.data;
 }
 
 function startFollowingBus() {
-    document.getElementById('startFollowingBus').innerHTML = 'Have a nice ride around Boston :)';
+    document.getElementById('startFollowingBus').innerHTML = `Have a nice ride around Boston Route ${routeMain} :)`;
     
     // addNavigation makes bus bearings crazy
     // addNavigation();
