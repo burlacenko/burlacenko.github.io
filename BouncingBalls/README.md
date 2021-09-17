@@ -1,6 +1,7 @@
-<h1>BouncingBall Project for <strong>MIT Web Development in JavaScript</strong></h1>
+# Bouncing Balls Exercise
+>MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development</h1>
 
-<h2>Description</h2>
+<h2>Title Description</h2>
 <p>This is an <em>exercise</em> to practice Web Development in JavaScript</p>
 <p>Color balls will bounce on the screen and multiply as they hit the edges of the page. The first ball will be randomly and automatically created. As it bounces at the edges of the screen, it will produce a new one and so on. Three buttons are available so far:
 <ul>
@@ -10,7 +11,6 @@
 </ul>
 </p>
 
-<h2>Installation</h2>
 <h2>How To Run</h2>
 <p>To try a live version, click <a href="https://burlacenko.github.io/BouncingBalls/bouncingball.html">here</a>. To try it locally, fork and clone the project and then open <strong>bouncingball.html</strong> in the browser.
 </p>
@@ -46,3 +46,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+<h2>Screenshot</h2>
+<img src= "bouncingBalls.jpg" width='450'/>
