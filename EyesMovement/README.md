@@ -38,5 +38,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 <h2>Screenshot</h2>
-<img src= "oneeye.png" width='450'/>
+<img src= "eyesMovement.jpg" width='550'/>
 
