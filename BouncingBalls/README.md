@@ -2,7 +2,7 @@
 
 <h2>Description</h2>
 <p>This is an <em>exercise</em> to practice Web Development in JavaScript</p>
-<p>The first ball will be randomly and automatically created. As it bounces at the edges of the screen, it will produce a new one and so on. Three buttons are available so far:
+<p>Color balls will bounce on the screen and multiply as they hit the edges of the page. The first ball will be randomly and automatically created. As it bounces at the edges of the screen, it will produce a new one and so on. Three buttons are available so far:
 <ul>
 <li><strong>Click me</strong> for a Hello World message</li>
 <li><strong>Kill one ball</strong> to kill the last ball created. Caution: if you kill the first ball, none will be left, forcing you to reset</li>
