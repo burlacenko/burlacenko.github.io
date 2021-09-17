@@ -358,6 +358,8 @@ function addNavigation(){
     map.addControl(new mapboxgl.NavigationControl());
 }
 
+window.onload = startFollowingBus();
+
 // run();
 
 // cool stuff:
