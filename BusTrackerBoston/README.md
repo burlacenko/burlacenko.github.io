@@ -26,10 +26,11 @@
 </ul>
 
 <h2>How to Run</h2>
-To try a live version, click <a href="https://burlacenko.github.io/BusTrackerBoston/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+<p>To try a live version, click <a href="https://burlacenko.github.io/BusTrackerBoston/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 Hit button "Click here to start following bus moving around Boston"
-
+</p>
 <h2>Roadmap of future improvements:</h2>
+<p>
 <ul>
 <li>A button to toggle "show all" / "hide all" permanent ballons with each bus information</li>
 <li>Select one bus to be followed (map will keep centering at selected bus)</li>
@@ -37,11 +38,12 @@ Hit button "Click here to start following bus moving around Boston"
 <li>Draw a line showing the full route</li>
 <li>Show date time info</li>
 </ul>
+</P>
 
 <h2>MIT License</h2>
-Copyright (c) 2021 Burlacenko
+Copyright (c) 2021 <em>Burlacenko</em>
 
-This project has been modified based on the original exercise of Abel Sanchez
+This project has been modified based on the original exercise of <em>Abel Sanchez</em>
 under MIT xPro Web Development as part of Full Stack Development with MERN June 2021
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
