@@ -1,34 +1,32 @@
 # PacMen Exercise
 >MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development</h1>
 
-<h2>Title Description</h2>
+## Title Description
 This is an <em>exercise</em> to practice Web Development in JavaScript where a PacMen factory is created to programmatically multiply elements in the DOM, triggered by the click of a button. Each of them will move about the browser window at their own pace.
 
-<h2>How to Run</h2>
+Additions made to the original exercise:
+
+- [x] PacMen bounce off any wall it hits
+- [x] Added a "click" property to each PacMan
+- [x] Click the PacMan to reverse its direction
+- [x] Click to kill the PacMan</li>
+- [x] Added a Reset button to Kill All and stop the game
+	
+## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/PacMen/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 To start movement click at least once on "Add PacMan" button to create new PacMen. New PacMen can be created at any time.
 Click on "Start" to make them move
-<p>Additions made to the original exercise:</p>
-<ul>
-<li>PacMen bounce off any wall it hits</li>
-<li>Added a "click" property to each PacMan</li>
-	<ol>
-	<li>Click the PacMan to reverse its direction</li>
-	<li>CTRL+Click to kill the PacMan</li>
-	</ol>
-<li>Added a Reset button to Kill All and stop the game</li>
 
-<h2>Roadmap of future improvements:</h2>
-<ul>
-<li>display a more beautiful popup or tooptip message when mouse hovering a PacMan</li>
-<li>use new images for up and down movement</li>
-<li>accept keyboard arrow inputs</li>
-<li>draw a maze</li>
-<li>place cookies to be eaten by pac man</li>
-<li>bring in the ghosts</li>
-</ul>
+## Roadmap of future improvements:
 
-<h2>MIT License</h2>
+- [ ] display a more beautiful popup or tooptip message when mouse hovering a PacMan
+- [ ] use new images for up and down movement
+- [ ] accept keyboard arrow inputs
+- [ ] draw a maze
+- [ ] place cookies to be eaten by pac man
+- [ ] bring in the ghosts
+
+## MIT License
 Copyright (c) 2021 <em>Burlacenko</em>
 
 This project has been modified based on the original exercise of <em>John Williams</em>
