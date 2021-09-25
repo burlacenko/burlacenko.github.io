@@ -6,11 +6,11 @@ This is an <em>exercise</em> to practice Web Development in JavaScript where a P
 
 Additions made to the original exercise:
 
-- [x] PacMen bounce off any wall it hits
-- [x] Added a "click" property to each PacMan
-- [x] Click the PacMan to reverse its direction
-- [x] Click to kill the PacMan</li>
-- [x] Added a Reset button to Kill All and stop the game
+- [x] PacMen `bounce` off any wall it hits
+- [x] Added a `click` property to each PacMan
+- [x] Click the PacMan to `reverse` its direction
+- [x] Click to `kill` the PacMan</li>
+- [x] Added a `Reset` button to Kill All and stop the game
 	
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/PacMen/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
@@ -19,12 +19,12 @@ Click on "Start" to make them move
 
 ## Roadmap of future improvements:
 
-- [ ] display a more beautiful popup or tooptip message when mouse hovering a PacMan
+- [ ] display a beautiful popup or tooptip message when mouse hovering a PacMan
 - [ ] use new images for up and down movement
 - [ ] accept keyboard arrow inputs
 - [ ] draw a maze
-- [ ] place cookies to be eaten by pac man
-- [ ] bring in the ghosts
+- [ ] place cookies to be eaten by PacMan
+- [ ] bring in some ghosts
 
 ## MIT License
 Copyright (c) 2021 <em>Burlacenko</em>
@@ -50,5 +50,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<h2>Screenshot</h2>
-<img src= "pacMenScreenShot.jpg" width='900'/>
+## Screenshot
+![PacMen Screenshot](pacMenScreenShot.jpg)
