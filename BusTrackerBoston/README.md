@@ -9,7 +9,7 @@
 <li>It now identifies the current address of the buses given their coordinates (longitude and latitude)</li>
 <li>Changed the icon of the marker to a bus icon</li>
 <li>Bus icon rotates accordingly to its current direction</li>
-<li>A PopUp was added to show information about that bus when a marker is clicked:</li>
+<li>A `PopUp` was added to show information about that bus when a marker is clicked:</li>
 	<ol>
 	<li>Line Number</li>
 	<li>Bearing</li>
