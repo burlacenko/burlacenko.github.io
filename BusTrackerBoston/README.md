@@ -1,4 +1,5 @@
 # Real Time Bus Tracker
+* `Bus icon` rotates accordingly to its current direction
 >MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development with MERN June 2021
 
 <h2>Title Description</h2>
@@ -8,7 +9,7 @@
 <li>A marker is plotted for all buses in service</li>
 <li>It now identifies the current address of the buses given their coordinates (longitude and latitude)</li>
 <li>Changed the icon of the marker to a bus icon</li>
-* `Bus icon` rotates accordingly to its current direction
+<li>Bus icon rotates accordingly to its current direction</li>
 <li>A PopUp was added to show information about that bus when a marker is clicked:</li>
 	<ol>
 	<li>Line Number</li>
