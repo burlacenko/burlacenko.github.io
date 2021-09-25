@@ -10,7 +10,7 @@ Additions made to the original exercise:
 - [x] Added a `click` property to each PacMan
 - [x] Click the PacMan to `reverse` its direction
 - [x] Click to `kill` the PacMan</li>
-- [x] Added a `Reset` button to Kill All and stop the game
+- [x] Added a `reset` button to Kill All and stop the game
 	
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/PacMen/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
