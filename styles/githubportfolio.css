@@ -42,7 +42,6 @@ h1 {
 .bio {
   text-align: justify;
   font-family: 'Fira Sans', sans-serif;
-  /* font-family: 'Gluten', cursive; */
 }
 
 .box-shadow {
@@ -58,7 +57,6 @@ h1 {
 }
 
 .header-font {
-  /* font-family: "Source Sans Pro", sans-serif; */
   font-family: 'Gluten', cursive;
   font-size: .7em;
 }
@@ -67,7 +65,7 @@ h1 {
   font-size: 28px;
 }
 
-.portfolio-color {
+.highlight-color {
   /* color: #9cf; */
   color: rgb(255, 214, 153);
 }
@@ -100,7 +98,14 @@ h1 {
   font-size: 1.1em;
 }
 
-.content-grid {
+.main-grid {
+  margin: 30px 0px;
+  display: grid;
+  gap: 25px;
+  justify-items: center;
+}
+
+.projects-grid {
   margin: 30px 0px;
   display: grid;
   gap: 25px;
@@ -112,17 +117,11 @@ h1 {
   grid-template-rows: repeat(3 1fr);
   grid-template-areas:
     "b b a"
-    "b b a"
-    "c c c";
+    "b b a";
 }
 
-.code-grid {
+.card-grid {
   grid-template-columns: repeat(2, 1fr);
-}
-
-.video-grid {
-  grid-template-columns: 1fr;
-  grid-template-rows: 4fr;
 }
 
 .link-color {
