@@ -280,7 +280,7 @@ async function updateAddresses() {
 
 async function getAddress(longitude, latitude){
 	let result = '';
-    const url = 'http://api.tiles.mapbox.com/v4/geocode/mapbox.places-v1/'+longitude+','+latitude+'.json?access_token=' + mapboxgl.accessToken;
+    const url = 'https://api.tiles.mapbox.com/v4/geocode/mapbox.places-v1/'+longitude+','+latitude+'.json?access_token=' + mapboxgl.accessToken;
 	const response = await fetch(url);
 	const json     = await response.json();
     //debugger;
