@@ -35,7 +35,11 @@ label {
     font: 1rem caption 'Fira Sans', sans-serif;
 }
 
-input,
-label {
-    margin: .4rem 0;
+input, label, button {
+  /* margin: .4rem 0; */
+  /* margin-top: .4rem; */
+  /* margin-left: .4rem; */
+  /* margin-right: .4rem; */
+  /* margin-bottom: .4rem; */
+  margin: .4rem;
 } 
