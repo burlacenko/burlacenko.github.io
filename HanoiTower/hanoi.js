@@ -59,3 +59,7 @@ function initialize (nDisks, pegMap) {
   }
   writeAll(pegMap);
 };
+
+function autoMove () {
+  
+}
