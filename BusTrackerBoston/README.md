@@ -26,7 +26,7 @@ Additions made to the original exercise:
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/BusTrackerBoston/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
-## Roadmap of future improvements:
+## Roadmap of future improvements
 - [ ] A button to toggle "show all" / "hide all" permanent ballons with each bus information</li>
 - [ ] Select one bus to be followed (map will keep centering at selected bus)</li>
 - [ ] Add a combo box to list all availble routes</li>

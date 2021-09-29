@@ -17,7 +17,7 @@ To try a live version, click <a href="https://burlacenko.github.io/PacMen/index.
 To start movement click at least once on "Add PacMan" button to create new PacMen. New PacMen can be created at any time.
 Click on "Start" to make them move
 
-## Roadmap of future improvements:
+## Roadmap of future improvements
 
 - [ ] display a beautiful popup or tooptip message when mouse hovering a PacMan
 - [ ] use new images for up and down movement

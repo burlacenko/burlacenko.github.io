@@ -8,7 +8,7 @@
 To try a live version, click <a href="https://burlacenko.github.io/EyesMovement/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 Move the mouse and check the eyes following the pointer;
 
-<h2>Roadmap of future improvements:</h2>
+<h2>Roadmap of future improvements</h2>
 <ul>
 <li>Add a face to make it resemble a person</li>
 </ul>

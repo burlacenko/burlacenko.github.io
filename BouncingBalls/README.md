@@ -15,7 +15,7 @@
 <p>To try a live version, click <a href="https://burlacenko.github.io/BouncingBalls/bouncingball.html">here</a>. To try it locally, fork and clone the project and then open <strong>bouncingball.html</strong> in the browser.
 </p>
 
-<h2>Roadmap of future improvements:</h2>
+<h2>Roadmap of future improvements</h2>
 <p>
 <ul>
 <li>Click or touch a ball to destroy it</li>
