@@ -2,6 +2,45 @@ import React from "react";
 // TODO: import useFormik from formik library
 import {useFormik} from 'formik';
 
+function getCharacterLength (str) {
+  // The string iterator that is used here iterates over characters,
+  //  not mere code units
+  return [...str].length;
+}
+
+// part of validation code from https://github.com/arnaudNYC/react-form-validation
+const emailValidation = email => {
+  if (
+    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+      email,
+    )
+  ) {
+    return null;
+  }
+  if (email.trim() === '') {
+    return 'Field required'; //'Email is required';
+  }
+  return 'Please enter a valid email'; // 'Username should be an email';
+};
+
+const passwordValidation = password => {
+  if (password.trim() === '') {
+    return 'Field required'; //'Email is required';
+  }
+
+  if (getCharacterLength(password)>=6) {
+    return null;
+  } else {
+    return 'Please enter password with at least 6 alphacharacters';
+  }
+  
+};
+
+const validateFields = {
+  email: emailValidation,
+  password: passwordValidation
+};
+
 function App() {
   // TODO: add a const called formik assigned to useFormik()
   const formik = useFormik({
@@ -12,14 +51,18 @@ function App() {
     },
 
     onSubmit: values => {
-      console.log('form:', values);
+      console.log('Form Login info:', values);
+      alert(`Login Successful`);
     },
     
     // for validation we added this:
     validate: values => {
       let errors = {};
-      if (!values.email) errors.email = 'Required';
-      if (!values.password) errors.password = 'Required';
+      let emailMessage = emailValidation(values.email);
+      let passwordMessage = passwordValidation(values.password);
+
+      if (emailMessage !== null) errors.email = emailMessage; //'Field required';
+      if (passwordMessage !==null) errors.password = passwordMessage; //'Field required';
       return errors;
     }
   });
