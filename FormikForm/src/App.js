@@ -70,11 +70,15 @@ function App() {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
-        <div>Email: <input name="email" type="text" onChange={formik.handleChange} value={formik.values.email} /></div>
-        {formik.errors.email ? <div style={{color:'red'}}>{formik.errors.email}</div>: null}
-        <div>Password: <input name="password" type="text" onChange={formik.handleChange} value={formik.values.password} /></div>
-        {formik.errors.password ? <div style={{color:'red'}}>{formik.errors.password}</div>: null}
-        <button type="submit">Submit</button>      
+        <div id="email">Email:
+          <input id="emailField" name="email" type="text" onChange={formik.handleChange} value={formik.values.email} />
+        </div>
+        {formik.errors.email ? <div id="emailError" style={{color:'red'}}>{formik.errors.email}</div>: null}
+        <div id="password">Password: 
+          <input id="pswField" name="password" type="text" onChange={formik.handleChange} value={formik.values.password} />
+        </div>
+        {formik.errors.password ? <div id="pswError" style={{color:'red'}}>{formik.errors.password}</div>: null}
+        <button id="submitBtn" type="submit">Submit</button>      
       </form>
     </div>
   );
