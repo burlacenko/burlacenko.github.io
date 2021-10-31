@@ -10,7 +10,7 @@ Additions made to the original exercise:
 - [x] new `styling` was created
   
 ## How to Run
-To try a live version, click <a href="https://burlacenko.github.io/BusTrackerBoston/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+To try a live version, click <a href="https://burlacenko.github.io/ToDoListExercise/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
 - [ ] Add `date time due` info</li>
@@ -47,4 +47,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 ## Screenshot
-![Image of ToDoList Exercise](ToDoListExercise2021-10-31.jpg)
+![Image of ToDoList Exercise](ToDoListExercise2021-10-31-2.jpg)
