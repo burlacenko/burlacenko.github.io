@@ -71,7 +71,7 @@ function App() {
     <div>
       <form onSubmit={formik.handleSubmit}>
         <div id="email">Email:
-          <input id="emailField" name="email" type="text" onChange={formik.handleChange} value={formik.values.email} />
+          <input id="emailField" name="email" type="text" placeholder="john@mail.com" onChange={formik.handleChange} value={formik.values.email} />
         </div>
         {formik.errors.email ? <div id="emailError" style={{color:'red'}}>{formik.errors.email}</div>: null}
         <div id="password">Password: 
