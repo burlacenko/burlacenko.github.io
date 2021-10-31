@@ -21,7 +21,9 @@ h1{
 }
 
 .app {
-  background: #209cee;
+  /* background: #209cee; */
+  /* background: radial-gradient(circle at center, rgb(54, 100, 1) 20%, rgba(0, 255, 106, 0.438) 150%); */
+  background: rgb(54, 100, 1);
   padding: 30px;
   height: 100vh;
   /* new */
