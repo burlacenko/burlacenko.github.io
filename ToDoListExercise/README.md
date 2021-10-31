@@ -8,6 +8,8 @@ Additions made to the original exercise:
 - [x] `delete button` was added
 - [x] `delete` removed from the item itself
 - [x] new `styling` was created with the list being centered to the screen
+- [x] on hovering over button cursor changes to a pointer.
+- [x] on hovering over button item shrinks a little
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/ToDoListExercise/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.

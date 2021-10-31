@@ -33,6 +33,7 @@ h1{
   text-align: center;
   display: grid;
   justify-content: center;
+  transition: all ease 0.2s;
 }
 
 .todo-list{
@@ -53,6 +54,12 @@ h1{
   justify-content: space-between;
 }
 
+.todo:hover {
+  opacity: 0.7;
+  transform: scale(0.99);
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
 .input{
   width: 100%;
   box-sizing: border-box;
@@ -64,8 +71,16 @@ h1{
   font-size: 24px;
 }
 
+.input:hover {
+  background-color: lightblue;
+}
+
 .btnDelete{
   color: red;
   background-color: beige;
   border-radius: 50%;
+}
+
+.btnDelete:hover {
+  cursor: pointer;
 }
