@@ -7,7 +7,7 @@ Additions made to the original exercise:
 
 - [x] `delete button` was added
 - [x] `delete` removed from the item itself
-- [x] new `styling` was created
+- [x] new `styling` was created with the list being centered to the screen
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/ToDoListExercise/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
@@ -47,4 +47,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 ## Screenshot
-![Image of ToDoList Exercise](ToDoListExercise2021-10-31-2.jpg)
+![Image of ToDoList Exercise](ToDoListExercise2021-10-31-3.jpg)
