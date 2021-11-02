@@ -2,14 +2,14 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>React Cart</title>
+    <title>Shopping Cart</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
-    <h1>React Lists</h1>
+    <h1>Shopping Car Exercise</h1>
 
     <!-- We will put our React component inside this div. -->
     <div id="root"></div>
@@ -22,7 +22,11 @@
     <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
     <!-- Load our React component. -->
 
-    <script src="navBarRemoveEx02.jsx" defer type="text/babel"></script>
+    <!-- app.jsx HAS TO COME FIRST because it initialized global variables needed in further dependent (e.g. navBar)! -->
+    <script src="cartFunctions.js"></script>
+    <script src="app.jsx" type="text/babel"></script>
+    <script src="stock.jsx" type="text/babel"></script>
+    <script src="cart.jsx" type="text/babel"></script>
 </body>
 
 </html>
