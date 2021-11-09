@@ -14,7 +14,7 @@ Additions made to the original exercise:
 - [x] negative values are not Submitted and user receives an alert
   
 ## How to Run
-To try a live version, click <a href="https://burlacenko.github.io/ToDoListExercise/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+To try a live version, click <a href="https://burlacenko.github.io/ATM/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
 - [ ] prevent negative balance
