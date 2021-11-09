@@ -26,10 +26,19 @@ function Stock({ menuitems, minstock, shoppingCart }) {
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":"); 
         
+        // zero items in stock
+        if (num <= 0) return;
+
+        // get item with name from stock and update stock
+        let item = stock.filter((item) => item.name == name);    
+
         // only if instock is >=  do we move item to Cart and update stock
         // use newStock = stock.map to find "name" and decrease number in stock by 1
         let newStock = stock.map((item, index) => {
-          if (item.name == name) item.instock--;
+          if (item.name == name) {
+            item.instock--;
+          }
+
           return item;
         });
 
@@ -45,12 +54,13 @@ function Stock({ menuitems, minstock, shoppingCart }) {
             return item;
           });        
 
-        setStock(newStock);
+        setStock([...newStock]);
 
         // setCart([...cart, name]);
-        setCart(newCart);
+        // setCart(newCart);
+        setCart([...cart, ...item])
+        // shoppingCart = [...shoppingCart, name];
 
-        shoppingCart = [...shoppingCart, name];
       };
 
     const updatedList = listMinStock.map((item, index) => {

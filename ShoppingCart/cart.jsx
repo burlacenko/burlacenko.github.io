@@ -6,7 +6,7 @@ function Cart( {menuitems, shoppingCart}) {
     const removeFromCart = e => {
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":"); 
-        
+
         // only if instock is >=  do we move item to Cart and update stock
         // use newStock = stock.map to find "name" and decrease number in stock by 1
         let newStock = stock.map((item, index) => {
@@ -16,7 +16,7 @@ function Cart( {menuitems, shoppingCart}) {
         
         let newCart = cart.splice(e.target.id, 1);
 
-        setStock(newStock);
+        setStock([...newStock]);
         setCart(newCart);
 
         // shoppingCart.splice(e.target.id, 1);
