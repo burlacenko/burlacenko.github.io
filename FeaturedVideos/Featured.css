@@ -1,0 +1,122 @@
+.featured {
+    height: 100vh; /* all the "first" screen, so that all the next elemnts will be showd only after scrolling down */
+}
+
+.featured--vertical {
+    width: inherit;
+    height: inherit;
+    /* background: linear-gradient(to top, #111, transparent); /* like this the gradient effect is "flat" */
+    background: linear-gradient(to top, #111 10%, transparent 90%); /* like this the gradient "black" is concentrated in the lower 10% of the image */
+}
+
+.featured--horizontal {
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to right, #111, transparent); /* like this the gradient effect is "flat" */
+    background: linear-gradient(to right, #111 30%, transparent 70%); /* like this the gradient "black" is concentrated in the left 30% of the image */
+    /* adjunting the alignment */
+    display: flex;
+    flex-direction: column; /* to that itens go one below the other */
+    justify-content: center; /* to stay in the "middle" of available space vertically */
+    padding-left: 30px;
+    /* to avoid actual colision with "lists" we wil padding-bottom here: */
+    padding-bottom: 150px;
+    /* to avoid actual colision with "header" we wil padding-top here: */
+    padding-top: 70px;
+}
+
+.featured--name {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.featured--info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* how to share same definitions among many: */
+.featured--points, .featured--year, .featured--seasons {
+    display: inline-block; /* "inline sets them side-by-side instead of one under the other; "block" gives it other properties (besides only text), like width and height */
+    margin-right: 15px;
+}
+
+.featured--points {
+    color: #46d369;
+}
+
+.featured--description {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #999;
+    max-width: 40%; /* a limit of 40% (10% more than our "black gradient effect"), so that the text will not go all the way to the far right of the screen*/
+}
+
+.featured--buttons {
+    margin-top: 15px;
+}
+
+.featured--watchbutton,
+.featured--mylistbutton {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 5px; /* "border-radius" makes the rounded corners */
+    text-decoration: none; /* since it is a link we set "text-decoration" NONE not to show the underlined effect*/
+    margin-right: 10px;
+    opacity: 1; /* complements the effect on mouse hover */
+    transition: all ease 0.2s; /* complements the effect on mouse hover */
+}
+
+.featured--watchbutton:hover,
+.featured--mylistbutton:hover {
+    opacity: 0.7; /* to give it an special effect on mouse hover */
+}
+
+.featured--watchbutton {
+    background-color: #FFF;
+    color: #000;
+}
+
+.featured--mylistbutton {
+    background-color: #333;
+    color: #FFF;
+}
+
+.featured--genres {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #999;
+}
+
+/* adjustments for mobile small screen */
+@media (max-width:760px) {
+    .featured {
+        height: 90vh;
+    }
+
+    .featured--name {
+        font-size: 40px;
+    }
+
+    .featured--info {
+        font-size: 16px;
+    }
+
+    .featured--description {
+        font-size: 14px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+
+    .featured--watchbutton,
+    .featured--mylistbutton {
+        font-size: 16px;
+    }
+
+    .featured--genres {
+        font-size: 14px;
+    }
+}
