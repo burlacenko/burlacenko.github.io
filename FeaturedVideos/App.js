@@ -1,10 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import 'react';
-// import 'App.css';
-// import 'Tmdb.js';
-// import 'Featured.js';
-// import 'Featured.css';
-
 var isLoading = true;
 
 function listGenres (genresList) {
@@ -54,17 +47,16 @@ const Featured = ({item}) => {
                 <div className="featured--horizontal">
                     <div className="featured--name">{item.original_name}</div>
                     <div className="featured--info">
-                        <div className="featured--points">{item.vote_average} pontos</div>
+                        <div className="featured--points">{item.vote_average} points</div>
                         <div className="featured--year">{firstDate.getFullYear()}</div>
-                        <div className="featured--seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</div> {/* take care of plural */}
+                        <div className="featured--seasons">{item.number_of_seasons} season{item.number_of_seasons !== 1 ? 's' : ''}</div> {/* take care of plural */}
                     </div>
                     <div className="featured--description">{description}</div>
-                    <div className="featured--buttons">
-                        <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a> {/* a href instead of button! */}
-                        <a href={`/list/add/${item.id}`} className="featured--mylistbutton">+ Minhas Lista</a>
-
-                    </div>
-                    <div className="featured--genres"><strong>Gêneros: </strong>{genres.join(', ')}</div>
+                   {/* <div className="featured--buttons"> */}
+                   {/*     <a href={`/watch/${item.id}`} className="featured--watchbutton">► Watch</a> {/* a href instead of button! */}
+                   {/*     <a href={`/list/add/${item.id}`} className="featured--mylistbutton">+ My Lists</a> */}
+                   {/* </div> */}
+                    <div className="featured--genres"><strong>Genres: </strong>{genres.join(', ')}</div>
                     {/* <div className="featured--genres"><strong>Gêneros: </strong>{listGenres(item.genres)}</div> */}
                 </div>
             </div>
@@ -98,14 +90,14 @@ function App () {
       setFeaturedData(chosenInfo);
 
       // testing fetched data of featured (that we chose randomly from netflix series)
-      console.log('Destaque: ' + chosen.name);
+      console.log('Featured: ' + chosen.name);
       console.log(chosen);
       // testing Extra data for the featured
       // NOTE: seasons.length many fool us because "specials" will be one item of the array!
       //       So, to get the real number of season we must use property "number_of_seasons"
       console.log('Seasons: ' + chosenInfo.seasons.length);
       console.log('Last Air Episode Date: ' + chosenInfo.last_air_date);
-      console.log('qtd Genres: ' + chosenInfo.genres.length);
+      console.log('# Genres: ' + chosenInfo.genres.length);
       //debugger;
       console.log('Genres: ' + listGenres(chosenInfo.genres));
       console.log(chosenInfo);
@@ -129,14 +121,11 @@ function App () {
     
     //debugger;
     loadAll();
+    isLoading = false;
 
   }, []);
 
   return (
-    <>
-    {/* <div>
-      Olá Mundo!
-    </div> */}
     <div className="page">
         {/* FeaturedMovie (Destaque)*/}
         {/* by using "FeaturedMovie &&" here and initializing above with "useState(null)" we make sure it will only be "show" after being fetched aka exists */}
@@ -147,18 +136,18 @@ function App () {
         {/* Rodapé */}
         <footer>
            The Featured Videos as Fetch and Render Coding Challenge Exercise |
-           Dada from Themoviedb.org
+           Special thanks for Bonieky Lacerda Tutorials |
+           Data from Themoviedb.org
         </footer>   
 
          {/* here we set a "loading" animation while the user is waiting for the content to obe fetched from internet */}
-         {!isLoading &&
+         {isLoading &&
           <div className="loading">
             <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="loading" />
           </div>
          }
 
-      </div>
-    </>    
+    </div>
   );
 }
 
