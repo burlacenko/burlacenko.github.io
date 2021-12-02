@@ -5,7 +5,7 @@
 This is an <em>exercise</em> to practice Front-End Development with React and ES6. It is intented to create a simple TIC TAC TOE game.
 Additions made to the original exercise:
 
-- [x] user cannot select a Square already `taken`
+- [x] user cannot select a `square already taken`
 - [x] each player has its own `specific color`
 - [x] new `styling` of the board
 - [x] a `game over` alert is shown if user tries to continue the game after its final
@@ -14,8 +14,8 @@ Additions made to the original exercise:
 To try a live version, click <a href="https://burlacenko.github.io/TicTacToe/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
-- [ ] Add `tie` message</li>
-- [ ] Improve styling:
+- [ ] Add `tie` message
+- [ ] Improve styles with css
  
 ## MIT License
 Copyright (c) 2021 <em>Burlacenko</em>
