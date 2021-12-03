@@ -2,11 +2,11 @@ function Login(){
 
   const [loggedIn, setLoggedIn]  = React.useState(false);
   const [status, setStatus]     = React.useState('');
-//   const [name, setName]         = React.useState('');
-//   const [email, setEmail]       = React.useState('');
-//   const [password, setPassword] = React.useState('');
-//   const [balance, setBalance] = React.useState(0);
-//   const [statement, setStatement] = React.useState([]);
+  const [name, setName]         = React.useState('');
+  const [email, setEmail]       = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [balance, setBalance] = React.useState(0);
+  const [statement, setStatement] = React.useState([]);
 
   const ctx = React.useContext(UserContext);  
 
@@ -16,7 +16,7 @@ function Login(){
     } else {
       console.log('Not logged in:', ctx.currentUser);
     }
-  }
+  }, [loggedIn]
   );
 
   function validate(field, label){
@@ -76,7 +76,7 @@ function Login(){
     setStatement(getStatement(email));
 
     //ctx.currentUser.push({name, email, password, balance, statement});
-    ctx.currentUser = {name, email, password, balance, statement};
+    ctx.currentUser = {newName, email, password, balance, statement};
 
     setLoggedIn(true);
     ctx.loggedIn = true;
@@ -115,9 +115,9 @@ function Login(){
       body={!ctx.loggedIn ? (  
               <>
               Email<br/>
-              <input type="input" className="form-control" id="email" placeholder="Enter email" value={getEmail()} onChange={e => ctx.currentUser.email = e.currentTarget.value}/><br/>
+              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
               Password<br/>
-              <input type="password" className="form-control" id="password" placeholder="Enter password" value={getPassword()} onChange={e => ctx.currentUser.password = e.currentTarget.value}/><br/>
+              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
               <button type="submit" className="btn btn-light" onClick={handleLogin}>Login</button>
               </>
             ):(
