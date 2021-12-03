@@ -2,11 +2,22 @@ function Login(){
 
   const [loggedIn, setLoggedIn]  = React.useState(false);
   const [status, setStatus]     = React.useState('');
-  const [name, setName]         = React.useState('');
-  const [email, setEmail]       = React.useState('');
-  const [password, setPassword] = React.useState('');
+//   const [name, setName]         = React.useState('');
+//   const [email, setEmail]       = React.useState('');
+//   const [password, setPassword] = React.useState('');
+//   const [balance, setBalance] = React.useState(0);
+//   const [statement, setStatement] = React.useState([]);
 
   const ctx = React.useContext(UserContext);  
+
+  React.useEffect( () => {
+    if (ctx.currentUser) {
+      console.log('Logged in with', ctx.currentUser);
+    } else {
+      console.log('Not logged in:', ctx.currentUser);
+    }
+  }
+  );
 
   function validate(field, label){
       if (!field) {
@@ -19,22 +30,77 @@ function Login(){
       return true;
   }
 
-  function handleLogin(){
-    console.log(name,email,password);
-    // if (!validate(name,     'name'))     return;
-    if (!validate(email,    'email'))    return;
-    if (!validate(password, 'password')) return;
+  function getName(email) {
+    // name should be retrieved from database
+    // but for now we "form" from first word at email
+    //debugger;
+    if (email.includes('@')) {
+      return email.substring(0, email.indexOf('@'));
+    } else {
+      return '';
+    }
+  }
 
-    ctx.users.push({name:'to be retrieved',email,password,balance:100});
+  function getBalance(email) {
+    return 0
+  }
+
+  function getStatement(email) {
+    return []
+  }
+
+  function handleLogin(){
+
+    // validate all
+    // if (!validate(name, 'name')) return;
+    if (!validate(email, 'email')) {
+      alert('Invalid email format');
+      return;
+    }
+
+    if (!validate(password, 'password')){
+      alert('Could not validate user');
+      return;
+    }
+
+    // name, balance and statement will need a database search in the future
+    let newName = getName(email);
+    // login fail due to user unknown  
+    if (!newName) {
+      alert('Invalid login. Please enter a valid user and password or create a new user');
+      return
+    }
+   
+    setName(newName);
+    setBalance(getBalance(email));
+    setStatement(getStatement(email));
+
+    //ctx.currentUser.push({name, email, password, balance, statement});
+    ctx.currentUser = {name, email, password, balance, statement};
 
     setLoggedIn(true);
+    ctx.loggedIn = true;
   }    
 
   function logOff(){
-    setName('');
-    setEmail('');
-    setPassword('');
+//     setName('');
+//     setEmail('');
+//     setPassword('');
+    ctx.currentUser = null;
     setLoggedIn(false);
+    ctx.loggedIn = false;
+  }
+
+  function getEmail() {
+    if (ctx.currentUser) {
+      return ctx.currentUser.email
+    } else return '';
+  }
+
+  function getPassword() {
+    if (ctx.currentUser) {
+      return ctx.currentUser.password
+    } else return '';
   }
 
   return (
@@ -46,12 +112,12 @@ function Login(){
       // check this empty structure with ternary
       // body={show ? (<></>):(<></>)}
       
-      body={!loggedIn ? (  
+      body={!ctx.loggedIn ? (  
               <>
-              Name<br/>
-              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+              Email<br/>
+              <input type="input" className="form-control" id="email" placeholder="Enter email" value={getEmail()} onChange={e => ctx.currentUser.email = e.currentTarget.value}/><br/>
               Password<br/>
-              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
+              <input type="password" className="form-control" id="password" placeholder="Enter password" value={getPassword()} onChange={e => ctx.currentUser.password = e.currentTarget.value}/><br/>
               <button type="submit" className="btn btn-light" onClick={handleLogin}>Login</button>
               </>
             ):(

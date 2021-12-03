@@ -1,4 +1,25 @@
 function NavBar(){
+  const ctx = React.useContext(UserContext);  
+
+  React.useEffect (
+    () => {
+      if (!ctx.loggedIn) {
+        console.log('NavBar is NOT logged in');
+      } else {
+        console.log('NavBar is logged in with', ctx.currentUser);
+      }
+    }
+    
+  );
+
+  function Greeting(props) {
+    if (props.isLoggedIn) {
+      return <span class="material-icons">account_circle</span>;
+    }
+    return <></>;
+  }
+  
+
   return(
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -25,7 +46,8 @@ function NavBar(){
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#/alldata/">AllData</a>
-          </li>          
+          </li>    
+          <Greeting isLoggedIn={ctx.loggedIn}/>
         </ul>
       </div>
     </nav>

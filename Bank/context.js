@@ -1,7 +1,35 @@
+let oneStatement = {
+  entry: 0, // absolute index incremented for each entry
+  kind: 'C', // Credit ou Debit, default = C
+  value: 0 // amount
+}
+var emptyUser = {
+  name: '',
+  email: '',
+  password: '',
+  balance: 0,
+  statement: [],
+}
+
 const Route       = ReactRouterDOM.Route;
 const Link        = ReactRouterDOM.Link;
 const HashRouter  = ReactRouterDOM.HashRouter;
+// const UserContext = React.createContext(initialContext);
 const UserContext = React.createContext(null);
+
+function updatedStatement(statement) {
+  statement.map( (item, index) => {
+  
+    // https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react
+  
+    return (
+    <li key={index} style={ { color: item.kind === 'D' ? 'red' : 'blue' } }> 
+      {item.entry}: {item.value} {item.kind} 
+    </li>
+    );
+
+  })
+};
 
 function Card(props){
     function classes(){
