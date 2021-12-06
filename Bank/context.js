@@ -17,7 +17,7 @@ const HashRouter  = ReactRouterDOM.HashRouter;
 // const UserContext = React.createContext(initialContext);
 const UserContext = React.createContext(null);
 
-function updatedStatement(statement) {
+function mountStatement(statement) {
   statement.map( (item, index) => {
   
     // https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react
