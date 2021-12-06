@@ -44,9 +44,6 @@ function NavBar(){
             <a className="nav-link" href="#/withdraw/" title="Take some cash out">Withdraw</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/balance/" title="Balance is going to be removed from menu">Balance</a>
-          </li>
-          <li className="nav-item">
             <a className="nav-link" href="#/alldata/" title="See all data for development purposes">AllData</a>
           </li>    
           <Greeting isLoggedIn={ctx.loggedIn}/>
