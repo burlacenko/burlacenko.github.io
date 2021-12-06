@@ -76,7 +76,7 @@ function Login(){
     setStatement(getStatement(email));
 
     //ctx.currentUser.push({name, email, password, balance, statement});
-    ctx.currentUser = {newName, email, password, balance, statement};
+    ctx.currentUser = {name: newName, email, password, balance, statement};
 
     setLoggedIn(true);
     ctx.loggedIn = true;
