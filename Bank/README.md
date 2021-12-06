@@ -5,16 +5,23 @@
 This is an <em>exercise</em> to practice Front-End Development with React and ES6. It is intented to create a BANK APP to simulate deposits and withdrawls while learning how to control react components and its states.
 Additions made to the original exercise:
 
-- [x] created a BankStatement component to list all entries to the account
-- [x] withdrawals are red colored and followed by "D" for Debit
-- [x] deposits are blue colored and followed by "C" for Credit
+- [x] created a `BankStatement` component to list all entries to the account
+- [x] withdrawals are `red colored` and followed by "D" for Debit
+- [x] deposits are `blue colored` and followed by "C" for Credit
 - [x] created css file
 - [x] additional styling
 - [x] emptying the input after submit
-- [x] negative values are not Submitted and user receives an alert
-- [x] added a log off button if already logged in
-- [x] when not logged in, "Deposit" and "Withdraw" Cards will show "Please log in" instead of regular content
 
+Login validations:
+- [x] before any operation, user MUST create account or LOGIN
+- [x] added a `log off` button with conditional when user is already logged in
+- [x] when not logged in, "Deposit" and "Withdraw" Cards will show "Please log in" instead of regular content
+- [x] when account is created, user is automatically LOGGED IN
+- [x] when user is logged in, the `Create Account` and `Login` will show the `Logoff` button only
+
+Data validations:
+- [x] negative values are not Submitted and user receives an alert
+- [x] zero values are not Submitted and user receives an alert
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
@@ -28,6 +35,7 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 - [ ] intro screen
 - [ ] specific screen for each operation (deposit, withdrawal, bankstatement)
 - [ ] more styling
+- [ ] refactor from standalone into create-react-add
  
   <table>
   <tr><td>Statement Color</td><td>Means</td></tr>
