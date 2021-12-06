@@ -2,7 +2,7 @@ function Deposit(){
 
   // const [loggedIn, setLoggedIn]  = React.useState(false);
   const [depositInProgress, setDepositInProgress] = React.useState(true);
-  const [depositAmount, setDepositAmount] = React.useState(0);
+  const [depositAmount, setDepositAmount] = React.useState('');
   const [balance, setBalance] = React.useState(0);
   
   const ctx = React.useContext(UserContext);  
@@ -20,6 +20,13 @@ function Deposit(){
     console.log(`handleChange ${event.target.value}`);
     let valueContent = event.target.value;
 
+    // user may be trying to input a negative number, which is invalid
+    // but the portfolio requirement gives an extra point for alert blocking negative numbers!
+    if (event.target.value==="-") {
+      setDepositAmount('-');
+      return;
+    }
+    
     // In JavaScript, the best way to check for NaN is by checking for 
     // self-equality using either of the built-in equality operators, == or ===.
     // Because NaN is not equal to itself, NaN != NaN will always return true.
@@ -73,6 +80,11 @@ function Deposit(){
     setBalance(newTotal);
 
     setDepositInProgress(false);
+
+    alert(`Your deposit of $ ${depositAmount} was SUCCESSFULLY received!`);
+
+    // finally we reset the field
+    setDepositAmount('');
   }    
 
   return (
@@ -86,7 +98,8 @@ function Deposit(){
               Balance ${ctx.currentUser.balance}<br/>
               <br/>
               Deposit Amount<br/>
-              <input type="input" className="form-control" id="depositAmount" placeholder="Deposit Amount" value={depositAmount} onChange={handleChange}/><br/>
+              {/* <input type="input" className="form-control" id="depositAmount" placeholder="Deposit Amount" value={depositAmount} onChange={handleChange}/><br/> */}
+              <input type="input" className="form-control" id="depositAmount" placeholder="Enter Amount" value={depositAmount} onChange={handleChange}/><br/>
               <button type="submit" className="btn btn-light" onClick={handleDepositAmount}>Deposit</button>
               </div>)
               :
