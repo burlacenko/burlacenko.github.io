@@ -5,13 +5,34 @@ function Deposit(){
   const [name, setName]         = React.useState('');
   const [email, setEmail]       = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [depositAmount, setDepositAmount] = React.useState(Number(0));
+  const [depositAmount, setDepositAmount] = React.useState(0);
+  const [balance, setBalance] = React.useState(0);
+  
   const ctx = React.useContext(UserContext);  
+
+  React.useEffect( () => {
+    if (ctx.currentUser) {
+      console.log('Deposit logged in with', ctx.currentUser);
+    } else {
+      console.log('Deposit Not logged in:', ctx.currentUser);
+    }
+  }, [balance]
+  );
 
   const handleChange = event => {
     console.log(`handleChange ${event.target.value}`);
+    let valueContent = event.target.value;
+
+    // In JavaScript, the best way to check for NaN is by checking for 
+    // self-equality using either of the built-in equality operators, == or ===.
+    // Because NaN is not equal to itself, NaN != NaN will always return true.
     let newAmount = Number(event.target.value);
+    if (newAmount != newAmount) {
+      event.target.value = depositAmount; // we set back to the previous amount
+      alert('Please enter a valid number for the amount you wish to deposit!');
+    } else {
     setDepositAmount(newAmount);
+    }
   };
 
   function handleDepositAmount(){
@@ -51,8 +72,8 @@ function Deposit(){
     // "push" approach also works (maybe is will be fast in future):
     ctx.currentUser.statement.push(newStatementEntry);
     
-    
     ctx.currentUser.balance = newTotal;
+    setBalance(newTotal);
 
     setDepositInProgress(false);
   }    
@@ -65,7 +86,8 @@ function Deposit(){
       
       body={ctx.currentUser ?  
               (<div className="deposit-logged">
-              Balance $100<br/>
+              Balance ${ctx.currentUser.balance}<br/>
+              <br/>
               Deposit Amount<br/>
               <input type="input" className="form-control" id="depositAmount" placeholder="Deposit Amount" value={depositAmount} onChange={handleChange}/><br/>
               <button type="submit" className="btn btn-light" onClick={handleDepositAmount}>Deposit</button>
