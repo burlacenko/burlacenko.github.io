@@ -19,33 +19,35 @@ function NavBar(){
     return <></>;
   }
   
+  // <nav className="navbar navbar-expand-lg navbar-dark bg-light">
 
   return(
     <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">BadBank</a>
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a className="navbar-brand" href="#" title="Our home page">Home
+      </a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="#/CreateAccount/">Create Account</a>
+            <a className="nav-link"  href="#/CreateAccount/" title="Create a new user">Create Account</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/login/">Login</a>
+            <a className="nav-link" href="#/login/" title="Enter user">Login</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/deposit/">Deposit</a>
+            <a className="nav-link" href="#/deposit/" title="Put some cash in">Deposit</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/withdraw/">Withdraw</a>
+            <a className="nav-link" href="#/withdraw/" title="Take some cash out">Withdraw</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/balance/">Balance</a>
+            <a className="nav-link" href="#/balance/" title="Balance is going to be removed from menu">Balance</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/alldata/">AllData</a>
+            <a className="nav-link" href="#/alldata/" title="See all data for development purposes">AllData</a>
           </li>    
           <Greeting isLoggedIn={ctx.loggedIn}/>
         </ul>

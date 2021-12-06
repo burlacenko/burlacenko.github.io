@@ -1,3 +1,32 @@
 .material-icons {
     margin-left: -50;
 }
+
+.navbar-dark .navbar-nav .nav-item ,
+.navbar-dark .navbar-nav .nav-item {
+  /* height: 50px; */
+  text-justify: auto;
+  vertical-align: middle;
+  color: red !important;
+}
+
+.nav-link:focus {
+    /* this is what make the text stay highlighted when mouse moves to card below */
+    color: white !important;
+    /* font-style: italic; */
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    /* font-size: 1.05em; */
+    color: white !important;
+    background-color: darkslategrey;
+}
+
+/* .nav-item {
+    background-color: blue;
+} */
+
+/* .nav-link {
+    background-color: darkblue;
+} */
