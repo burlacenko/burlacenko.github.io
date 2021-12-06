@@ -2,9 +2,6 @@ function Deposit(){
 
   // const [loggedIn, setLoggedIn]  = React.useState(false);
   const [depositInProgress, setDepositInProgress] = React.useState(true);
-  const [name, setName]         = React.useState('');
-  const [email, setEmail]       = React.useState('');
-  const [password, setPassword] = React.useState('');
   const [depositAmount, setDepositAmount] = React.useState(0);
   const [balance, setBalance] = React.useState(0);
   
@@ -40,7 +37,7 @@ function Deposit(){
     let newStatementEntry = {};
     setDepositInProgress(true);
 
-    console.log('Depositing for', name, email);
+    console.log('Depositing for', ctx.currentUser.name, ctx.currentUser.email);
     console.log(`handleDepositAmount ${depositAmount}`);
 
     if (depositAmount < 0) {
