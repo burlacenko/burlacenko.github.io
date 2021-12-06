@@ -30,3 +30,25 @@
 /* .nav-link {
     background-color: darkblue;
 } */
+
+/* .card-header {
+    color: red;
+} */
+
+/* .card-body {
+    color: red;
+} */
+
+/* .card-status {
+    color: red !important;
+    margin-top: 100px;
+} */
+
+.btn {
+    margin-bottom: 15px;
+}
+
+.erroCreateAccount {
+    color: darkred;
+    font-weight: bold;
+}

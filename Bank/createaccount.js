@@ -1,5 +1,5 @@
 function CreateAccount(){
-//   const [show, setShow]         = React.useState(true);
+  const [showButton, setShowButton] = React.useState(false);
   const [status, setStatus]     = React.useState('');
   const [name, setName]         = React.useState('');
   const [email, setEmail]       = React.useState('');
@@ -9,14 +9,41 @@ function CreateAccount(){
 
   const ctx = React.useContext(UserContext);  
 
+  React.useEffect( () => {
+    if (ctx.currentUser) {
+      console.log('Create account logged in with', ctx.currentUser);
+    } else {
+      console.log('Create account Not logged in:', ctx.currentUser);
+    }
+  }, [status]
+  );  
+
   function validate(field, label){
+      let message = '';
+
       if (!field) {
-        setStatus('Error: ' + label);
-        
-        // delay for simple purpose of waiting a little, simulate heavier processing
-        setTimeout(() => setStatus(''),3000);
+        message = `Cannot enter a blank ${label.toUpperCase()}`;
+        setStatus(`Error: ${message}`);
+        alert(message);
         return false;
       }
+
+      if ( (label === 'name') && (field.length < 2) ) {
+        message = `${label.toUpperCase()} needs to be more than one caracter`;
+        setStatus(`Error: ${message}`);
+        alert(message);
+        return false;
+      }
+
+      if ( (label === 'password') && (field.length < 8) ) {
+        message = `${label.toUpperCase()} needs at least 8 (eight) caracters`;
+        setStatus(`Error: ${message}`);
+        alert(message);
+        return false;
+      }
+      
+      setStatus('');
+      setShowButton(true);
       return true;
   }
 
@@ -43,6 +70,7 @@ function CreateAccount(){
     ctx.currentUser = {name, email, password, balance, statement};    
     ctx.loggedIn = true;
     // setShow(false);
+    alert('User created sucessfully!')
   }    
 
   function clearForm(){
@@ -53,11 +81,23 @@ function CreateAccount(){
     ctx.loggedIn = false;
   }
 
+  function CardStatus() {
+    return(
+      <div className="erroCreateAccount">
+      { (!status) ? (
+        <div></div>
+        ):(
+        <div><br/>{status}</div>)
+      }
+      </div>
+    )
+  }
+
   return (
     <Card
       bgcolor="primary"
       header="Create Account"
-      status={status}
+      // status={status}
       
       // check this empty structure with ternary
       // body={show ? (<></>):(<></>)}
@@ -65,7 +105,7 @@ function CreateAccount(){
       body={ctx.loggedIn ? (  
               <>
               <h5>Success</h5>
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
+              <button type="submit" className="btn btn-light" onClick={clearForm}>Add Another Account</button>
               </>
             ):(
               <>
@@ -75,9 +115,20 @@ function CreateAccount(){
               <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
               Password<br/>
               <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+              <button type="submit"
+                className="btn btn-light" 
+                onClick={handleCreate}
+                disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+                >Create Account</button>
+              <CardStatus />
               </>
             )}
     />
   )
 }
+
+// button was invisible while any field empty
+// { ((name.length>0)&&(email.length>0)&&(password.length>0)) ? (
+//   <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+//   ):(<></>)
+//   }
