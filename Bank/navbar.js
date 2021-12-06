@@ -9,7 +9,6 @@ function NavBar(){
         console.log('NavBar is logged in with', ctx.currentUser);
       }
     }
-    
   );
 
   function Greeting(props) {
@@ -32,7 +31,7 @@ function NavBar(){
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link"  href="#/CreateAccount/" title="Create a new user">Create Account</a>
+            <a className="nav-link"  href="#/createAccount/" title="Create a new user">Create Account</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#/login/" title="Enter user">Login</a>
@@ -42,6 +41,9 @@ function NavBar(){
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#/withdraw/" title="Take some cash out">Withdraw</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#/accountStatement/" title="Check out your account statement">Statement</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#/alldata/" title="See all data for development purposes">AllData</a>
