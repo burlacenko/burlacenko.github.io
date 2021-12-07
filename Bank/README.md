@@ -11,27 +11,30 @@ Additions made to the original exercise:
 - [x] created css file
 - [x] additional styling
 - [x] emptying the input after submit
+- [x] `Enter Key` on deposit and withdraw triggers action
+- [x] remove Balance card, since this information will be inside Deposit, WithDraw and Statement
+- [x] emptying the input after SUCCESSFUL submit of deposit and withdraw
+- [x] emptying the input after SUCCESSFUL submit of Create Account and Login
 
 Login validations:
-- [x] before any operation, user MUST create account or LOGIN
+- [x] before any operation, user `MUST be logged` (with Create Account or Login)
+- [x] creating an account fires an `automatic login`
 - [x] added a `log off` button with conditional when user is already logged in
-- [x] when not logged in, "Deposit" and "Withdraw" Cards will show "Please log in" instead of regular content
-- [x] when account is created, user is automatically LOGGED IN
+- [x] when not logged in, operation Cards will show `Please log in` instead of regular content (Deposit, Withdraw, Account Statement)
 - [x] when user is logged in, the `Create Account` and `Login` will show the `Logoff` button only
 
 Data validations:
 - [x] negative values are not Submitted and user receives an alert
 - [x] zero values are not Submitted and user receives an alert
+- [x] password must be at least 8 characters long values are not Submitted and user receives an alert
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
+- [ ] deposits and withdrawls share a parent component that centralizes operation
 - [ ] create Account Statement card
-- [ ] remove Balance card, since this information will be inside Deposit, WithDraw and Statement
-- [ ] when not logged in, "Deposit" and "Withdraw" will be disabled
 - [ ] prevent negative balance
-- [ ] emptying the input ONLY after SUCCESSFUL submit
 - [ ] intro screen
 - [ ] specific screen for each operation (deposit, withdrawal, bankstatement)
 - [ ] more styling
