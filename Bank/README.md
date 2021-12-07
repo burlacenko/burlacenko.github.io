@@ -34,6 +34,7 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 ## Roadmap of future improvements
 - [ ] deposits and withdrawls share a parent component that centralizes operation
 - [ ] create Account Statement card
+- [ ] specific format and `advanced requirements` for fields in Create Account (name, email, passoword)
 - [ ] prevent negative balance
 - [ ] intro screen
 - [ ] specific screen for each operation (deposit, withdrawal, bankstatement)
