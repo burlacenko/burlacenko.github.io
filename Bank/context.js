@@ -17,20 +17,6 @@ const HashRouter  = ReactRouterDOM.HashRouter;
 // const UserContext = React.createContext(initialContext);
 const UserContext = React.createContext(null);
 
-function mountStatement(statement) {
-  statement.map( (item, index) => {
-  
-    // https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react
-  
-    return (
-    <li key={index} style={ { color: item.kind === 'D' ? 'red' : 'blue' } }> 
-      {item.entry}: {item.value} {item.kind} 
-    </li>
-    );
-
-  })
-};
-
 function Card(props){
     function classes(){
       const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';

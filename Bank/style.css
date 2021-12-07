@@ -4,10 +4,10 @@
 
 .navbar-dark .navbar-nav .nav-item ,
 .navbar-dark .navbar-nav .nav-item {
-  /* height: 50px; */
-  text-justify: auto;
-  vertical-align: middle;
-  color: red !important;
+    /* height: 50px; */
+    text-justify: auto;
+    vertical-align: middle;
+    color: red !important;
 }
 
 .nav-link:focus {
@@ -56,4 +56,26 @@
 .deposit-unlogged {
     color: darkred;
     font-weight: bold;
+}
+
+.alldata-currentUser,
+.alldata-allUsers {
+    font-weight: bold;
+    margin-top: 20px;
+    text-decoration: underline; 
+}
+
+.statementEntries-entry-positive {
+  background-color: lightgrey;
+/*   list-style-type: disc; */
+/*   list-style-type: circle; */
+/*   list-style-type: space-counter; */
+/*   try https://emojipedia.org/ */
+/*   list-style-type: "\1F44D"; // thumbs up sign */
+    list-style-type: "➕";
+}
+
+.statementEntries-entry-negative {
+    background-color: lightgrey;
+    list-style-type: "➖";
 }
