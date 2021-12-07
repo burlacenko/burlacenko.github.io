@@ -1,5 +1,5 @@
 function CreateAccount(){
-  const [showButton, setShowButton] = React.useState(false);
+  const [showButtonAdd, setShowButtonAdd] = React.useState(false);
   const [status, setStatus]     = React.useState('');
   const [name, setName]         = React.useState('');
   const [email, setEmail]       = React.useState('');
@@ -15,8 +15,23 @@ function CreateAccount(){
     } else {
       console.log('Create account Not logged in:', ctx.currentUser);
     }
-  }, [status, showButton]
-  );  
+  });
+  // , [status, showButtonAdd]
+  // );  
+
+  function currentUserLogoff  () {
+    ctx.loggedIn = false;
+    ctx.currentUser.name = '';
+    ctx.currentUser.email = '';
+    ctx.currentUser.password = '';
+    ctx.currentUser.balance = 0;
+    ctx.currentUser.statement = [];
+  }
+
+  function currentUserNull () {
+    ctx.loggedIn = false;
+    ctx.currentUser = null;
+  }  
 
   function validate(field, label){
       let message = '';
@@ -43,7 +58,7 @@ function CreateAccount(){
       }
       
       setStatus('');
-      setShowButton(true);
+      setShowButtonAdd(true);
       return true;
   }
 
@@ -84,9 +99,9 @@ function CreateAccount(){
   }
 
   function handleAllValidations() {
-    if (!validate(name,     'name'))     return;
-    if (!validate(email,    'email'))    return;
-    if (!validate(password, 'password')) return;
+    if (!validate(name,     'name'))     return false;
+    if (!validate(email,    'email'))    return false;
+    if (!validate(password, 'password')) return false;
     return true;
   }
 
@@ -115,6 +130,7 @@ function CreateAccount(){
     ctx.currentUser = {name, email, password, balance, statement};    
     ctx.loggedIn = true;
     // setShow(false);
+    setShowButtonAdd(true);
     alert('User created sucessfully!')
   }    
 
@@ -122,8 +138,14 @@ function CreateAccount(){
     setName('');
     setEmail('');
     setPassword('');
-    // setShow(true);
-    ctx.loggedIn = false;
+    setBalance(0);
+    setStatement([]);
+
+    setShowButtonAdd(false);
+    
+    currentUserNull();
+
+    console.log(ctx);
   }
 
   function CardStatus() {
@@ -147,7 +169,8 @@ function CreateAccount(){
       // check this empty structure with ternary
       // body={show ? (<></>):(<></>)}
       
-      body={ctx.loggedIn ? (  
+      body={ctx.loggedIn ? ( 
+      //body={showButtonAdd ? (  
               <>
               <h5>Success</h5>
               <button type="submit" className="btn btn-light" onClick={clearForm}>Add Another Account</button>
@@ -163,7 +186,7 @@ function CreateAccount(){
               <button type="submit"
                 className="btn btn-light" 
                 onClick={handleCreate}
-                disabled={!(showButton)}
+                disabled={((name.length===0)||(email.length===0)||(password.length===0))}
                 >Create Account</button>
               <CardStatus />
               </>
@@ -173,6 +196,7 @@ function CreateAccount(){
 }
 
 // disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+// disabled={!(showButton)}
 
 
 // button was invisible while any field empty

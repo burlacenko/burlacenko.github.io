@@ -13,11 +13,14 @@ function Login(){
   React.useEffect( () => {
     if (ctx.currentUser) {
       console.log('Logged in with', ctx.currentUser);
+      ctx.loggedIn = true;
     } else {
       console.log('Not logged in:', ctx.currentUser);
+      ctx.loggedIn = false;
     }
-  }, [loggedIn]
-  );
+  });
+  //, [loggedIn]
+  //);
 
   function validate(field, label){
       if (!field) {
@@ -75,7 +78,7 @@ function Login(){
     setBalance(getBalance(email));
     setStatement(getStatement(email));
 
-    //ctx.currentUser.push({name, email, password, balance, statement});
+    ctx.users.push({name: newName, email, password, balance, statement});
     ctx.currentUser = {name: newName, email, password, balance, statement};
 
     setLoggedIn(true);
@@ -89,6 +92,17 @@ function Login(){
     ctx.currentUser = null;
     setLoggedIn(false);
     ctx.loggedIn = false;
+
+    setName('');
+    setEmail('');
+    setPassword('');
+    setBalance(0);
+    setStatement([]);
+
+    setShowButtonAdd(false);
+    
+
+    console.log(ctx);    
   }
 
   function getEmail() {
