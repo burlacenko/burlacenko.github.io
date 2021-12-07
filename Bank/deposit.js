@@ -13,7 +13,7 @@ function Deposit(){
     } else {
       console.log('Deposit Not logged in:', ctx.currentUser);
     }
-  }, [balance]
+  }, [balance, depositAmount]
   );
 
   const handleChange = event => {
@@ -32,11 +32,13 @@ function Deposit(){
     // Because NaN is not equal to itself, NaN != NaN will always return true.
     let newAmount = Number(event.target.value);
     if (newAmount != newAmount) {
-      event.target.value = depositAmount; // we set back to the previous amount
+      // we set back to the previous amount:
+      event.target.value = depositAmount;
       alert('Please enter a valid number for the amount you wish to deposit!');
     } else {
-    setDepositAmount(newAmount);
+      setDepositAmount(newAmount);
     }
+
   };
 
   function handleDepositAmount(){
@@ -85,7 +87,13 @@ function Deposit(){
 
     // finally we reset the field
     setDepositAmount('');
-  }    
+  }
+  
+  const handleKey = event => {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+      handleDepositAmount();
+    }    
+  }
 
   return (
     <Card
@@ -99,8 +107,13 @@ function Deposit(){
               <br/>
               Deposit Amount<br/>
               {/* <input type="input" className="form-control" id="depositAmount" placeholder="Deposit Amount" value={depositAmount} onChange={handleChange}/><br/> */}
-              <input type="input" className="form-control" id="depositAmount" placeholder="Enter Amount" value={depositAmount} onChange={handleChange}/><br/>
-              <button type="submit" className="btn btn-light" onClick={handleDepositAmount}>Deposit</button>
+              <input type="input" className="form-control" id="depositAmount" placeholder="Enter Amount" value={depositAmount} onKeyUp={handleKey} onChange={handleChange}/><br/>
+              <button
+               type="submit"
+               className="btn btn-light"
+               onClick={handleDepositAmount}
+               disabled={( (depositAmount.length===0)||(depositAmount==='-') )}
+               >Deposit</button>
               </div>)
               :
               (
