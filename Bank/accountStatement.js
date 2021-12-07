@@ -1,14 +1,18 @@
 // const AccountStatement = ({ updatedEntries }) => {
 //   console.log('AccountStatement rendered for ' + updatedEntries.length + ' entries');
 
-function AccountStatement () {
-  const ctx = React.useContext(UserContext);  
+function AccountStatement ( {aUser} ) {
+  //const ctx = React.useContext(UserContext);  
 
   var statement = [];
 
   // statement must exist even when ctx.currentUser doesn't exist
-  if (ctx.currentUser) {
-    statement = ctx.currentUser.statement
+  if (aUser) {
+    if (aUser.statement) {
+      statement = aUser.statement
+    } else {
+      statement = [];  
+    }
   } else {
     statement = []; 
   }
@@ -35,7 +39,7 @@ function AccountStatement () {
 
     return (
       <div className="bankStatement">
-        <div className="bankStatement--title">Account Statement:</div>
+        <div className="bankStatement--title">{`Account Statement:${statement.length===0 ? ' empty' : ''}`}</div>
         <div className="statementEntries">
           <ul key="statementEntries" >{updatedEntries}</ul>
         </div>

@@ -1,5 +1,8 @@
 function AllData(){
+  
+  // a variable to control if I want to show as Card or simply stringified
   var showCard = true;
+  
   const ctx = React.useContext(UserContext);
 
   const FormattedCurrentUser = () => {
@@ -13,7 +16,7 @@ function AllData(){
         <div>{`Balance $: ${ctx.currentUser.balance}`}</div>
         <div className="statementEntries">
           {/* <ul key="statementEntries"><MountStatement statement={ctx.currentUser.statement}/></ul> */}
-          <AccountStatement />
+          <AccountStatement aUser={ctx.currentUser}/>
         </div>
       </div>
       ):(
