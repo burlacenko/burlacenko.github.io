@@ -29,14 +29,14 @@ function CreateAccount(){
       }
 
       if ( (label === 'name') && (field.length < 2) ) {
-        message = `${label.toUpperCase()} needs to be more than one caracter`;
+        message = `${label.toUpperCase()} needs to be more than one character`;
         setStatus(`Error: ${message}`);
         alert(message);
         return false;
       }
 
       if ( (label === 'password') && (field.length < 8) ) {
-        message = `${label.toUpperCase()} needs at least 8 (eight) caracters`;
+        message = `${label.toUpperCase()} needs at least 8 (eight) characters`;
         setStatus(`Error: ${message}`);
         alert(message);
         return false;
