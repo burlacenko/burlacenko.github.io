@@ -13,7 +13,7 @@ function NavBar(){
 
   function Greeting(props) {
     if (props.isLoggedIn) {
-      return <span class="material-icons">account_circle</span>;
+      return <span className="material-icons">account_circle</span>;
     }
     return <></>;
   }
@@ -23,13 +23,14 @@ function NavBar(){
   return(
     <>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
       <a className="navbar-brand" href="#" title="Our home page">Home
       </a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <a className="nav-link"  href="#/createAccount/" title="Create a new user">Create Account</a>
           </li>
@@ -48,10 +49,21 @@ function NavBar(){
           <li className="nav-item">
             <a className="nav-link" href="#/alldata/" title="See all data for development purposes">AllData</a>
           </li>    
-          <Greeting isLoggedIn={ctx.loggedIn}/>
         </ul>
       </div>
+    </div>
     </nav>
+
+
+
     </>
   );
 }
+
+{/* <form class="form-inline my-2 my-lg-0">
+<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form> */}
+
+
+{/* <Greeting isLoggedIn={ctx.loggedIn}/> */}
