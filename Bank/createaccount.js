@@ -112,7 +112,7 @@ function CreateAccount(){
     // if (!validate(email,    'email'))    return;
     // if (!validate(password, 'password')) return;
     
-    if (!handleAllValidations) return;
+    if (!handleAllValidations()) return;
 
     setBalance(0);
     setStatement([]);
