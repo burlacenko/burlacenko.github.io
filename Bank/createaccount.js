@@ -15,7 +15,7 @@ function CreateAccount(){
     } else {
       console.log('Create account Not logged in:', ctx.currentUser);
     }
-  }, [status]
+  }, [status, showButton]
   );  
 
   function validate(field, label){
@@ -47,13 +47,58 @@ function CreateAccount(){
       return true;
   }
 
-  function handleCreate(){
-    console.log('handleCreate for ',name, email, password);
+  function nameValidation(e) {
+    // a place for specific format and advanced requirements
+    console.log(e.key);
+    
+    // maybe jump to next field?
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      
+    }
 
+    return true;
+  }
+
+  function emailValidation(e) {
+    // a place for specific format and advanced requirements
+    console.log(e.currentTarget.value);
+
+    // maybe jump to next field?
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      
+    }
+
+    return true;
+  }
+
+  function passwordValidation(e) {
+    // a place for specific format and advanced requirements
+    console.log(e.currentTarget.value);
+
+    // maybe jump to next field? or hit submit ?
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      
+    }
+
+    return true;
+  }
+
+  function handleAllValidations() {
     if (!validate(name,     'name'))     return;
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
+    return true;
+  }
+
+  function handleCreate(){
+    console.log('handleCreate for ',name, email, password);
+
+    // if (!validate(name,     'name'))     return;
+    // if (!validate(email,    'email'))    return;
+    // if (!validate(password, 'password')) return;
     
+    if (!handleAllValidations) return;
+
     setBalance(0);
     setStatement([]);
 
@@ -110,15 +155,15 @@ function CreateAccount(){
             ):(
               <>
               Name<br/>
-              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} /><br/>
+              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} onKeyUp={nameValidation(e)} /><br/>
               Email address<br/>
-              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)} onKeyUp={emailValidation(e)}/><br/>
               Password<br/>
-              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
+              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)} onKeyUp={passwordValidation(e)}/><br/>
               <button type="submit"
                 className="btn btn-light" 
                 onClick={handleCreate}
-                disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+                disabled={!(showButton)}
                 >Create Account</button>
               <CardStatus />
               </>
@@ -126,6 +171,9 @@ function CreateAccount(){
     />
   )
 }
+
+// disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+
 
 // button was invisible while any field empty
 // { ((name.length>0)&&(email.length>0)&&(password.length>0)) ? (
