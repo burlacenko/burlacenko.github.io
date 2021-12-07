@@ -155,11 +155,11 @@ function CreateAccount(){
             ):(
               <>
               Name<br/>
-              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} onKeyUp={nameValidation(e)} /><br/>
+              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} onKeyUp={e => nameValidation(e)} /><br/>
               Email address<br/>
-              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)} onKeyUp={emailValidation(e)}/><br/>
+              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)} onKeyUp={e => emailValidation(e)}/><br/>
               Password<br/>
-              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)} onKeyUp={passwordValidation(e)}/><br/>
+              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)} onKeyUp={e => passwordValidation(e)}/><br/>
               <button type="submit"
                 className="btn btn-light" 
                 onClick={handleCreate}
