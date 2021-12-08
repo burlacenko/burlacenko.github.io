@@ -29,48 +29,8 @@ function AllData(){
     return (
       showUserData(item)
     );
-  });  
+  }); 
 
-  const FormattedCurrentUser = () => {
-    return (
-      (ctx.currentUser ? (
-      <div className="currentUserAndAccountStatement">
-        <div>{`Name: ${ctx.currentUser.name}`}</div>
-        <div>{`Email: ${ctx.currentUser.email}`}</div>
-        <div>{`Password: ${ctx.currentUser.password}`}</div>
-        <div>{`Balance $: ${ctx.currentUser.balance}`}</div>
-        <div className="statementEntries">
-          <AccountStatement aUser={ctx.currentUser}/>
-        </div>
-      </div>
-      ):(
-        <div className="noCurrentUser">
-          No user currently logged in
-        </div>
-      ))
-    )
-  }
-
-  const FormattedAllUsers = () => {
-    if (!ctx.users) return (<div className="noUsers">No users stored</div>);
-
-    if (ctx.users.length === 0) return (<div className="noUsers">No users stored</div>);
-
-    ctx.users.map( (item, index) => {
-      return (
-        <div key={index} className="aUserAndAccountStatement">
-          <div>{`Name: ${item.name}`}</div>
-          <div>{`Email: ${item.email}`}</div>
-          <div>{`Password: ${item.password}`}</div>
-          <div>{`Balance $: ${item.balance}`}</div>
-        </div>
-      )
-      });
-  };
-//            <div className="statementEntries">
-//              <AccountStatement aUser={item}></div>
-
-    
   return (
       showCard?(
       <Card
@@ -82,9 +42,10 @@ function AllData(){
               <div className="alldata">
               <div className="alldata-title">All Data stored</div>
               <div className="alldata-currentUser">Current User Data:</div>
-              <div className="alldata-currentUser-data">{showUserData(ctx.currentUser)}</div>
+              <div className="alldata-currentUser-data">{ (ctx.currentUser) ? showUserData(ctx.currentUser) : 'No user currently logged in'}</div>
               <div className="alldata-allUsers">All Users:</div>
-              <div className="alldata-allUsers-data">{listAll}</div>
+              <div className="alldata-allUsers-data">{ (ctx.users.length > 0) ? listAll : 'No users stored'}</div>
+              {/* <ListAll /> */}
               </div>
             }
       />
@@ -96,7 +57,3 @@ function AllData(){
       )
   );
 }
-
-// <div className="alldata-allUsers-data">{showAllUsers(ctx.users)}</div>
-// <div className="alldata-allUsers-data">{showUserData(ctx.users[0])}</div>
-// <div className="alldata-allUsers-data">{FormattedAllUsers()}</div>

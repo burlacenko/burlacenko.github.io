@@ -99,7 +99,7 @@ function Login(){
     setBalance(0);
     setStatement([]);
 
-    setShowButtonAdd(false);
+    //setShowButtonLogoff(false);
     
 
     console.log(ctx);    
