@@ -60,9 +60,15 @@
 }
 
 .alldata-currentUser,
-.alldata-allUsers {
+.alldata-allUsers
+{
     font-weight: bold;
     margin-top: 20px;
+    text-decoration: underline; 
+}
+
+.statement-currentUser {
+    font-weight: bold;
     text-decoration: underline; 
 }
 
@@ -79,4 +85,8 @@
 .statementEntries-entry-negative {
     background-color: lightgrey;
     list-style-type: "➖";
+}
+
+.bankStatement--title {
+    font-weight: bold;
 }

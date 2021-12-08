@@ -1,20 +1,21 @@
-// const AccountStatement = ({ updatedEntries }) => {
-//   console.log('AccountStatement rendered for ' + updatedEntries.length + ' entries');
-
 function AccountStatement ( {aUser} ) {
   //const ctx = React.useContext(UserContext);  
 
   var statement = [];
+  var name = '';
 
   // statement must exist even when ctx.currentUser doesn't exist
   if (aUser) {
     if (aUser.statement) {
-      statement = aUser.statement
+      statement = aUser.statement;
+      name = aUser.name;
     } else {
       statement = [];  
+      name = '';
     }
   } else {
-    statement = []; 
+    statement = [];
+    name = ''; 
   }
 
   const updatedEntries = statement.map( (item, index) => {
@@ -28,14 +29,6 @@ function AccountStatement ( {aUser} ) {
 
   const AllStatements = () => {
     console.log('All Statements rendered for ' + statement.length + ' entries');
-    // <ul key="statementEntries" style={ { listStyleType: "none" } }>{updatedEntries}</ul>
-    
-//     // statement precisa existir
-//     if (ctx.currentUser) {
-//       statement = ctx.currentUser.statement
-//     } else {
-//       statement = []; 
-//     }
 
     return (
       <div className="bankStatement">
@@ -47,7 +40,7 @@ function AccountStatement ( {aUser} ) {
     );
   };  
 
-  console.log(`AccountStatement rendered for ${statement.length} entries of user ${aUser.name}`);
+  console.log(`AccountStatement rendered for ${statement.length} entries of user ${name}`);
   
   return (
       <AllStatements />

@@ -44,7 +44,7 @@ function NavBar(){
             <a className="nav-link" href="#/withdraw/" title="Take some cash out">Withdraw</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/accountStatement/" title="Check out your account statement">Statement</a>
+            <a className="nav-link" href="#/statement/" title="Check out your account statement">Statement</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#/alldata/" title="See all data for development purposes">All Data</a>
