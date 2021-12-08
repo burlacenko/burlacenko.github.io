@@ -15,6 +15,8 @@ Additions made to the original exercise:
 - [x] remove Balance card, since this information will be inside Deposit, WithDraw and Statement
 - [x] emptying the input after SUCCESSFUL submit of deposit and withdraw
 - [x] emptying the input after SUCCESSFUL submit of Create Account and Login
+- [x] deposits and withdrawls share a parent component that centralizes operation
+- [x] prevent negative balance
 
 Login validations:
 - [x] before any operation, user `MUST be logged` (with Create Account or Login)
@@ -32,12 +34,9 @@ Data validations:
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
-- [ ] deposits and withdrawls share a parent component that centralizes operation
 - [ ] create Account Statement card
 - [ ] specific format and `advanced requirements` for fields in Create Account (name, email, passoword)
-- [ ] prevent negative balance
-- [ ] intro screen
-- [ ] specific screen for each operation (deposit, withdrawal, bankstatement)
+- [ ] splash/intro screen
 - [ ] login needs to check if user already exists and load previously saved data
 - [ ] create account needs to check if user already exists and deny new account
 - [ ] more styling
