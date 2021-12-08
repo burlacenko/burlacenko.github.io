@@ -61,6 +61,13 @@ function ATM ( {isDeposit} ){
         setOperationInProgress(false);
         alert('Set an amount higher than ZERO !');
         return
+      }
+      
+      if ( (!isDeposit) && (operationAmount > ctx.currentUser.balance) ) {
+        setOperationInProgress(false);
+        alert('Cannot withdraw more money than you have in your account. Please check if a loan is available for you!');
+        setOperationAmount('');
+        return
       } else {
         
         // https://stackoverflow.com/questions/61604836/useeffect-and-the-context-api
