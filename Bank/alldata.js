@@ -31,16 +31,6 @@ function AllData(){
     );
   });  
 
-//   const showAllUsers = (users) => {
-    
-//     users.forEach(element => {
-//       return showUserData(element); 
-//     });
-    
-// //     return result;
-    
-//   }
-
   const FormattedCurrentUser = () => {
     return (
       (ctx.currentUser ? (
@@ -94,7 +84,6 @@ function AllData(){
               <div className="alldata-currentUser">Current User Data:</div>
               <div className="alldata-currentUser-data">{showUserData(ctx.currentUser)}</div>
               <div className="alldata-allUsers">All Users:</div>
-              {/* <div className="alldata-allUsers-data">{JSON.stringify(ctx.users)}</div> */}
               <div className="alldata-allUsers-data">{listAll}</div>
               </div>
             }
