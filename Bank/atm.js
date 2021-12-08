@@ -101,7 +101,7 @@ function ATM ( {isDeposit} ){
   
     return (
       <Card
-        bgcolor={isDeposit ? "success" : "info"}
+        bgcolor={isDeposit ? "success" : "danger"}
         header={operation[Number(!isDeposit)]}
         // status={status}
         
