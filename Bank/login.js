@@ -74,6 +74,8 @@ function Login(){
       return
     }
    
+    // we'll need a better control to 
+    // check if user already exists and load previously saved data
     setName(newName);
     setBalance(getBalance(email));
     setStatement(getStatement(email));

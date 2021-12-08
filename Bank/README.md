@@ -38,6 +38,8 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 - [ ] prevent negative balance
 - [ ] intro screen
 - [ ] specific screen for each operation (deposit, withdrawal, bankstatement)
+- [ ] login needs to check if user already exists and load previously saved data
+- [ ] create account needs to check if user already exists and deny new account
 - [ ] more styling
 - [ ] refactor from standalone into create-react-add
  
