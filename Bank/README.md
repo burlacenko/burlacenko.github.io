@@ -39,6 +39,8 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 - [ ] splash/intro screen
 - [ ] login needs to check if user already exists and load previously saved data
 - [ ] create account needs to check if user already exists and deny new account
+- [ ] if user is logged in, the `navbar` title should change from login to logout
+- [ ] if user is logged in, the `card` title should change from login to logout
 - [ ] more styling
 - [ ] refactor from standalone into create-react-add
  
