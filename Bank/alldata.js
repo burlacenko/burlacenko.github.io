@@ -5,6 +5,42 @@ function AllData(){
   
   const ctx = React.useContext(UserContext);
 
+  const showUserData = (user) => {
+    return (
+      (user ? (
+      <div className="userAndAccountStatement">
+        <div>{`Name: ${user.name}`}</div>
+        <div>{`Email: ${user.email}`}</div>
+        <div>{`Password: ${user.password}`}</div>
+        <div>{`Balance $: ${user.balance}`}</div>
+        <div className="statementEntries">
+          <AccountStatement aUser={user}/>
+        </div>
+      </div>
+      ):(
+        <div className="noUser">
+          No user data
+        </div>
+      ))
+    )
+  }
+
+  const listAll = ctx.users.map( (item, index) => {
+    return (
+      showUserData(item)
+    );
+  });  
+
+//   const showAllUsers = (users) => {
+    
+//     users.forEach(element => {
+//       return showUserData(element); 
+//     });
+    
+// //     return result;
+    
+//   }
+
   const FormattedCurrentUser = () => {
     return (
       (ctx.currentUser ? (
@@ -37,13 +73,12 @@ function AllData(){
           <div>{`Email: ${item.email}`}</div>
           <div>{`Password: ${item.password}`}</div>
           <div>{`Balance $: ${item.balance}`}</div>
-          <div className="statementEntries">
-            <AccountStatement aUser={item}/>
-          </div>
         </div>
       )
       });
-  }
+  };
+//            <div className="statementEntries">
+//              <AccountStatement aUser={item}></div>
 
     
   return (
@@ -57,10 +92,10 @@ function AllData(){
               <div className="alldata">
               <div className="alldata-title">All Data stored</div>
               <div className="alldata-currentUser">Current User Data:</div>
-              <div className="alldata-currentUser-data">{FormattedCurrentUser()}</div>
+              <div className="alldata-currentUser-data">{showUserData(ctx.currentUser)}</div>
               <div className="alldata-allUsers">All Users:</div>
               {/* <div className="alldata-allUsers-data">{JSON.stringify(ctx.users)}</div> */}
-              <div className="alldata-allUsers-data">{FormattedAllUsers()}</div>
+              <div className="alldata-allUsers-data">{listAll}</div>
               </div>
             }
       />
@@ -72,3 +107,7 @@ function AllData(){
       )
   );
 }
+
+// <div className="alldata-allUsers-data">{showAllUsers(ctx.users)}</div>
+// <div className="alldata-allUsers-data">{showUserData(ctx.users[0])}</div>
+// <div className="alldata-allUsers-data">{FormattedAllUsers()}</div>

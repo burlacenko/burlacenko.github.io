@@ -27,7 +27,7 @@ function AccountStatement ( {aUser} ) {
   });
 
   const AllStatements = () => {
-    console.log('All Statements rendered for ' + updatedEntries.length + ' entries');
+    console.log('All Statements rendered for ' + statement.length + ' entries');
     // <ul key="statementEntries" style={ { listStyleType: "none" } }>{updatedEntries}</ul>
     
 //     // statement precisa existir
@@ -47,7 +47,7 @@ function AccountStatement ( {aUser} ) {
     );
   };  
 
-  console.log(`AccountStatement rendered for 0 entries`);
+  console.log(`AccountStatement rendered for ${statement.length} entries of user ${aUser.name}`);
   
   return (
       <AllStatements />
