@@ -53,7 +53,8 @@
     font-weight: bold;
 }
 
-.deposit-unlogged {
+.deposit-unlogged,
+.operation-unlogged {
     color: darkred;
     font-weight: bold;
 }
