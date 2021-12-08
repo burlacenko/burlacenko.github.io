@@ -28,7 +28,7 @@ function Statement () {
         body={ctx.currentUser ?
             (
               <div className="statement">
-              <div className="statement-currentUser">Client:</div>
+              <div className="statement-currentUser"></div>
               <div className="statement-currentUser-data">{ (ctx.currentUser) ? showAccountStatement(ctx.currentUser) : 'No user currently logged in'}</div>
               </div>
             ):(

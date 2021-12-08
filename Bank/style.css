@@ -73,7 +73,9 @@
 }
 
 .statementEntries-entry-positive {
-  background-color: lightgrey;
+    padding: 0px 0px 0px 10px;
+/*     margin-left: 10px; */
+    background-color: lightgrey;
 /*   list-style-type: disc; */
 /*   list-style-type: circle; */
 /*   list-style-type: space-counter; */
@@ -83,10 +85,15 @@
 }
 
 .statementEntries-entry-negative {
+    padding: 0px 0px 0px 10px;
     background-color: lightgrey;
     list-style-type: "➖";
 }
 
 .bankStatement--title {
+    font-weight: bold;
+}
+
+.card-header {
     font-weight: bold;
 }

@@ -5,14 +5,15 @@
 This is an <em>exercise</em> to practice Front-End Development with React and ES6. It is intented to create a BANK APP to simulate deposits and withdrawls while learning how to control react components and its states.
 Additions made to the original exercise:
 
-- [x] created a `BankStatement` component to list all entries to the account
+- [x] created `Statement` component and children to list all entries to the account
+- [x] created Account Statement card
 - [x] withdrawals are `red colored` and followed by "D" for Debit
 - [x] deposits are `blue colored` and followed by "C" for Credit
 - [x] created css file
 - [x] additional styling
 - [x] emptying the input after submit
 - [x] `Enter Key` on deposit and withdraw triggers action
-- [x] remove Balance card, since this information will be inside Deposit, WithDraw and Statement
+- [x] removed Balance card, since this information will be inside Deposit, WithDraw and Statement
 - [x] emptying the input after SUCCESSFUL submit of deposit and withdraw
 - [x] emptying the input after SUCCESSFUL submit of Create Account and Login
 - [x] deposits and withdrawls share a parent component that centralizes operation
@@ -22,7 +23,7 @@ Login validations:
 - [x] before any operation, user `MUST be logged` (with Create Account or Login)
 - [x] creating an account fires an `automatic login`
 - [x] added a `log off` button with conditional when user is already logged in
-- [x] when not logged in, operation Cards will show `Please log in` instead of regular content (Deposit, Withdraw, Account Statement)
+- [x] when not logged in, operation Cards will show `Please log in` instead of regular content (Deposit, Withdraw, Statement)
 - [x] when user is logged in, the `Create Account` and `Login` will show the `Logoff` button only
 
 Data validations:
@@ -34,8 +35,7 @@ Data validations:
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
-- [ ] create Account Statement card
-- [ ] specific format and `advanced requirements` for fields in Create Account (name, email, passoword)
+- [ ] specific format and `advanced requirements` for fields in Create Account (name: minimum of 2 words, email mask: prefix@domain.ext, password: minimum of 8 + special characters)
 - [ ] splash/intro screen
 - [ ] login needs to check if user already exists and load previously saved data
 - [ ] create account needs to check if user already exists and deny new account
