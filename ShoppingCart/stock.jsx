@@ -17,24 +17,28 @@
 // write out both the name and the number in stock in format apple:2
 function Stock({ menuItems, shoppingCart, minstock, updates }) {
 // function Stock({ menuitems, minstock, shoppingCart }) {
-    const [cart, setCart] = React.useState(shoppingCart);
-    const [stock, setStock] = React.useState(menuItems);
+  const [stock, setStock] = React.useState(menuItems);
+  const [cart, setCart] = React.useState(shoppingCart);
     const { Button } = ReactBootstrap;
 
     React.useEffect(
       () => {
         console.log(`Stock rendered`);
+        console.log(stock);
         // run callback to parent
-        updates(stock, cart);
+        // updates(stock, cart);
       }
-      , [stock, cart]
+      // , [stock, cart]
+      // , [cart]
     );    
 
     const listMinStock = stock.filter( item => item.instock >= minstock );
 
     const moveToCart = e => {
+        // let newCart = [];
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":"); 
+        let newCart = [];
 
         // zero items in stock
         if (num <= 0) return;
@@ -48,34 +52,34 @@ function Stock({ menuItems, shoppingCart, minstock, updates }) {
         // only if instock is >=  do we move item to Cart and update stock
         // use newStock = stock.map to find "name" and decrease number in stock by 1
         const newStock = stock.map((item) => {
-          if (item.name == name) {
-            item.instock--;
-          }
+          if (item.name == name) item.instock--;
           // newStock need a "return" value:
           return item;
         });
 
-        setStock([...newStock]);
-
         // include a name if not in cart yet
         // in the future it should be by id only
         if (!containsItemName(cart, name)) {
-            setCart([...cart, {name:name, incart: 1}]);
+            newCart = [...cart, {name:name, incart: 1}]; 
+            // setCart([...cart, {name:name, incart: 1}]);
             //shoppingCart = [...shoppingCart, {name:name, incart: 1}]
         } else {
           // increase cart
           // let newCart = cart.map((item) => {
-            let newCart = cart.map((item) => 
+            newCart = cart.map((item) => 
               {
               if (item.name == name) item.incart++;
               return item;
-              }
-            ); 
+              });
 
-        setCart(newCart);
+            // setCart([...newCart]);
+         
         // shoppingCart = newCart;
-
         }
+
+        setStock([...newStock]);
+        setCart([...newCart]);
+        updates(newStock, newCart);
 
       };
 

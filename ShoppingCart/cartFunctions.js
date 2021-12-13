@@ -218,11 +218,24 @@ const containsItemName = (anArrayOfItems, aName) => {
         if (element.name !== undefined) {
             if (element.name === aName) {
             return true;
-            break;
+            //break;
             }
         }
     }
     return false;
+}
+
+const getQty = (anArrayOfItems, aName) => {
+    for (let i = 0; i < anArrayOfItems.length; i++) {
+        const element = anArrayOfItems[i];
+        if (element.name !== undefined) {
+            if (element.name === aName) {
+            return element.incart;
+            //break;
+            }
+        }
+    }
+    return undefined;
 }
 
 const pushGroupedFruit = (aFruitItem) => {

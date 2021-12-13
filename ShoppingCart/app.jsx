@@ -23,13 +23,20 @@ function App () {
   const [cart, setCart] = React.useState([]);
 
   React.useEffect(
-    () => {}
+    () => {
+      console.log(`App Rendered`);
+
+    }
     ,[cart, stock]
   );
 
   const updates = (newStock, newCart) => {
+    setStock(newStock);
     setCart(newCart);
-    setStock(newStock)
+  }
+
+  function currentCart () {
+    return cart;
   }
 
   return (
@@ -38,7 +45,7 @@ function App () {
     <h3 id="stock"><StockTitle /></h3>
     <Stock menuItems={stock} shoppingCart={cart} minstock={minStock} updates={updates} />
     <h3>Shopping Cart</h3>
-    <Cart menuItems={stock} shoppingCart={cart} updates={updates} />
+    <Cart menuItems={stock} shoppingCart={currentCart} updates={updates}  />
     </div>)
 
 }
