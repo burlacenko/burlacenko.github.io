@@ -1,0 +1,29 @@
+{
+  "name": "fullstacklearning",
+  "version": "1.0.0",
+  "description": "Some sample codes to practice\r Need to complete this.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burlacenko/fullStackLearning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burlacenko/fullStackLearning/issues"
+  },
+  "homepage": "https://github.com/burlacenko/fullStackLearning#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "@strapi/design-system": "^0.0.1-alpha.70",
+    "formik": "^2.2.9",
+    "fs": "^0.0.1-security",
+    "react": "^17.0.2"
+  }
+}
