@@ -1,3 +1,5 @@
+// import Cart from './cart.jsx'
+
 var minStock = 0;
 
 var menuItems = [
@@ -12,27 +14,48 @@ var menuItems = [
     { name: "tangerine", instock: 6 }
   ];
 
-var shoppingCart = [
-    // {name: "tangerine", incart: 1}
- ];
+// var shoppingCart = [
+//     // {name: "tangerine", incart: 1}
+//  ];
 
-// function Shopping( {menuitems, shoppingCart}) {
-//     const [cart, setCart] = React.useState(shoppingCart);
-//     const [stock, setStock] = React.useState(menuItems);
-//     const { Button } = ReactBootstrap;
+function App () {
+  const [stock, setStock] = React.useState(menuItems);
+  const [cart, setCart] = React.useState([]);
 
+  React.useEffect(
+    () => {}
+    ,[cart, stock]
+  );
 
-//     return <></>
-// }
+  const updates = (newStock, newCart) => {
+    setCart(newCart);
+    setStock(newStock)
+  }
+
+  return (
+    <div>
+    {/* App structure with web components being called here */}
+    <h3 id="stock"><StockTitle /></h3>
+    <Stock menuItems={stock} shoppingCart={cart} minstock={minStock} updates={updates} />
+    <h3>Shopping Cart</h3>
+    <Cart menuItems={stock} shoppingCart={cart} updates={updates} />
+    </div>)
+
+}
 
 ReactDOM.render(
-    <div>
-        {/* App structure */}
-        <h3 id="stock">Items in stock</h3>
-        {/* <div id="stock">Items in stock</div> */}
-        <div id="stock-items">No stock</div>
-        <h3 id="cart">Shopping Cart</h3>
-        <div id="cart-items">No items in cart</div>
-    </div>
-    ,document.getElementById("root")
-  );
+  <App />
+  ,document.getElementById("root")
+);
+  
+// ReactDOM.render(
+//     <div>
+//         {/* App structure */}
+//         <h3 id="stock">Items in stock</h3>
+//         {/* <div id="stock">Items in stock</div> */}
+//         <div id="stock-items">No stock</div>
+//         <h3 id="cart">Shopping Cart</h3>
+//         <div id="cart-items">No items in cart</div>
+//     </div>
+//     ,document.getElementById("root")
+//   );

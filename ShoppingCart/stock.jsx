@@ -15,20 +15,22 @@
 // list out the Cart items in another column
 
 // write out both the name and the number in stock in format apple:2
-function Stock({ menuitems, minstock }) {
+function Stock({ menuItems, shoppingCart, minstock, updates }) {
 // function Stock({ menuitems, minstock, shoppingCart }) {
-    // const [cart, setCart] = React.useState(shoppingCart);
+    const [cart, setCart] = React.useState(shoppingCart);
     const [stock, setStock] = React.useState(menuItems);
     const { Button } = ReactBootstrap;
 
     React.useEffect(
       () => {
         console.log(`Stock rendered`);
+        // run callback to parent
+        updates(stock, cart);
       }
-      , [stock]
+      , [stock, cart]
     );    
 
-    const listMinStock = menuitems.filter( item => item.instock >= minstock );
+    const listMinStock = stock.filter( item => item.instock >= minstock );
 
     const moveToCart = e => {
         // innerHTML should be format name:3
@@ -57,19 +59,21 @@ function Stock({ menuitems, minstock }) {
 
         // include a name if not in cart yet
         // in the future it should be by id only
-        if (!containsItemName(shoppingCart, name)) {
-            // setCart([...cart, {name:name, incart: 1}]);
-            shoppingCart = [...shoppingCart, {name:name, incart: 1}]
+        if (!containsItemName(cart, name)) {
+            setCart([...cart, {name:name, incart: 1}]);
+            //shoppingCart = [...shoppingCart, {name:name, incart: 1}]
         } else {
           // increase cart
           // let newCart = cart.map((item) => {
-            let newCart = shoppingCart.map((item) => {
-            if (item.name == name) item.incart++;
-            return item;
-        }); 
+            let newCart = cart.map((item) => 
+              {
+              if (item.name == name) item.incart++;
+              return item;
+              }
+            ); 
 
-        // setCart(newCart);
-        shoppingCart = newCart;
+        setCart(newCart);
+        // shoppingCart = newCart;
 
         }
 
@@ -106,14 +110,14 @@ function StockTitle () {
   }
 }
 
-ReactDOM.render(
-<StockTitle />
-,document.getElementById("stock")
-);
+// ReactDOM.render(
+// <StockTitle />
+// ,document.getElementById("stock")
+// );
 
-ReactDOM.render(
-  <Stock menuitems={menuItems} minstock={minStock} shoppingCart={shoppingCart} />
-  ,document.getElementById("stock-items")
-);
+// ReactDOM.render(
+//   <Stock menuitems={menuItems} minstock={minStock} shoppingCart={shoppingCart} />
+//   ,document.getElementById("stock-items")
+// );
 
   

@@ -1,13 +1,17 @@
-function Cart( {menuitems, shoppingCart}) {
-    const [cart, setCart] = React.useState(shoppingCart);
+// export default Cart = ( {menuitems, shoppingCart}) => {
+function Cart ( {menuItems, shoppingCart, updates}) {
     const [stock, setStock] = React.useState(menuItems);
+    const [cart, setCart] = React.useState(shoppingCart);
     const { Button } = ReactBootstrap;
 
     React.useEffect(
       () => {
         console.log(`Cart rendered`);
+        
+        // run callback to parent
+        updates(stock, cart);
       }
-      , [cart]
+      , [cart, stock]
     );
 
     const removeFromCart = e => {
@@ -27,7 +31,6 @@ function Cart( {menuitems, shoppingCart}) {
         setCart(newCart);
 
         // shoppingCart.splice(e.target.id, 1);
-
     }
 
     const updatedList = shoppingCart.map((item, index) => {
@@ -39,7 +42,7 @@ function Cart( {menuitems, shoppingCart}) {
   }
 
 
-ReactDOM.render(
-<Cart menuitems={menuItems} shoppingCart={shoppingCart} />
-,document.getElementById("cart-items")
-);  
+// ReactDOM.render(
+// <Cart menuitems={menuItems} shoppingCart={shoppingCart} />
+// ,document.getElementById("cart-items")
+// );  
