@@ -3,6 +3,13 @@ function Cart( {menuitems, shoppingCart}) {
     const [stock, setStock] = React.useState(menuItems);
     const { Button } = ReactBootstrap;
 
+    React.useEffect(
+      () => {
+        console.log(`Cart rendered`);
+      }
+      , [cart]
+    );
+
     const removeFromCart = e => {
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":"); 

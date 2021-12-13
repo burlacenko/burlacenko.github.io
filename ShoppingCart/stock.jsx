@@ -15,51 +15,63 @@
 // list out the Cart items in another column
 
 // write out both the name and the number in stock in format apple:2
-function Stock({ menuitems, minstock, shoppingCart }) {
-    const [cart, setCart] = React.useState(shoppingCart);
+function Stock({ menuitems, minstock }) {
+// function Stock({ menuitems, minstock, shoppingCart }) {
+    // const [cart, setCart] = React.useState(shoppingCart);
     const [stock, setStock] = React.useState(menuItems);
     const { Button } = ReactBootstrap;
+
+    React.useEffect(
+      () => {
+        console.log(`Stock rendered`);
+      }
+      , [stock]
+    );    
 
     const listMinStock = menuitems.filter( item => item.instock >= minstock );
 
     const moveToCart = e => {
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":"); 
-        
+
         // zero items in stock
         if (num <= 0) return;
 
         // get item with name from stock and update stock
-        let item = stock.filter((item) => item.name == name);    
+        // let item = stock.filter( (item, index) =>
+        //    item.name == name
+        //    );    
 
+        // new approach:
         // only if instock is >=  do we move item to Cart and update stock
         // use newStock = stock.map to find "name" and decrease number in stock by 1
-        let newStock = stock.map((item, index) => {
+        const newStock = stock.map((item) => {
           if (item.name == name) {
             item.instock--;
           }
-
+          // newStock need a "return" value:
           return item;
         });
 
-        // include a name if not in cart yet
-        // in the future it should be by id only
-        if (!containsItemName(cart, name)) {
-            setCart([...cart, {name:name, incart: 0}]);
-        };
-
-        // increase cart
-        let newCart = cart.map((item, index) => {
-            if (item.name == name) item.incart++;
-            return item;
-          });        
-
         setStock([...newStock]);
 
-        // setCart([...cart, name]);
+        // include a name if not in cart yet
+        // in the future it should be by id only
+        if (!containsItemName(shoppingCart, name)) {
+            // setCart([...cart, {name:name, incart: 1}]);
+            shoppingCart = [...shoppingCart, {name:name, incart: 1}]
+        } else {
+          // increase cart
+          // let newCart = cart.map((item) => {
+            let newCart = shoppingCart.map((item) => {
+            if (item.name == name) item.incart++;
+            return item;
+        }); 
+
         // setCart(newCart);
-        setCart([...cart, ...item])
-        // shoppingCart = [...shoppingCart, name];
+        shoppingCart = newCart;
+
+        }
 
       };
 
@@ -85,18 +97,18 @@ function Stock({ menuitems, minstock, shoppingCart }) {
 //   ];
 
 function StockTitle () {
-    const title = `Items in stock`;
+  const title = `Items in stock`;
 
-    if (minStock > 0) {
-        return `Items in stock (with minimum of ${minStock})`;
-    }
-
-    return <h3>{title}</h3>;
+  if (minStock > 0) {
+      return `${title} (with minimum of ${minStock})`;
+  } else { 
+     return `${title}`;
+  }
 }
 
 ReactDOM.render(
-  <StockTitle />
-  ,document.getElementById("stock")
+<StockTitle />
+,document.getElementById("stock")
 );
 
 ReactDOM.render(

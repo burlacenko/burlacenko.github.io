@@ -1,7 +1,7 @@
-var minStock = 2;
+var minStock = 0;
 
 var menuItems = [
-    { name: "apple", instock: 2 },
+    { name: "apple", instock: 10 },
     { name: "pineapple", instock: 3 },
     { name: "pear", instock: 0 },
     { name: "peach", instock: 3 },
@@ -13,7 +13,7 @@ var menuItems = [
   ];
 
 var shoppingCart = [
-    {name: "tangerine", incart: 1}
+    // {name: "tangerine", incart: 1}
  ];
 
 // function Shopping( {menuitems, shoppingCart}) {
