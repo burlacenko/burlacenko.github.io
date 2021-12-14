@@ -48,6 +48,7 @@ const useDataApi = (initialUrl, initialData) => {
   }, [url]);
   return [state, setUrl];
 };
+
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
     case "FETCH_INIT":
@@ -126,7 +127,7 @@ const Products = (props) => {
       <li key={index}>
         <Image src={url} width={70} roundedCircle></Image>
         <Button variant="primary" size="large">
-          {item.name}:{item.cost}
+          {item.name}:${item.cost}:{item.instock}
         </Button>
         <input name={item.name} type="submit" onClick={addToCart}></input>
       </li>
@@ -172,6 +173,7 @@ const Products = (props) => {
     console.log(`total updated to ${newTotal}`);
     return newTotal;
   };
+  
   // TODO: implement the restockProducts function
   const restockProducts = (url) => {};
 
