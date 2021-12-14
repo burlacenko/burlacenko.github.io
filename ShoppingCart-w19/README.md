@@ -14,10 +14,10 @@ Project was with these original features:
 - [x] `CheckOut` sums up all items in the `Cart Content`
 
 ## Improvements:
-- [x] to `subtract items from stock` when there are moved to the shoppping cart
-- [x] to `add items back to Product List` when deleted from Cart Content
-- [x] to restock items `retrieving data from local strapi` database
-- [x] control restocking process to add items to existing product in the list instead of simply adding new items in the products' list
+- [x]  to `subtract items from stock` when there are moved to the shoppping cart
+- [x]  to `add items back to Product List` when deleted from Cart Content
+- [x]  to restock items `retrieving data from local strapi` database
+- [x]  control restocking process to add items to existing product in the list instead of simply adding new items in the products' list
 
 ## Roadmap of future improvements
 - [ ] search for pictures of the actual items
