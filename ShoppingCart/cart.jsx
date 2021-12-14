@@ -64,7 +64,7 @@ function Cart ( {menuItems, shoppingCart, updates}) {
         let [name, num] = e.target.innerHTML.split(":");
         let newCart = [];
 
-        // we new to make sure to get cart data from parent
+        // we new to make sure to get cart data from parent instead of the Buttom!
         let curCart = shoppingCart();
         num = getQty(curCart, name);
 
@@ -101,7 +101,12 @@ function Cart ( {menuItems, shoppingCart, updates}) {
     }
 
     const updatedList = shoppingCart().map((item, index) => {
-      return <Button key={index} id={'btnCart'+index} onClick={removeFromCart}>{item.name}:{item.incart}</Button>;
+      return (
+        (item.incart > 0) ?
+        (<Button key={index} id={'btnCart'+index} onClick={removeFromCart}>{item.name}:{item.incart}</Button>)
+        :
+        (<></>)
+      );
     });
   
     // note that React needs to have a single Parent
