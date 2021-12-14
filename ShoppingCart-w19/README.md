@@ -6,6 +6,7 @@ This is a coding <em>exercise</em> to practice Front-End Development with React 
 
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/ShoppingCart-w19/shop/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+P.S.: ReStock will only be possible if a local DB is running at localhost:1337 [run `npm run develop` in commandline inside folder cartDB]
 
 ## Features
 Project was with these original features:
@@ -14,15 +15,19 @@ Project was with these original features:
 - [x] `CheckOut` sums up all items in the `Cart Content`
 
 ## Improvements:
-- [x]  to `subtract items from stock` when there are moved to the shoppping cart
-- [x]  to `add items back to Product List` when deleted from Cart Content
-- [x]  to restock items `retrieving data from local strapi` database
-- [x]  control restocking process to add items to existing product in the list instead of simply adding new items in the products' list
+- [x] to `subtract items from stock` when there are moved to the Cart Content
+- [x] to `add items back to Product List` when deleted from Cart Content
+- [x] to restock items `retrieving data from local strapi` database
+- [x] control restocking process to add items to existing product in the list instead of simply adding new items in the products' list
 
 ## Roadmap of future improvements
+- [ ] manage stock by product id instead of name
 - [ ] search for pictures of the actual items
 - [ ] add a `delete` button for each item in Cart Content
 - [ ] design and styling
+- [ ] create price based on formula over cost, so that we can build a profit
+- [ ] add taxes
+- [ ] add shipping cost
   
 ## MIT License
 Copyright (c) 2021 <em>Burlacenko</em>
