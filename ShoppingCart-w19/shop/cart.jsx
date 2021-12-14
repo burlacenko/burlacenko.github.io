@@ -88,6 +88,7 @@ const Products = (props) => {
     Image,
     Input,
   } = ReactBootstrap;
+  
   //  Fetch Data
   const { Fragment, useState, useEffect, useReducer } = React;
   const [query, setQuery] = useState("http://localhost:1337/products");
@@ -97,7 +98,9 @@ const Products = (props) => {
       data: [],
     }
   );
+
   console.log(`Rendering Products ${JSON.stringify(data)}`);
+  
   // Fetch Data
   const addToCart = (e) => {
     let name = e.target.name;
@@ -110,15 +113,18 @@ const Products = (props) => {
     let newCart = cart.filter((item, i) => index != i);
     setCart(newCart);
   };
+  
+  // photos in local storage:
   const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
 
   let list = items.map((item, index) => {
-    //let n = index + 1049;
-    //let url = "https://picsum.photos/id/" + n + "/50/50";
+    let n = index + 1000; // 1049; // this "n" will make images fix
+    let url = `https://picsum.photos/id/${n}/50/50`;
 
+    //<Image src={photos[index % 4]} width={70} roundedCircle></Image>
     return (
       <li key={index}>
-        <Image src={photos[index % 4]} width={70} roundedCircle></Image>
+        <Image src={url} width={70} roundedCircle></Image>
         <Button variant="primary" size="large">
           {item.name}:{item.cost}
         </Button>
@@ -126,6 +132,7 @@ const Products = (props) => {
       </li>
     );
   });
+  
   let cartList = cart.map((item, index) => {
     return (
       <Card key={index}>
@@ -204,5 +211,7 @@ const Products = (props) => {
     </Container>
   );
 };
+
+
 // ========================================
 ReactDOM.render(<Products />, document.getElementById("root"));
