@@ -21,7 +21,7 @@ function Cart ( {menuItems, shoppingCart, updates}) {
       curCart = shoppingCart();
       
       if (!containsItemName(curCart, name)) {
-        result = [...curCart, {name:name, incart: 1}];
+        result = [...curCart];
         // setCart([...cart, {name:name, incart: 1}]);
       //shoppingCart = [...shoppingCart, {name:name, incart: 1}]
       } else {
@@ -29,6 +29,18 @@ function Cart ( {menuItems, shoppingCart, updates}) {
           if (item.name == name) item.incart--;
           return item;
           });
+
+        // need to remove item from cart
+        for (let i = curCart.length-1; i > 0; i--) {
+          if (curCart[i].name !== undefined) {
+              if (curCart[i].name === name) {
+                curCart.splice(i,1);
+                result = curCart;
+              }
+          }
+        }            
+        
+
       }
 
       return result;
@@ -50,15 +62,15 @@ function Cart ( {menuItems, shoppingCart, updates}) {
     const removeFromCart = e => {
         // innerHTML should be format name:3
         let [name, num] = e.target.innerHTML.split(":");
-        
-        // let curCart = [];
+        let newCart = [];
+
         // we new to make sure to get cart data from parent
         let curCart = shoppingCart();
         num = getQty(curCart, name);
-        
-        let newCart = [];
 
-        if (num <= 0) return;
+        if (num <= 0) {
+          return;
+        }
         
         // only if instock is >=  do we move item to Cart and update stock
         // use newStock = stock.map to find "name" and decrease number in stock by 1
