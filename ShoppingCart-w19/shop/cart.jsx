@@ -94,7 +94,8 @@ const Products = (props) => {
   
   //  Fetch Data
   const { Fragment, useState, useEffect, useReducer } = React;
-  const [query, setQuery] = useState("http://localhost:1337/products");
+  // const [query, setQuery] = useState("http://localhost:1337/products");
+  const [query, setQuery] = useState("products");
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
     "http://localhost:1337/products",
     {
@@ -219,13 +220,46 @@ const Products = (props) => {
   const restockProducts = (url) => {
     doFetch(url);
 
-    let newItems = data.map( (item) => {
-      // we simply destructure the data into variables we want
-      let { name, country, cost, instock } = item;
-      return { name, country, cost, instock };
-    } );
+    // original, would simply add new items to list
+    // let newItems = data.map( (item) => {
+    //   // we simply destructure the data into variables we want
+    //   let { name, country, cost, instock } = item;
+    //   return { name, country, cost, instock };
+    // } );
 
-    setItems([...items, ...newItems]);
+    let updatedItems = items;
+    
+    // external loop is on current product list (items)
+    for (let index = 0; index < updatedItems.length; index++) {
+      const element = updatedItems[index];
+      
+      // internal loop through restock data      
+      data.forEach(item => {
+        let { name, country, cost, instock } = item;
+        
+        if (element.name === name) {
+          element.instock += instock;
+          // we can "update" cost (for now "cost" is "price")
+          element.cost = cost;
+          // country too?
+          element.country = country;
+
+          return { name, country, cost, instock }
+        }
+      });
+    }
+
+    // now we check for actual new items (products that were not in the original list)
+    let newItems = data.filter( (item) => {
+      let { name, country, cost, instock } = item;
+
+      if (!containsItemName(updatedItems, name)) {
+        return { name, country, cost, instock };
+      } else 
+        return;
+    });
+
+    setItems([...updatedItems, ...newItems]);
 
   };
 
