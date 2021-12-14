@@ -24,6 +24,7 @@ const useDataApi = (initialUrl, initialData) => {
     data: initialData,
   });
   console.log(`useDataApi called`);
+  
   useEffect(() => {
     console.log("useEffect Called");
     let didCancel = false;
@@ -46,6 +47,7 @@ const useDataApi = (initialUrl, initialData) => {
       didCancel = true;
     };
   }, [url]);
+
   return [state, setUrl];
 };
 
@@ -214,7 +216,18 @@ const Products = (props) => {
   };
   
   // TODO: implement the restockProducts function
-  const restockProducts = (url) => {};
+  const restockProducts = (url) => {
+    doFetch(url);
+
+    let newItems = data.map( (item) => {
+      // we simply destructure the data into variables we want
+      let { name, country, cost, instock } = item;
+      return { name, country, cost, instock };
+    } );
+
+    setItems([...items, ...newItems]);
+
+  };
 
   return (
     <Container>
