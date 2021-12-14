@@ -110,7 +110,35 @@ const Products = (props) => {
     setCart([...cart, ...item]);
     //doFetch(query);
   };
+
+  const removeProductsFromStock = (removedItems) => {
+    // ATTENTION: returnedItem is an array, eventhough it should always be of lenght 1
+    items.map((item) => {
+        removedItems.forEach(rItem => {
+          if (item.name === rtem.name) {
+            item.instock--;
+           }
+        });   
+    });
+  };
+  
+  const returnProductsToStock = (returnedItems) => {
+    // ATTENTION: returnedItem is an array, eventhough it should always be of lenght 1
+    items.map((item) => {
+        returnedItems.forEach(retItem => {
+          if (item.name === retItem.name) {
+            item.instock++;
+           }
+        });   
+    });
+  };
+
   const deleteCartItem = (index) => {
+    // restocking product
+    let returnedItem = cart.filter((item, i) => index === i);
+    returnProductsToStock(returnedItem);
+
+    // delete is ok
     let newCart = cart.filter((item, i) => index != i);
     setCart(newCart);
   };
