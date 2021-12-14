@@ -105,21 +105,31 @@ const Products = (props) => {
   // Fetch Data
   const addToCart = (e) => {
     let name = e.target.name;
-    let item = items.filter((item) => item.name == name);
-    console.log(`add to Cart ${JSON.stringify(item)}`);
-    setCart([...cart, ...item]);
-    //doFetch(query);
-  };
-
-  const removeProductsFromStock = (removedItems) => {
-    // ATTENTION: returnedItem is an array, eventhough it should always be of lenght 1
-    items.map((item) => {
-        removedItems.forEach(rItem => {
-          if (item.name === rtem.name) {
-            item.instock--;
-           }
-        });   
+    let newCart = cart;
+    // adding to cart originally was not removing from stock
+    // and cart would fill even if stock was zero !!
+   // let itemsClicked = items.filter((item) => item.name == name);
+    // added a control of stock
+    // ATTENTION: itemsClicked is an array, eventhough it should always be of lenght 1
+    
+    let newStock = items.map( item => {
+        if (item.name === name) {
+          if (item.instock > 0) {
+              item.instock--;
+              console.log(`add to Cart ${JSON.stringify(item)}`);
+              newCart = [...newCart, item];
+            } else {
+              alert(`${item.name} is out of stock!`);
+            }
+         };
+         
+         return item;
     });
+    
+    setCart([...newCart]);
+    setItems([...newStock]);
+
+    //doFetch(query);
   };
   
   const returnProductsToStock = (returnedItems) => {
