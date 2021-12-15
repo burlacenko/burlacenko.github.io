@@ -183,12 +183,9 @@ const Products = (props) => {
             {item.name}
           </Accordion.Toggle>
         </Card.Header>
-        <Accordion.Collapse
-          onClick={() => deleteCartItem(index)}
-          eventKey={1 + index}
-        >
-          <Card.Body>
-            $ {item.cost} from {item.country}
+        <Accordion.Collapse eventKey={1 + index}>
+          <Card.Body className="cart-body">
+            $ {item.cost} from {item.country} <Button className="cart-removeItem" onClick={() => deleteCartItem(index)}>Remove Item</Button>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -216,8 +213,7 @@ const Products = (props) => {
     return newTotal;
   };
   
-  // TODO: implement the restockProducts function
-  const restockProducts = (url) => {
+   const restockProducts = (url) => {
     doFetch(url);
 
     // original, would simply add new items to list
@@ -291,7 +287,7 @@ const Products = (props) => {
           <input
             className="ReStockURL"
             type="text"
-            value={query}
+            value={`http://localhost:1337/${query}`}
             onChange={(event) => setQuery(event.target.value)}
           />
           <button type="submit">ReStock Products</button>

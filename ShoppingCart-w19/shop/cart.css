@@ -3,3 +3,17 @@
     color: blue;
     width: 300px;
 }
+
+.cart-body {
+    background-color: lightyellow;
+}
+
+.cart-removeItem {
+    background-color: crimson;
+    float: right;
+}
+
+Button {
+    background-color: green;
+    color: white;
+}
