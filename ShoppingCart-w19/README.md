@@ -19,11 +19,11 @@ Project was with these original features:
 - [x] to `add items back to Product List` when deleted from Cart Content
 - [x] to restock items `retrieving data from local strapi` database
 - [x] control restocking process to add items to existing product in the list instead of simply adding new items in the products' list
+- [x] added a `delete` button for each item in Cart Content
 
 ## Roadmap of future improvements
 - [ ] manage stock by product id instead of name
 - [ ] search for pictures of the actual items
-- [ ] add a `delete` button for each item in Cart Content
 - [ ] design and styling
 - [ ] create price based on formula over cost, so that we can build a profit
 - [ ] add taxes
