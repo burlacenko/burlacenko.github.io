@@ -1,4 +1,7 @@
 import React from 'react';
+// import { Button } from 'bootstrap';  
+// import { Card, Accordion, Button, Container, Row, Col, Image, Input,} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 
@@ -33,14 +36,14 @@ function App(){
       console.log('Ping:',index);
       remove(index);
     }
-    const btnDelete = <button
+    const btnDelete = <Button
       id={"btn"+index}
       className="btnDelete"
       onClick={ () => {
         remove(index);
       } }
     >X
-    </button>;
+    </Button>;
   
     return (
      <div>
@@ -62,19 +65,23 @@ function App(){
   
     return (
       <form onSubmit={handleSubmit}>
+        <label>Add todo:</label>
         <input 
           type="text"
           className="input"
           value={value}
           placeholder="Add Todo..."
           onChange={e => setValue(e.target.value)} />
+          <button>
+            Add #1
+          </button>
       </form>
     )
   }
 
   return(
     <div className="app">
-      {/* <div className='title'>ToDo List</div> */}
+      <h1 className='title'>ToDo List</h1>
       <div className="todo-list" >
         {todos.map((todo, i) => (
           <Todo key={i} index={i} todo={todo} remove={removeTodo}/>
