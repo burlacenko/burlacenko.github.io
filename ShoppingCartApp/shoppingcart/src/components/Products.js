@@ -220,19 +220,22 @@ const products = [
       );
     });
     
+    // Accordion.Toggle not working. Removed for testing and ERROR disapeared
+    // after "bootstrap css" was imported, the Accordion "link" in now on but the "remove" button is not visible anymore
+    // so I removed .Collapse and it showed up permanently
     let cartList = cart.map((item, index) => {
       return (
         <Card key={index}>
           <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey={1 + index}>
+            <Accordion as={Button} variant="link" eventKey={1 + index}>
               {item.name}
-            </Accordion.Toggle>
+            </Accordion>
           </Card.Header>
-          <Accordion.Collapse eventKey={1 + index}>
+          <Accordion eventKey={1 + index}>
             <Card.Body className="cart-body">
               $ {item.cost} from {item.country} <Button className="cart-removeItem" onClick={() => deleteCartItem(index)}>Remove Item</Button>
             </Card.Body>
-          </Accordion.Collapse>
+          </Accordion>
         </Card>
       );
     });
