@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.css'; // this was essential to have "bootstrap styling"
 
 ReactDOM.render(
   <React.StrictMode>
