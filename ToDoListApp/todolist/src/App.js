@@ -36,18 +36,19 @@ function App(){
       console.log('Ping:',index);
       remove(index);
     }
-    const btnDelete = <Button
+    const btnDelete = <div
       id={"btn"+index}
       className="btnDelete"
       onClick={ () => {
         remove(index);
       } }
     >X
-    </Button>;
+    </div>;  // this "div" used to be a button, then Button, and now is a simple "div" to run our Jest test #3
   
     return (
      <div>
       <div className="todo" onClick={handle}>{todo.text}{btnDelete}</div>
+      <button>Added #{index + 1}</button>
       <div></div>
      </div>
     )
@@ -72,9 +73,6 @@ function App(){
           value={value}
           placeholder="Add Todo..."
           onChange={e => setValue(e.target.value)} />
-          <button>
-            Add #1
-          </button>
       </form>
     )
   }
