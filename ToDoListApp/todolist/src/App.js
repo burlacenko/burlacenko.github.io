@@ -66,15 +66,23 @@ function App(){
   
     return (
       <form onSubmit={handleSubmit}>
-        <label>Add todo:</label>
+        <label>
+          Add todo:
+        </label>
         <input 
+          id="new-todo"
           type="text"
           className="input"
           value={value}
           placeholder="Add Todo..."
           onChange={e => setValue(e.target.value)} />
-      </form>
-    )
+         <input 
+          id="mock-todo" type="text" className="input" placeholder="Mock"/>
+         <button onClick={addTodo()}>
+           Mock click
+         </button>
+  </form>
+        )
   }
 
   return(
