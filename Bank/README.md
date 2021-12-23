@@ -5,6 +5,7 @@
 This is an <em>exercise</em> to practice Front-End Development with React and ES6. It is intented to create a BANK APP to simulate deposits and withdrawls while learning how to control react components and its states.
 Additions made to the original exercise:
 
+### General Features:
 - [x] created `Statement` component and children to list all entries to the account
 - [x] created Account Statement card
 - [x] withdrawals are `red colored` and followed by "D" for Debit
@@ -19,20 +20,26 @@ Additions made to the original exercise:
 - [x] deposits and withdrawls share a parent component that centralizes operation
 - [x] prevent negative balance
 
-Login validations:
+### Login validations:
 - [x] before any operation, user `MUST be logged` (with Create Account or Login)
 - [x] creating an account fires an `automatic login`
 - [x] added a `log off` button with conditional when user is already logged in
 - [x] when not logged in, operation Cards will show `Please log in` instead of regular content (Deposit, Withdraw, Statement)
 - [x] when user is logged in, the `Create Account` and `Login` will show the `Logoff` button only
 
-Data validations:
+### Data validations:
 - [x] negative values are not Submitted and user receives an alert
 - [x] zero values are not Submitted and user receives an alert
 - [x] password must be at least 8 characters long values are not Submitted and user receives an alert
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+
+## Pending improvements for PortFolio
+### Create Account
+- [ ] add name two words validation
+- [ ] email format validation
+
 
 ## Roadmap of future improvements
 - [ ] specific format and `advanced requirements` for fields in Create Account (name: minimum of 2 words, email mask: prefix@domain.ext, password: minimum of 8 + special characters)

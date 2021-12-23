@@ -131,7 +131,8 @@ function CreateAccount(){
     ctx.loggedIn = true;
     // setShow(false);
     setShowButtonAdd(true);
-    alert('User created sucessfully!')
+    // alert('User created sucessfully!')
+    alert('Sucessfully Created Account')
   }    
 
   function clearForm(){

@@ -36,7 +36,7 @@ function ATM ( {isDeposit} ){
       if (newAmount != newAmount) {
         // we set back to the previous amount:
         event.target.value = operationAmount;
-        alert(`Please enter a valid number for the amount you wish to ${operation[Number(!isDeposit)]}!`);
+        alert(`NOT A NUMBER Alert! Please ENTER a VALID NUMBER for the amount you wish to ${operation[Number(!isDeposit)]}!`);
       } else {
         setOperationAmount(newAmount);
       }

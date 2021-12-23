@@ -21,7 +21,7 @@ function NavBar(){
   // <nav className="navbar navbar-expand-lg navbar-dark bg-light">
 
   return(
-    <>
+    <div>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
       <a className="navbar-brand" href="#" title="Our home page">Home
@@ -53,12 +53,9 @@ function NavBar(){
       </div>
     </div>
     </nav>
-
-
-
-    </>
+    </div>
   );
-}
+};
 
 {/* <form class="form-inline my-2 my-lg-0">
 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
