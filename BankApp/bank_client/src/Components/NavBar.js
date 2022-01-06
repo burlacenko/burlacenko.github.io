@@ -3,8 +3,7 @@ import React from 'react';
 import { UserContext } from '../context.js';
 
 const NavBar = () => {
-    // const ctx = React.useContext(UserContext);  
-    const ctx = UserContext;  
+    const ctx = React.useContext(UserContext);  
   
     React.useEffect (
       () => {

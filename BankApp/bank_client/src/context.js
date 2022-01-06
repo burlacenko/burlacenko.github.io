@@ -6,7 +6,6 @@ import React from 'react';
 // const Route       = ReactRouterDOM.Route;
 // const Link        = ReactRouterDOM.Link;
 // const HashRouter  = ReactRouterDOM.HashRouter;
-const UserContext = React.createContext(null);
 
 // let oneStatement = {
 const oneStatement = {
@@ -23,6 +22,8 @@ const emptyUser = {
     balance: 0,
     statement: [],
 };
+
+const UserContext = React.createContext(null);
 
 // export { UserContext, Route, Link, HashRouter, emptyUser, oneStatement };
 export { UserContext, emptyUser, oneStatement };

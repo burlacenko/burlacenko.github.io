@@ -1,3 +1,4 @@
+import React from 'react';
 import AccountStatement from './AccountStatement.js';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
@@ -7,9 +8,8 @@ function AllData(){
   // a variable to control if I want to show as Card or simply stringified
   var showCard = true;
   
-  // const ctx = React.useContext(UserContext);
-  const ctx = UserContext;
-
+  const ctx = React.useContext(UserContext);
+  
   const showUserData = (user) => {
     return (
       (user ? (

@@ -9,7 +9,7 @@ function Home(){
         header="EasyMoney Bank®"
         title="Welcome to the easy banking®"
         // text="You can move around using the navigation bar."
-        body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
+        body={(<img src=".\images\bank.png" className="img-fluid" alt="Bank Logo"/>)}
       />    
     );  
 };

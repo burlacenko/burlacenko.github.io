@@ -7,8 +7,7 @@ import { UserContext } from '../context.js';
 import AccountStatement from './AccountStatement';
 
 function Statement () {
-    // const ctx = React.useContext(UserContext);
-    const ctx = UserContext;
+    const ctx = React.useContext(UserContext);
 
     const showAccountStatement = (user) => {
       return (

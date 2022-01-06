@@ -15,9 +15,8 @@ function Login(){
   const [balance, setBalance] = React.useState(0);
   const [statement, setStatement] = React.useState([]);
 
-  // const ctx = React.useContext(UserContext);  
-  const ctx = UserContext;  
-
+  const ctx = React.useContext(UserContext);  
+  
   React.useEffect( () => {
     if (ctx.currentUser) {
       console.log('Logged in with', ctx.currentUser);
