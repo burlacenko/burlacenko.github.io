@@ -11,10 +11,10 @@ function AllData(){
   
   const ctx = React.useContext(UserContext);
   
-  const showUserData = (user) => {
+  const showUserData = (user, index) => {
     return (
       (user ? (
-      <div className="userAndAccountStatement">
+      <div key={index} className="userAndAccountStatement">
         <div>{`Name: ${user.name}`}</div>
         <div>{`Email: ${user.email}`}</div>
         <div>{`Password: ${user.password}`}</div>
@@ -33,7 +33,7 @@ function AllData(){
 
   const listAll = ctx.users.map( (item, index) => {
     return (
-      showUserData(item)
+      showUserData(item, index)
     );
   }); 
 

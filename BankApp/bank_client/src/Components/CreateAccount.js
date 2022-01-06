@@ -4,6 +4,7 @@ import React from 'react';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
 import './CreateAccount.css';
+import { getCharacterLength } from '../globalfunctions.js';
 
 function CreateAccount(){
   const [showButtonAdd, setShowButtonAdd] = React.useState(false);
@@ -60,8 +61,8 @@ function CreateAccount(){
       return 'Field required'; //'Email is required';
     }
 
-    // if (getCharacterLength(password)>=6) {
-    if (password.length >=6 ) {
+    if (getCharacterLength(password)>=6) {
+    // if (password.length >=6 ) {
         return null;
     } else {
       return 'Please enter password with at least 6 alphacharacters';
