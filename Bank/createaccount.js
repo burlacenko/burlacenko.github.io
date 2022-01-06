@@ -33,6 +33,39 @@ function CreateAccount(){
     ctx.currentUser = null;
   }  
 
+  // part of validation code from https://github.com/arnaudNYC/react-form-validation
+  const emailValidateFormat = email => {
+    if (
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email,
+      )
+    ) {
+      return null;
+    }
+    if (email.trim() === '') {
+      return 'Invalid email format'; //'Email is required';
+    }
+    return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
+  };
+
+  const passwordValidateFormat = password => {
+    if (password.trim() === '') {
+      return 'Field required'; //'Email is required';
+    }
+
+    if (getCharacterLength(password)>=6) {
+      return null;
+    } else {
+      return 'Please enter password with at least 6 alphacharacters';
+    }
+    
+  };
+
+  const validateFields = {
+    email: emailValidation,
+    password: passwordValidation
+  };
+
   function validate(field, label){
       let message = '';
 
@@ -83,7 +116,9 @@ function CreateAccount(){
       
     }
 
-    return true;
+    // return true;
+    return emailValidateFormat(e.currentTarget.value);
+
   }
 
   function passwordValidation(e) {

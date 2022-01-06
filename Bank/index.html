@@ -25,11 +25,15 @@
     <div id="root"></div>
 
     <!-- load react -->
-    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
+    <!-- Both React and ReactDOM are available over a CDN -->
+    <!-- If you serve React from a CDN, we recommend to keep the crossorigin attribute set -->
+    <!-- https://reactjs.org/docs/cdn-links.html -->
+    <script crossorigin src="https://unpkg.com/react/umd/react.development.js" ></script>
+    <script crossorigin src="https://unpkg.com/react-dom/umd/react-dom.development.js" ></script>
+    <script crossorigin src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" ></script>
+    <script crossorigin src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" ></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+
 
     <!-- load our react component -->
     <!-- <script src="mountStatement.js" defer type="text/babel"></script> -->
@@ -50,6 +54,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+    
+    <!-- load formik -->
+    <!-- https://githubmate.com/repo/formium/formik/issues/3281 -->
+    <!-- <script src="https://unpkg.com/browse/formik@2.1.5/dist/formik.umd.production.min.js"></script> -->
 
   </body>
 </html>

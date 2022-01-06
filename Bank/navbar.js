@@ -23,7 +23,7 @@ function NavBar(){
   return(
     <div>
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div className="container-fluid">
       <a className="navbar-brand" href="#" title="Our home page">Home
       </a>
       <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

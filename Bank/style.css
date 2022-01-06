@@ -12,14 +12,14 @@
 
 .nav-link:focus {
     /* this is what make the text stay highlighted when mouse moves to card below */
-    color: white !important;
+    color: rgb(77, 174, 199) !important;
     /* font-style: italic; */
     font-weight: bold;
 }
 
 .nav-link:hover {
     /* font-size: 1.05em; */
-    color: white !important;
+    color: rgb(77, 174, 199) !important;
     background-color: darkslategrey;
 }
 
