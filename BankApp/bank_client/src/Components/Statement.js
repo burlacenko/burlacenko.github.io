@@ -4,7 +4,6 @@ import React from 'react';
 // import { UserContext } from 'react-router-dom';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
-
 import AccountStatement from './AccountStatement';
 
 function Statement () {

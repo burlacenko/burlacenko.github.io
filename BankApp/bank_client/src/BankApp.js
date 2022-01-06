@@ -15,6 +15,8 @@ import { UserContext } from './context.js';
 import { Route, Link, HashRouter, BrowserRouter } from 'react-router-dom';
 //Routes, 
 
+// import './BankApp.css';
+
 // https://stackoverflow.com/questions/69832748/error-error-a-route-is-only-ever-to-be-used-as-the-child-of-routes-element
 // Routes and Route: https://reacttraining.com/blog/react-router-v6-pre/#introducing-routes
  
