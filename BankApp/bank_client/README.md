@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Bank Exercise
+>MIT Web Development in JavaScript as part of MIT xPRO Professional Certificate in Coding: Full Stack Development with MERN June 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Title Description
+This is an <em>exercise</em> to practice Front-End Development with React and ES6. It is intented to create a BANK APP to simulate deposits and withdrawls while learning how to control react components and its states.
+Additions made to the original exercise:
 
-## Available Scripts
+### General Features:
+- [x] created `Statement` component and children to list all entries to the account
+- [x] created Account Statement card
+- [x] withdrawals are `red colored` and followed by "D" for Debit
+- [x] deposits are `blue colored` and followed by "C" for Credit
+- [x] created css file
+- [x] additional styling
+- [x] emptying the input after submit
+- [x] `Enter Key` on deposit and withdraw triggers action
+- [x] removed Balance card, since this information will be inside Deposit, WithDraw and Statement
+- [x] emptying the input after SUCCESSFUL submit of deposit and withdraw
+- [x] emptying the input after SUCCESSFUL submit of Create Account and Login
+- [x] deposits and withdrawls share a parent component that centralizes operation
+- [x] prevent negative balance
+- [x] refactor from standalone into create-react-app
 
-In the project directory, you can run:
+### Login validations:
+- [x] before any operation, user `MUST be logged` (with Create Account or Login)
+- [x] creating an account fires an `automatic login`
+- [x] added a `log off` button with conditional when user is already logged in
+- [x] when not logged in, operation Cards will show `Please log in` instead of regular content (Deposit, Withdraw, Statement)
+- [x] when user is logged in, the `Create Account` and `Login` will show the `Logoff` button only
 
-### `npm start`
+### Data validations:
+- [x] negative values are not Submitted and user receives an alert
+- [x] zero values are not Submitted and user receives an alert
+- [x] password must be at least 8 characters long (invalid password is not Submitted and user receives an alert)
+  
+## How to Run
+To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Pending improvements for PortFolio
+### Create Account
+- [ ] add name two words validation
+- [ ] email format validation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Roadmap of future improvements
+- [ ] specific format and `advanced requirements` for fields in Create Account (name: minimum of 2 words, email mask: prefix@domain.ext, password: minimum of 8 + special characters)
+- [ ] splash/intro screen
+- [ ] login needs to check if user already exists and load previously saved data
+- [ ] create account needs to check if user already exists and deny new account
+- [ ] if user is logged in, the `navbar` title should change from login to logout
+- [ ] if user is logged in, the `card` title should change from login to logout
+- [ ] more styling
+- [ ] include `date and time` for each line of the Account Statement
+ 
+  <table>
+  <tr><td>Statement Color</td><td>Means</td></tr>
+  <tr><td>Blue</td><td>Credits</td></tr>
+  <tr><td>Red</td><td>Debits</td>
+  </table>
+  
+## MIT License
+Copyright (c) 2021 <em>Burlacenko</em>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project has been modified based on the original exercise of <em>Abel Sanchez</em>
+under MIT xPro Web Development as part of Full Stack Development with MERN June 2021
 
-### `npm run build`
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+	
+## Screenshot
+![Image of ToDoList Exercise](Atm2021-11-09-1.jpg)

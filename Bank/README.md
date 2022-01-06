@@ -30,7 +30,7 @@ Additions made to the original exercise:
 ### Data validations:
 - [x] negative values are not Submitted and user receives an alert
 - [x] zero values are not Submitted and user receives an alert
-- [x] password must be at least 8 characters long values are not Submitted and user receives an alert
+- [x] password must be at least 8 characters long (invalid password is not Submitted and user receives an alert)
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
@@ -49,7 +49,8 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 - [ ] if user is logged in, the `navbar` title should change from login to logout
 - [ ] if user is logged in, the `card` title should change from login to logout
 - [ ] more styling
-- [ ] refactor from standalone into create-react-add
+- [ ] include `date and time` for each line of the Account Statement
+- [ ] refactor from standalone into create-react-app
  
   <table>
   <tr><td>Statement Color</td><td>Means</td></tr>
