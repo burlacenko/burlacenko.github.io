@@ -1,3 +1,5 @@
+import './Card.css';
+
 const Card = (props) => {
       function classes(){
         const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';

@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
+import './Atm.css';
 
 // this is a common content for
 // deposits and withdrawals

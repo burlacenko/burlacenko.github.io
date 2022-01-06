@@ -3,6 +3,7 @@ import React from 'react';
 // import { UserContext } from 'react-router-dom';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
+import './CreateAccount.css';
 
 function CreateAccount(){
   const [showButtonAdd, setShowButtonAdd] = React.useState(false);

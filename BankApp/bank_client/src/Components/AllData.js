@@ -2,6 +2,7 @@ import React from 'react';
 import AccountStatement from './AccountStatement.js';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
+import './AllData.css';
 
 function AllData(){
   

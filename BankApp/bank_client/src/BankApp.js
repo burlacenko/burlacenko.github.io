@@ -12,7 +12,7 @@ import AllData from './Components/AllData.js';
 // import { Route, Link, HashRouter } from 'react-router-dom';
 // import { UserContext, Route, Link, HashRouter } from './context.js';
 import { UserContext } from './context.js';
-import { Route, Link, HashRouter, BrowserRouter } from 'react-router-dom';
+import { Route, HashRouter } from 'react-router-dom';
 //Routes, 
 
 // import './BankApp.css';
