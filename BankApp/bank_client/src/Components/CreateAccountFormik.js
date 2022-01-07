@@ -1,18 +1,10 @@
-// import { useFormik, FormikProvider, Form, useField } from 'formik';
-// import './instant-feedback.css';
-// import * as Yup from 'yup'; // requires npm install yup
-
-// const FormikProvider = Formik.FormikProvider;
-
 import React from 'react';
-// import { Card } from 'bootstrap-react';
-// import { UserContext } from 'react-router-dom';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
-
-// let { Formik, Form, Field, ErrorMessage, FormikProvider }  = window.Formik;
 import { useFormik, useField, Formik, Form, Field, ErrorMessage, FormikProvider } from 'formik';
 import * as Yup from 'yup'; // requires npm install yup
+import { getCharacterLength } from '../globalfunctions.js';
+import './CreateAccount.css';
 
 const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
   const [field, meta] = useField(props);
