@@ -32,6 +32,7 @@ Additions made to the original exercise:
 - [x] negative values are not Submitted and user receives an alert
 - [x] zero values are not Submitted and user receives an alert
 - [x] password must be at least 8 characters long (invalid password is not Submitted and user receives an alert)
+- [x] email at Create Account requires format validation: email MUST contain @ and '.' (at least one dot in the domain side)
   
 ## How to Run
 To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
@@ -39,8 +40,6 @@ To try a live version, click <a href="https://burlacenko.github.io/Bank/index.ht
 ## Pending improvements for PortFolio
 ### Create Account
 - [ ] add name two words validation
-- [ ] email format validation
-
 
 ## Roadmap of future improvements
 - [ ] specific format and `advanced requirements` for fields in Create Account (name: minimum of 2 words, email mask: prefix@domain.ext, password: minimum of 8 + special characters)
