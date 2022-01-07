@@ -4,7 +4,7 @@ import React from 'react';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
 import './CreateAccount.css';
-import { getCharacterLength } from '../globalfunctions.js';
+import { getCharacterLength, emailValidateFormat } from '../globalfunctions.js';
 
 function CreateAccount(){
   const [showButtonAdd, setShowButtonAdd] = React.useState(false);
@@ -41,22 +41,22 @@ function CreateAccount(){
     ctx.currentUser = null;
   }  
 
-  // part of validation code from https://github.com/arnaudNYC/react-form-validation
-  const emailValidateFormat = email => {
-    if (
-      // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
-      // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
-      // mandatory "@" and "."
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
-    ) {
-    return null;
-   };
+  // // part of validation code from https://github.com/arnaudNYC/react-form-validation
+  // const emailValidateFormat = email => {
+  //   if (
+  //     // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
+  //     // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
+  //     // mandatory "@" and "."
+  //   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
+  //   ) {
+  //   return null;
+  //  };
 
-    if (email.trim() === '') {
-      return 'Invalid email format'; //'Email is required';
-    }
-    return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
-  };
+  //   if (email.trim() === '') {
+  //     return 'Invalid email format'; //'Email is required';
+  //   }
+  //   return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
+  // };
 
   const passwordValidateFormat = password => {
     if (password.trim() === '') {

@@ -4,20 +4,23 @@ function getCharacterLength (str) {
     return [...str].length;
 };
 
-// part of validation code from https://github.com/arnaudNYC/react-form-validation
-const emailValidation = email => {
-    if (
-      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        email,
-      )
-    ) {
-      return null;
-    }
-    if (email.trim() === '') {
-      return 'Field required'; //'Email is required';
-    }
-    return 'Please enter a valid email'; // 'Username should be an email';
-  };
+  // part of validation code from https://github.com/arnaudNYC/react-form-validation
+  const emailValidateFormat = email => {
+      if (
+            // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
+            // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
+            // mandatory "@" and "."
+          /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
+        ) {
+        return null;
+        };
+
+      if (email.trim() === '') {
+        return 'Invalid email format'; //'Email is required';
+      }
+
+      return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
+    };
   
   const passwordValidation = password => {
     if (password.trim() === '') {
@@ -32,6 +35,6 @@ const emailValidation = email => {
     
   };
 
-export { getCharacterLength, emailValidation, passwordValidation };
+export { getCharacterLength, emailValidateFormat, passwordValidation };
 
   

@@ -3,7 +3,7 @@ import Card from './Card.js';
 import { UserContext } from '../context.js';
 import { useFormik, useField, Formik, Form, Field, ErrorMessage, FormikProvider } from 'formik';
 import * as Yup from 'yup'; // requires npm install yup
-import { getCharacterLength } from '../globalfunctions.js';
+import { getCharacterLength, emailValidateFormat } from '../globalfunctions.js';
 import './CreateAccount.css';
 
 const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
@@ -84,23 +84,23 @@ function CreateAccountFormik(){
       ctx.currentUser = null;
     }  
   
-    // part of validation code from https://github.com/arnaudNYC/react-form-validation
-    const emailValidateFormat = email => {
-      if (
-            // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
-            // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
-            // mandatory "@" and "."
-          /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
-        ) {
-        return null;
-        };
+    // // part of validation code from https://github.com/arnaudNYC/react-form-validation
+    // const emailValidateFormat = email => {
+    //   if (
+    //         // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
+    //         // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
+    //         // mandatory "@" and "."
+    //       /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
+    //     ) {
+    //     return null;
+    //     };
 
-      if (email.trim() === '') {
-        return 'Invalid email format'; //'Email is required';
-      }
+    //   if (email.trim() === '') {
+    //     return 'Invalid email format'; //'Email is required';
+    //   }
 
-      return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
-    };
+    //   return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
+    // };
   
     const passwordValidateFormat = password => {
       if (password.trim() === '') {
