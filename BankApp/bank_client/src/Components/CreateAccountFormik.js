@@ -275,7 +275,8 @@ function CreateAccountFormik(){
 
     const formik = useFormik({
       initialValues: {
-        username: '',
+        name: '',
+        //username: '',
         email: '',
         password: '',
       },
@@ -286,12 +287,12 @@ function CreateAccountFormik(){
       },
       validationSchema: Yup.object({
         name: Yup.string()
-          .min(6, 'Must be at least 3 characters')
+          .min(3, 'Must be at least 2 characters in 2 words')
           // .max(20, 'Must be less  than 20 characters')
           .required('Name is required')
           .matches(
-            /^[a-zA-Z0-9]+$/,
-            'Cannot contain special characters or spaces'
+            /^[a-zA-Z0-9]+ [a-zA-Z0-9]+$/,
+            'Cannot contain special characters'
           ),
         
         // username: Yup.string()
@@ -357,6 +358,7 @@ function CreateAccountFormik(){
                         label="Name"
                         id="name"
                         name="name"
+                        placeholder="Example: John Doe"
                         helpText="Must be at least two words with more than 2 characters each."
                         type="text"
                         />
