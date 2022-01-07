@@ -36,12 +36,14 @@ function CreateAccount(){
   // part of validation code from https://github.com/arnaudNYC/react-form-validation
   const emailValidateFormat = email => {
     if (
-      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        email,
-      )
+      // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
+      // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test
+      // mandatory "@" and "."
+    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/.test(email)
     ) {
-      return null;
-    }
+    return null;
+   };
+
     if (email.trim() === '') {
       return 'Invalid email format'; //'Email is required';
     }
@@ -76,12 +78,41 @@ function CreateAccount(){
         return false;
       }
 
-      if ( (label === 'name') && (field.length < 2) ) {
-        message = `${label.toUpperCase()} needs to be more than one character`;
-        setStatus(`Error: ${message}`);
-        alert(message);
-        return false;
+      // if ( (label === 'name') && (field.length < 2) ) {
+      //   message = `${label.toUpperCase()} needs to be more than one character`;
+      //   setStatus(`Error: ${message}`);
+      //   alert(message);
+      //   return false;
+      // }
+
+      if (label === 'name') {
+        if (field.length < 2) {
+          message = `${label.toUpperCase()} needs to be more than one character`;
+          setStatus(`Error: ${message}`);
+          alert(message);
+          return false;
+        } else {
+          // in future we may ad word count!
+          return true;
+        }
       }
+
+      if (label === 'email') {
+        if (field.length < 5) {
+          message = `${label.toUpperCase()} needs to be more than 5 (five) characters AND present special format`;
+          setStatus(`Error: ${message}`);
+          alert(message);
+          return false;
+        } else {
+          let returnMessage = emailValidateFormat(field);
+          if (returnMessage) {
+            alert(returnMessage);
+            return false;
+          } else {
+            return true
+          }
+        }
+      }        
 
       if ( (label === 'password') && (field.length < 8) ) {
         message = `${label.toUpperCase()} needs at least 8 (eight) characters`;
