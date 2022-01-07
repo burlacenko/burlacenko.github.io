@@ -14,7 +14,7 @@
 };
 
 .nav-link:hover {
-  /* font-size: 1.05em; */
+  font-size: 1.05em;
   color: rgb(77, 174, 199) !important;
   background-color: darkslategrey;
 };
