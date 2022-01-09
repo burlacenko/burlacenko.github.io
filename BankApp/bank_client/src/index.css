@@ -1,7 +1,40 @@
-.material-icons {
-  margin-left: -50;
-};
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+  }
 
-.btn {
-  margin-bottom: 15px;
-};
+.material-icons {
+    margin-left: -50;
+}
+
+.navbar-brand,
+.nav-link {
+    font-size: 1.25rem;
+}
+
+.navbar-dark .navbar-nav .nav-item ,
+.navbar-dark .navbar-nav .nav-item {
+    /* height: 50px; */
+    text-justify: auto;
+    vertical-align: middle;
+    color: red !important;
+}
+
+.nav-link:focus {
+    /* this is what make the text stay highlighted when mouse moves to card below */
+    color: rgb(77, 174, 199) !important;
+    /* font-style: italic; */
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    /* font-size: 1.05em; */
+    color: rgb(77, 174, 199) !important;
+    background-color: darkslategrey;
+    text-decoration: underline;
+}
+
+.erroCreateAccount {
+    color: darkred;
+    font-weight: bold;
+}

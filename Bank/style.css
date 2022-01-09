@@ -21,6 +21,7 @@
     /* font-size: 1.05em; */
     color: rgb(77, 174, 199) !important;
     background-color: darkslategrey;
+    text-decoration: underline;
 }
 
 /* .nav-item {
