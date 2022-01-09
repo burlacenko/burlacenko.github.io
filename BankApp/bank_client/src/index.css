@@ -20,13 +20,16 @@ button:disabled {
     color: red !important;
 }
 
+.navbar-brand:focus,
 .nav-link:focus {
-    /* this is what make the text stay highlighted when mouse moves to card below */
-    color: rgb(77, 174, 199) !important;
     /* font-style: italic; */
     font-weight: bold;
+    /* this is what make the text stay highlighted when mouse moves to card below */
+    color: rgb(77, 174, 199) !important;
+    text-decoration: underline;
 }
 
+.navbar-brand:hover,
 .nav-link:hover {
     /* font-size: 1.05em; */
     color: rgb(77, 174, 199) !important;

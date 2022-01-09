@@ -165,8 +165,8 @@
   /* Form
   ––––––––––––––––––––––––––––––––– */
   label {
-    /* font-weight: bold; */
-    /* color: white; */
+    font-weight: bold;
+    /* color: white; */ /* inserted this but it did not help */
     display: flex;
   }
   

@@ -4,7 +4,7 @@ import { UserContext } from '../context.js';
 import { useFormik, useField, Formik, Form, Field, ErrorMessage, FormikProvider } from 'formik';
 import * as Yup from 'yup'; // requires npm install yup
 import { getCharacterLength, emailValidateFormat } from '../globalfunctions.js';
-// import './CreateAccountFormik.css';
+import './CreateAccountFormik.css';
 
 const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
   const [field, meta] = useField(props);
@@ -20,7 +20,7 @@ const TextInputLiveFeedback = ({ label, helpText, ...props }) => {
 
   return (
     <div
-      className={`form-control ${
+      className={`formik-control ${
         showFeedback ? (meta.error ? 'invalid' : 'valid') : ''
       }`}
     >
@@ -246,6 +246,36 @@ function CreateAccountFormik(){
       // alert('User created sucessfully!')
       alert('Sucessfully Created Account')
     }    
+
+    function handleCreateFormik(){
+      console.log('handleCreate for ',name, email, password);
+  
+      // if (!validate(name,     'name'))     return;
+      // if (!validate(email,    'email'))    return;
+      // if (!validate(password, 'password')) return;
+      
+      if (!handleAllValidations()) return;
+  
+      setBalance(0);
+      setStatement([]);
+  
+      console.log('Created account for ', name, email, balance, statement);
+  
+      // for now, there is no database to be queried
+      // so we simply push a new user to the base o users
+      ctx.users.push({name, email, password, balance, statement});
+      
+      // if "auto login" is on, we should do:
+      // ctx.currentUser.push({name, email, password, balance, statement});
+      
+      // thanks to ES6 destructuring:
+      ctx.currentUser = {name, email, password, balance, statement};    
+      ctx.loggedIn = true;
+      // setShow(false);
+      setShowButtonAdd(true);
+      // alert('User created sucessfully!')
+      alert('Sucessfully Created Account')
+    }        
   
     function clearForm(){
       setName('');
@@ -292,7 +322,7 @@ function CreateAccountFormik(){
           .required('Name is required')
           .matches(
             /^[a-zA-Z0-9]+ [a-zA-Z0-9]+$/,
-            'Cannot contain special characters'
+            'Cannot contain special characters and requires at least 2 words'
           ),
         
         // username: Yup.string()
@@ -310,7 +340,7 @@ function CreateAccountFormik(){
             // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
             // /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             // mandatory "@" and "."
-            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/,
+            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             'Should contain @ and at least one dot in the domain side'
           ),        
         password: Yup.string()
@@ -359,28 +389,41 @@ function CreateAccountFormik(){
                         id="name"
                         name="name"
                         placeholder="Example: John Doe"
-                        helpText="Must be at least two words with more than 2 characters each."
+                        // helpText="Must be at least two words with more than 2 characters each."
                         type="text"
+                        onChange={e => setName(e.currentTarget.value)}
                         />
                         <TextInputLiveFeedback
                         label="Email"
                         id="email"
                         name="email"
                         placeholder="Example: inbox@domain.ext or inbox@domain.ext.cy"
-                        helpText="Should contain @ and at least one dot in the domain side."
+                        // helpText="Should contain @ and at least one dot in the domain side."
                         type="email"
+                        onChange={e => setEmail(e.currentTarget.value)}
                         />          
                         <TextInputLiveFeedback
                         label="Password"
                         id="password"
                         name="password"
                         placeholder="Enter password"
-                        helpText="Must be at least 8 characters and may contain special characters."
+                        // helpText="Must be at least 8 characters and may contain special characters."
                         type="password"
+                        onChange={e => setPassword(e.currentTarget.value)}
                         />        
                         <div>
-                        <button type="submit">Submit</button>
-                        <button type="reset">Reset</button>
+                        <button 
+                          type="submit"
+                          className="btn btn-light"
+                          id="formik-submit"
+                          disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+                          >Create Account</button>
+                        <button
+                          type="reset"
+                          className="btn btn-light"
+                          id="formik-reset"
+                          disabled={((name.length===0)||(email.length===0)||(password.length===0))}
+                          >Reset</button>
                         </div>
                     </Form>
                 </FormikProvider>
