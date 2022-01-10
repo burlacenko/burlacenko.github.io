@@ -17,8 +17,8 @@ const TextInputLiveFeedback = ({ label, helpText, setterValid, ...props }) => {
   const handleFocus = () => setDidFocus(true);
   const showFeedback = (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
-  if (field.value = '') {
-    setterValid(true);    
+  if (field.value === '') {
+    setterValid(false);    
   } else {
     if (typeof meta.error !== 'undefined') {
           if (meta.error) {
