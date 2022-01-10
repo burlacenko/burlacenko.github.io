@@ -17,32 +17,36 @@ const TextInputLiveFeedback = ({ label, helpText, setterValid, ...props }) => {
   const handleFocus = () => setDidFocus(true);
   const showFeedback = (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
-  if (typeof meta.error !== 'undefined') {
-        if (meta.error) {
-          setterValid(false);
+  if (field.value = '') {
+    setterValid(true);    
+  } else {
+    if (typeof meta.error !== 'undefined') {
+          if (meta.error) {
+            setterValid(false);
+          } else {
+            setterValid(true);
+          }
         } else {
           setterValid(true);
-        }
-      } else {
-        setterValid(true);
+    }
   };
 
   const TestValidInput = () => {
 
     // const { values, submitForm } = useFormikContext();
 
-    React.useEffect(() => {
-      if (typeof meta.error !== 'undefined') {
-        if (meta.error) {
-          setterValid(false);
-        } else {
-          setterValid(true);
-        }
-      } else {
-        setterValid(true);
-      }
+    // React.useEffect(() => {
+    //   if (typeof meta.error !== 'undefined') {
+    //     if (meta.error) {
+    //       setterValid(false);
+    //     } else {
+    //       setterValid(true);
+    //     }
+    //   } else {
+    //     setterValid(true);
+    //   }
 
-    }); //, [meta, values]);
+    // }); //, [meta, values]);
     
     return null;
   };   
