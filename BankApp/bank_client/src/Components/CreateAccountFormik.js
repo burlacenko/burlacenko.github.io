@@ -324,6 +324,7 @@ function CreateAccountFormik(){
         //alert(`Login Successful with user ${values.name}`);
         //alert(JSON.stringify(values, null, 2));
         actions.setSubmitting(false);
+        actions.resetForm();
       },
       validationSchema: Yup.object({
         name: Yup.string()

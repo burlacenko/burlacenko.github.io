@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import NavBar from './Components/NavBar.js';
 import Home from './Components/Home.js';
-import CreateAccount from './Components/CreateAccount.js';
+// import CreateAccount from './Components/CreateAccount.js';
 import CreateAccountFormik from './Components/CreateAccountFormik.js';
 import Login from './Components/Login.js';
 import Deposit from './Components/Deposit.js';
@@ -28,7 +28,7 @@ function BankApp() {
           <div className="container" style={{padding: "20px"}}>
           {/* <Routes> */}
             <Route path="/" exact component={Home} />
-            <Route path="/createAccount" component={CreateAccount} />
+            {/* <Route path="/createAccount" component={CreateAccount} /> */}
             <Route path="/createAccount2" component={CreateAccountFormik} />
             <Route path="/login" component={Login} />
             <Route path="/deposit" component={Deposit} />
