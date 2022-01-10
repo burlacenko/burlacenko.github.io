@@ -38,8 +38,8 @@ Additions made to the original exercise:
 - [x] Create Account button will one become enabled if all field requirements are fulfilled
   
 ## How to Run
-To try a live version of the new app version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>.
-To try a live version of the old standalone version, click <a href="https://burlacenko.github.io/BankApp/bank-client/public/index.html">here</a>.
+To try a live version of the new app version, click <a href="https://burlacenko.github.io/BankApp/bank_client/public/index.html">here</a>.
+To try a live version of the old standalone version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>.
 To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
