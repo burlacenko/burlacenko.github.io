@@ -4,7 +4,7 @@ import React from 'react';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
 import './CreateAccount.css';
-import { getCharacterLength, emailValidateFormat } from '../globalfunctions.js';
+import { getCharacterLength, nameValidateFormat, emailValidateFormat } from '../globalfunctions.js';
 
 function CreateAccount(){
   const [showButtonAdd, setShowButtonAdd] = React.useState(false);
@@ -101,10 +101,14 @@ function CreateAccount(){
           alert(message);
           return false;
         } else {
-          // in future we may ad word count!
-          return true;
-        }
-      }
+          let returnMessage = nameValidateFormat(field);
+          if (returnMessage) {
+            alert(returnMessage);
+            return false;
+          } else {
+            return true
+          }
+      }};
 
       if (label === 'email') {
         if (field.length < 5) {

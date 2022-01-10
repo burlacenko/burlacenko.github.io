@@ -1,10 +1,28 @@
-function getCharacterLength (str) {
+ function getCharacterLength (str) {
     // The string iterator that is used here iterates over characters,
     //  not mere code units
     return [...str].length;
-};
+  };
 
   // part of validation code from https://github.com/arnaudNYC/react-form-validation
+  
+  
+
+  const nameValidateFormat = name => {
+    if (
+          // requires at least 2 words and does not accept special characters
+          /^[a-zA-Z0-9]+ [a-zA-Z0-9]+(?:[a-zA-Z0-9 ])*$/.test(name)
+      ) {
+      return null;
+      };
+
+    if (name.trim() === '') {
+      return 'Invalid name format';
+    }
+
+    return 'Please enter a valid name format with at least 2 words';
+  };
+
   const emailValidateFormat = email => {
       if (
             // this seem to require something AFTER the DOT, but DOT itself is not mandatory:
@@ -20,7 +38,7 @@ function getCharacterLength (str) {
       }
 
       return 'Please enter a valid email format similar to "my@domain.com" or "my@domai.com.uk"'; // 'Username should be an email';
-    };
+  };
   
   const passwordValidation = password => {
     if (password.trim() === '') {
@@ -35,6 +53,6 @@ function getCharacterLength (str) {
     
   };
 
-export { getCharacterLength, emailValidateFormat, passwordValidation };
+export { getCharacterLength, nameValidateFormat, emailValidateFormat, passwordValidation };
 
   
