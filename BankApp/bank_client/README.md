@@ -10,8 +10,7 @@ Additions made to the original exercise:
 - [x] created Account Statement card
 - [x] withdrawals are `red colored` and followed by "D" for Debit
 - [x] deposits are `blue colored` and followed by "C" for Credit
-- [x] created css file
-- [x] additional styling
+- [x] created css file and additional styling
 - [x] emptying the input after submit
 - [x] `Enter Key` on deposit and withdraw triggers action
 - [x] removed Balance card, since this information will be inside Deposit, WithDraw and Statement
@@ -31,25 +30,26 @@ Additions made to the original exercise:
 ### Data validations:
 - [x] negative values are not Submitted and user receives an alert
 - [x] zero values are not Submitted and user receives an alert
-- [x] password must be at least 8 characters long (invalid password is not Submitted and user receives an alert)
+- [x] name validation now requires at least two word
 - [x] email at Create Account requires format validation: email MUST contain @ and '.' (at least one dot in the domain side)
+- [x] password must be at least 8 characters long
+- [x] Create Account card uses a form
+- [x] Create Account each field now gives its instant feedback on  requirements as user is typing
+- [x] Create Account button will one become enabled if all field requirements are fulfilled
   
 ## How to Run
-To try a live version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>. To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
-
-## Pending improvements for PortFolio
-### Create Account
-- [ ] add name two words validation
+To try a live version of the new app version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>.
+To try a live version of the old standalone version, click <a href="https://burlacenko.github.io/BankApp/bank-client/public/index.html">here</a>.
+To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
 
 ## Roadmap of future improvements
-- [ ] specific format and `advanced requirements` for fields in Create Account (name: minimum of 2 words, email mask: prefix@domain.ext, password: minimum of 8 + special characters)
 - [ ] splash/intro screen
 - [ ] login needs to check if user already exists and load previously saved data
 - [ ] create account needs to check if user already exists and deny new account
 - [ ] if user is logged in, the `navbar` title should change from login to logout
 - [ ] if user is logged in, the `card` title should change from login to logout
-- [ ] more styling
 - [ ] include `date and time` for each line of the Account Statement
+- [ ] more styling
  
   <table>
   <tr><td>Statement Color</td><td>Means</td></tr>
