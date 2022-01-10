@@ -6,88 +6,43 @@ import * as Yup from 'yup'; // requires npm install yup
 import { getCharacterLength, nameValidateFormat, emailValidateFormat } from '../globalfunctions.js';
 import './CreateAccountFormik.css';
 
-// const TextInputLiveFeedback = ({ label, helpText, value, onChangeEvent, ...props }) => {
-//   const [field, meta] = useField(props);
-
-//   // Show inline feedback if EITHER
-//   // - the input is focused AND value is longer than 2 characters
-//   // - or, the has been visited (touched === true)
-//   const [didFocus, setDidFocus] = React.useState(false);
-//   const handleFocus = () => setDidFocus(true);
-  
-//   const showFeedback =
-//     (!!didFocus && field.value.trim().length > 2) || meta.touched;
-
-//   return (
-//     <div
-//       className={`formik-control ${
-//         showFeedback ? (meta.error ? 'invalid' : 'valid') : ''
-//       }`}
-//     >
-//       <div className="flex items-center space-between">
-//         <label htmlFor={props.id}>{label}</label>{' '}
-//         {showFeedback ? (
-//           <div
-//             id={`${props.id}-feedback`}
-//             aria-live="polite"
-//             className="feedback text-sm"
-//           >
-//             {meta.error ? meta.error : '✓'}
-//           </div>
-//         ) : null}
-//       </div>
-//       <input
-//         {...props}
-//         {...field}
-//         aria-describedby={`${props.id}-feedback ${props.id}-help`}
-//         onFocus={handleFocus}
-//         // value={value}
-//         // onChange={onChangeEvent}
-//       />
-//       <div className="text-xs" id={`${props.id}-help`} tabIndex="-1">
-//         {helpText}
-//       </div>
-//     </div>
-//   );
-// };
-
 const TextInputLiveFeedback = ({ label, helpText, setterValid, ...props }) => {
-  const [field, meta, helpers] = useField(props);
-  const {setValue} = helpers;
-
   // Show inline feedback if EITHER
   // - the input is focused AND value is longer than 2 characters
   // - or, the has been visited (touched === true)
+  
+  const [field, meta, helpers] = useField(props);
+  const {setValue} = helpers;
   const [didFocus, setDidFocus] = React.useState(false);
   const handleFocus = () => setDidFocus(true);
-  
-  const showFeedback =
-    (!!didFocus && field.value.trim().length > 2) || meta.touched;
+  const showFeedback = (!!didFocus && field.value.trim().length > 2) || meta.touched;
 
   if (typeof meta.error !== 'undefined') {
-      if (meta.error) {
-        setterValid(false);
+        if (meta.error) {
+          setterValid(false);
+        } else {
+          setterValid(true);
+        }
       } else {
         setterValid(true);
-      }
-    } else {
-      setterValid(true);
   };
 
   const TestValidInput = () => {
 
-    // React.useEffect(() => {
-    //   if (typeof meta.error !== 'undefined') {
-    //     if (meta.error) {
-    //       setterValid(false);
-    //     } else {
-    //       setterValid(true);
-    //     }
-    //   } else {
-    //     setterValid(true);
-    //   }
+    // const { values, submitForm } = useFormikContext();
 
-    // }, [meta]);
+    React.useEffect(() => {
+      if (typeof meta.error !== 'undefined') {
+        if (meta.error) {
+          setterValid(false);
+        } else {
+          setterValid(true);
+        }
+      } else {
+        setterValid(true);
+      }
+
+    }); //, [meta, values]);
     
     return null;
   };   
@@ -154,11 +109,6 @@ function CreateAccountFormik(){
     // );
 
     React.useEffect(() => {
-      // Submit the form imperatively as an effect as soon as form values.token are 6 digits long
-      // if (values.token.length === 6) {
-        // submitForm();
-      // }
-
       console.log('Re-rendering thru valid change')
     }, [validName, validEmail, validPassword]);
     
@@ -182,8 +132,8 @@ function CreateAccountFormik(){
         return 'Field required'; //'Email is required';
       }
   
-      // if (getCharacterLength(password)>=6) {
-      if (password.length >=6 ) {
+      if (getCharacterLength(password)>=6) {
+      //if (password.length >=6 ) {
         return null;
       } else {
         return 'Please enter password with at least 6 alphacharacters';
@@ -288,13 +238,6 @@ function CreateAccountFormik(){
   
       return true;
     }
-  
-    function handleAllValidations() {
-      if (!validate(name,     'name'))     return false;
-      if (!validate(email,    'email'))    return false;
-      if (!validate(password, 'password')) return false;
-      return true;
-    }
 
     function handleAllValidationsFormik(values) {
       if (!validate(values.name,     'name'))     return false;
@@ -303,36 +246,6 @@ function CreateAccountFormik(){
       return true;
     }    
   
-    function handleCreate(){
-      console.log('handleCreate for ',name, email, password);
-  
-      // if (!validate(name,     'name'))     return;
-      // if (!validate(email,    'email'))    return;
-      // if (!validate(password, 'password')) return;
-      
-      if (!handleAllValidations()) return;
-  
-      setBalance(0);
-      setStatement([]);
-  
-      console.log('Created account for ', name, email, balance, statement);
-  
-      // for now, there is no database to be queried
-      // so we simply push a new user to the base o users
-      ctx.users.push({name, email, password, balance, statement});
-      
-      // if "auto login" is on, we should do:
-      // ctx.currentUser.push({name, email, password, balance, statement});
-      
-      // thanks to ES6 destructuring:
-      ctx.currentUser = {name, email, password, balance, statement};    
-      ctx.loggedIn = true;
-      // setShow(false);
-      setShowButtonAdd(true);
-      // alert('User created sucessfully!')
-      alert('Sucessfully Created Account')
-    }    
-
     function handleCreateFormik(values){
       console.log('handleCreate thru Formik for ',values);
       console.log('handleCreate thru Formik for ',name, email, password);
@@ -372,6 +285,10 @@ function CreateAccountFormik(){
       setStatement([]);
   
       setShowButtonAdd(false);
+
+      setValidName(false);
+      setValidEmail(false);
+      setValidPassword(false);
       
       currentUserNull();
   
@@ -514,13 +431,13 @@ function CreateAccountFormik(){
                           // disabled={((name.length===0)||(email.length===0)||(password.length===0))}
                           disabled={((!validName)||(!validEmail)||(!validPassword))}
                           >Create Account</button>
-                        <button
+                        {/* <button
                           type="reset"
                           className="btn btn-light"
                           id="formik-reset"
                           // disabled={((name.length===0)||(email.length===0)||(password.length===0))}
                           disabled={!((validName)&&(validEmail)&&(validPassword))}
-                          >Reset</button>
+                          >Reset</button> */}
                         </div>
                     </Form>
                 </FormikProvider>
@@ -533,15 +450,5 @@ function CreateAccountFormik(){
     );
      
   }
-  
-  // disabled={((name.length===0)||(email.length===0)||(password.length===0))}
-  // disabled={!(showButton)}
-  
-  
-  // button was invisible while any field empty
-  // { ((name.length>0)&&(email.length>0)&&(password.length>0)) ? (
-  //   <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
-  //   ):(<></>)
-  //   }
 
 export default CreateAccountFormik;
