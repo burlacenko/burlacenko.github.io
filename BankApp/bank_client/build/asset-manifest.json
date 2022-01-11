@@ -7,7 +7,7 @@
     "main.8a077548.js.map": "/BankApp/bank_client/build/static/js/main.8a077548.js.map"
   },
   "entrypoints": [
-    "BankApp/bank_client/build/static/css/main.44b14e26.css",
-    "BankApp/bank_client/build/static/js/main.8a077548.js"
+    "static/css/main.44b14e26.css",
+    "static/js/main.8a077548.js"
   ]
 }
