@@ -28,8 +28,8 @@ function BankApp() {
           <div className="container" style={{padding: "20px"}}>
           {/* <Routes> */}
             <Route path="/" exact component={Home} />
-            {/* <Route path="/createAccount" component={CreateAccount} /> */}
-            <Route path="/createAccount2" component={CreateAccountFormik} />
+            {/* <Route path="/createAccountOld" component={CreateAccount} /> */}
+            <Route path="/createAccount" component={CreateAccountFormik} />
             <Route path="/login" component={Login} />
             <Route path="/deposit" component={Deposit} />
             <Route path="/withdraw" component={Withdraw} />
