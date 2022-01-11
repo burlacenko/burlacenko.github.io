@@ -2,7 +2,7 @@
   "name": "bank_client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://burlacenko.github.io/BankApp/bank_client/build",
+  "homepage": "https://burlacenko.github.io",
   "dependencies": {
     "-": "0.0.1",
     "@testing-library/jest-dom": "^5.16.1",
