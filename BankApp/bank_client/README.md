@@ -38,9 +38,12 @@ Additions made to the original exercise:
 - [x] Create Account button will one become enabled if all field requirements are fulfilled
   
 ## How to Run
-To try a live version of the new app version, click <a href="https://burlacenko.github.io/BankApp/bank_client/build/index.html">here</a>.
-To try a live version of the old standalone version, click <a href="https://burlacenko.github.io/Bank/index.html">here</a>.
-To try it locally, fork and clone the project and then open <strong>index.html</strong> in the browser.
+To try a live version of the new app version you may try this <a href="https://burlacenko.github.io/BankApp/bank_client/build/index.html">GitHub page</a> or right from <a href="http://daniel-burlacenkobankingapplication.s3-website.us-east-2.amazonaws.com/">AWS3 service</a>.
+
+If you desire to try it locally, fork and clone the project, run `npm install` to have dependancies install and then start a server to access the <strong>index.html</strong> in the browser.
+
+Also, I kept a live version of the old standalone version in <a href="https://burlacenko.github.io/Bank/index.html">here</a> if you wanna try.
+
 Learn more on how to deploy your app and run it directly as a github page: https://www.c-sharpcorner.com/article/how-to-deploy-react-application-on-github-pages/
 
 ## Roadmap of future improvements
