@@ -55,7 +55,7 @@
   .valid input[type='number'],
   .valid input[type='password'] {
     border-color: green;
-    font-weight: bold;
+    /* font-weight: bold; */
     border-width: 3px;
   }
   
@@ -218,4 +218,3 @@ button[type='reset'] {
   font-weight: bold;
   color: rgb(0, 255, 0);
 }
-

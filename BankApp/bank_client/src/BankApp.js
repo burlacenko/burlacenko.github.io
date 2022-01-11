@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom';
-import NavBar from './Components/NavBar.js';
-import Home from './Components/Home.js';
-// import CreateAccount from './Components/CreateAccount.js';
-import CreateAccountFormik from './Components/CreateAccountFormik.js';
-import Login from './Components/Login.js';
-import Deposit from './Components/Deposit.js';
-import Withdraw from './Components/Withdraw.js';
-import Statement from './Components/Statement.js';
-import AllData from './Components/AllData.js';
+import NavBar from './components/NavBar.js';
+import Home from './components/Home.js';
+// import CreateAccount from './components/CreateAccount.js';
+import CreateAccountFormik from './components/CreateAccountFormik.js';
+import Login from './components/Login.js';
+import Deposit from './components/Deposit.js';
+import Withdraw from './components/Withdraw.js';
+import Statement from './components/Statement.js';
+import AllData from './components/AllData.js';
 
 // import { Route, Link, HashRouter } from 'react-router-dom';
 // import { UserContext, Route, Link, HashRouter } from './context.js';

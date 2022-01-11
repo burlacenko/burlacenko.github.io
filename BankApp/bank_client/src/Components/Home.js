@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import image from "../images/bank.png";
 
 function Home(){
     return (
@@ -9,7 +10,7 @@ function Home(){
         header="EasyMoney Bank®"
         title="Welcome to the easy banking®"
         // text="You can move around using the navigation bar."
-        body={(<img src=".\images\bank.png" className="img-fluid" alt="Bank Logo"/>)}
+        body={(<img src={image} className="img-fluid" alt="Bank Logo"/>)}
       />    
     );  
 };
