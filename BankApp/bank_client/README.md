@@ -7,16 +7,16 @@ Additions made to the original exercise:
 
 ### General Features:
 - [x] created `Statement` component and children to list all entries to the account
+- [x] removed Balance card, since this information will be inside Deposit, WithDraw and Statement
 - [x] created Account Statement card
 - [x] withdrawals are `red colored` and followed by "D" for Debit
 - [x] deposits are `blue colored` and followed by "C" for Credit
 - [x] created css file and additional styling
-- [x] emptying the input after submit
 - [x] `Enter Key` on deposit and withdraw triggers action
-- [x] removed Balance card, since this information will be inside Deposit, WithDraw and Statement
+- [x] deposits and withdrawls share a parent component that centralizes operation
+- [x] emptying the inputs at Create Account after submit
 - [x] emptying the input after SUCCESSFUL submit of deposit and withdraw
 - [x] emptying the input after SUCCESSFUL submit of Create Account and Login
-- [x] deposits and withdrawls share a parent component that centralizes operation
 - [x] prevent negative balance
 - [x] refactor from standalone into create-react-app
 
@@ -33,9 +33,9 @@ Additions made to the original exercise:
 - [x] name validation now requires at least two word
 - [x] email at Create Account requires format validation: email MUST contain @ and '.' (at least one dot in the domain side)
 - [x] password must be at least 8 characters long
-- [x] Create Account card uses a form
+- [x] Create Account card uses a formik form
 - [x] Create Account each field now gives its instant feedback on  requirements as user is typing
-- [x] Create Account button will one become enabled if all field requirements are fulfilled
+- [x] Create Account button will only become enabled if all field requirements are fulfilled
   
 ## How to Run
 To try a live version of the new app version you may try this <a href="https://burlacenko.github.io/BankApp/bank_client/build/index.html">GitHub page</a> or right from <a href="http://daniel-burlacenkobankingapplication.s3-website.us-east-2.amazonaws.com/">AWS3 service</a>.
