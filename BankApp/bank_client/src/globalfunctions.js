@@ -53,6 +53,25 @@
     
   };
 
-export { getCharacterLength, nameValidateFormat, emailValidateFormat, passwordValidation };
+  const containsEmailMatchingPassword = (anArrayOfItems, anEmail, aPassword) => {
+    for (let i = 0; i < anArrayOfItems.length; i++) {
+        const element = anArrayOfItems[i];
+        if (element.email !== undefined) {
+            if (element.email === anEmail) {
+              // Email exists, not checking password
+              if (element.password !== undefined) {
+                if (element.password === aPassword) {
+                  if (element.name !== undefined) {
+                    return element;
+                  }
+                }
+              }
+            }
+        }
+    }
+    return null;
+  };
+
+export { getCharacterLength, nameValidateFormat, emailValidateFormat, passwordValidation, containsEmailMatchingPassword };
 
   

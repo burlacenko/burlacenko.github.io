@@ -22,6 +22,20 @@ function ATM ( {isDeposit} ){
       }
     }, [balance, operationAmount]
     );
+
+    const copyBalanceToUsers = (anEmail, newBalance) => {
+      for (let i = 0; i < ctx.users.length; i++) {
+          if (ctx.users[i].email !== undefined) {
+              if (ctx.users[i].email === anEmail) {
+                // Email exists, update balance
+                ctx.users[i].balance = newBalance;
+                return true;
+                }
+              }
+          };
+          
+      return false;
+      };
   
     const handleChange = event => {
       console.log(`handleChange ${event.target.value}`);
@@ -45,9 +59,8 @@ function ATM ( {isDeposit} ){
       } else {
         setOperationAmount(newAmount);
       }
-  
     };
-  
+ 
     function handleOperationAmount(){
       let newStatementEntry = {};
       let newTotal = 0;
@@ -76,7 +89,7 @@ function ATM ( {isDeposit} ){
       } else {
         
         // https://stackoverflow.com/questions/61604836/useeffect-and-the-context-api
-        // ATTENTION: "spread" works, but at first I was limitin scope of variable to block-scope!! Solution was to give variable a function scope!
+        // ATTENTION: "spread" works, but at first I was limiting scope of variable to block-scope!! Solution was to give variable a function scope!
         // this works, but "updatedStatement" needs at least a function-scope:
         //updatedStatement = [...ctx.currentUser.statement, {entry: ctx.currentUser.statement.length + 1, kind: 'C', value: operationAmount} ];
         if (isDeposit) {
@@ -93,10 +106,14 @@ function ATM ( {isDeposit} ){
       
       // "push" approach also works (maybe is will be fast in future):
       ctx.currentUser.statement.push(newStatementEntry);
-      
       ctx.currentUser.balance = newTotal;
       setBalance(newTotal);
-  
+
+      // when feeding a new statement to current user the corresponding user at users seems to match because they point to same memory
+      // but for balance we need a specific update since balance of current user has its specific memory slot
+      // in the future the "id" should be used instead of "email"
+      copyBalanceToUsers(ctx.currentUser.email, newTotal);
+      
       setOperationInProgress(false);
   
       alert(`Your ${operation[Number(!isDeposit)].toLowerCase()} of $ ${operationAmount} was SUCCESSFULLY received!`);
