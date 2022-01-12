@@ -3,7 +3,7 @@ import Card from './Card.js';
 import { UserContext } from '../context.js';
 import { useFormik, useFormikContext, useField, Formik, Form, Field, ErrorMessage, FormikProvider } from 'formik';
 import * as Yup from 'yup'; // requires npm install yup
-import { getCharacterLength, nameValidateFormat, emailValidateFormat } from '../globalfunctions.js';
+import { getCharacterLength, nameValidateFormat, emailValidateFormat, containsName_and_Email } from '../globalfunctions.js';
 import './CreateAccountFormik.css';
 
 const TextInputLiveFeedback = ({ label, helpText, setterValid, ...props }) => {
@@ -247,6 +247,15 @@ function CreateAccountFormik(){
       if (!validate(values.name,     'name'))     return false;
       if (!validate(values.email,    'email'))    return false;
       if (!validate(values.password, 'password')) return false;
+
+      // check if user already exists
+      if (containsName_and_Email(ctx.users, values.name, values.email)) {
+        let error = 'User Already Exists!';
+        alert(`Error: ${error}`);
+        setStatus(error);
+        return false;
+      };
+
       return true;
     }    
   
@@ -258,7 +267,7 @@ function CreateAccountFormik(){
       // if (!validate(email,    'email'))    return;
       // if (!validate(password, 'password')) return;
       
-      if (!handleAllValidationsFormik(values)) return;
+      if (!handleAllValidationsFormik(values)) return false;
   
       setBalance(0);
       setStatement([]);
@@ -278,7 +287,8 @@ function CreateAccountFormik(){
       // setShow(false);
       setShowButtonAdd(true);
       // alert('User created sucessfully!')
-      alert('Sucessfully Created Account')
+      alert('Sucessfully Created Account');
+      return true;
     }        
   
     function clearForm(){
@@ -319,9 +329,14 @@ function CreateAccountFormik(){
         password: '',
       },
       onSubmit: async (values, actions) => {
-        handleCreateFormik(values);
-        actions.setSubmitting(false);
+        let result = handleCreateFormik(values);
+        
+        if (result) {
+        //actions.setSubmitting(false);
         actions.resetForm();
+        } else {
+          //actions.setSubmitting(true);
+        }
       },
       validationSchema: Yup.object({
         name: Yup.string()

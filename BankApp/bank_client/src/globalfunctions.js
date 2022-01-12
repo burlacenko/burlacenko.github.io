@@ -58,7 +58,7 @@
         const element = anArrayOfItems[i];
         if (element.email !== undefined) {
             if (element.email === anEmail) {
-              // Email exists, not checking password
+              // Email exists, now checking password
               if (element.password !== undefined) {
                 if (element.password === aPassword) {
                   if (element.name !== undefined) {
@@ -72,6 +72,25 @@
     return null;
   };
 
-export { getCharacterLength, nameValidateFormat, emailValidateFormat, passwordValidation, containsEmailMatchingPassword };
+  const containsName_and_Email = (anArrayOfItems, aName, anEmail) => {
+    for (let i = 0; i < anArrayOfItems.length; i++) {
+        const element = anArrayOfItems[i];
+        if (element.name !== undefined) {
+            if (element.name === aName) {
+              // Name exists, now checking email
+              if (element.email !== undefined) {
+                if (element.email === anEmail) {
+                  if ((aName !== undefined)&&(anEmail !== undefined)) {
+                    return true;
+                  }
+                }
+              }
+            }
+        }
+    }
+    return false;
+  };  
+
+export { getCharacterLength, nameValidateFormat, emailValidateFormat, passwordValidation, containsEmailMatchingPassword, containsName_and_Email };
 
   

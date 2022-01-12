@@ -4,7 +4,7 @@ import React from 'react';
 import Card from './Card.js';
 import { UserContext } from '../context.js';
 import './CreateAccount.css';
-import { getCharacterLength, nameValidateFormat, emailValidateFormat } from '../globalfunctions.js';
+import { getCharacterLength, nameValidateFormat, emailValidateFormat, containsName_and_Email } from '../globalfunctions.js';
 
 function CreateAccount(){
   const [showButtonAdd, setShowButtonAdd] = React.useState(false);
@@ -181,8 +181,17 @@ function CreateAccount(){
     if (!validate(name,     'name'))     return false;
     if (!validate(email,    'email'))    return false;
     if (!validate(password, 'password')) return false;
+
+    // check if user already exists
+    if (containsName_and_Email(ctx.users, name, email)) {
+      let error = 'User Already Exists!';
+      alert(`Error: ${error}`);
+      setStatus(error);
+      return false;
+    };
+
     return true;
-  }
+  };
 
   function handleCreate(){
     console.log('handleCreate for ',name, email, password);
@@ -192,7 +201,7 @@ function CreateAccount(){
     // if (!validate(password, 'password')) return;
     
     if (!handleAllValidations()) return;
-
+    
     setBalance(0);
     setStatement([]);
 
