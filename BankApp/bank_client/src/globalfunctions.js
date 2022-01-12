@@ -75,17 +75,16 @@
   const containsName_and_Email = (anArrayOfItems, aName, anEmail) => {
     for (let i = 0; i < anArrayOfItems.length; i++) {
         const element = anArrayOfItems[i];
-        if (element.name !== undefined) {
-            if (element.name === aName) {
-              // Name exists, now checking email
-              if (element.email !== undefined) {
-                if (element.email === anEmail) {
-                  if ((aName !== undefined)&&(anEmail !== undefined)) {
-                    return true;
-                  }
-                }
-              }
-            }
+        if ((element.name === undefined)||(element.email === undefined)) return false;
+
+        // validation: CANNOT contain same email (works like id)
+        // but 2 equal names could exist if different email !
+        if ((aName !== undefined)&&(anEmail !== undefined)) {
+          // when one or another coudn't exist
+          //if ((element.name === aName)||(element.email === anEmail)) {
+          if (element.email === anEmail) {
+            return true;
+          }
         }
     }
     return false;

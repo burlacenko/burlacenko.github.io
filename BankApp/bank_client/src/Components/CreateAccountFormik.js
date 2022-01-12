@@ -252,7 +252,7 @@ function CreateAccountFormik(){
       if (containsName_and_Email(ctx.users, values.name, values.email)) {
         let error = 'User Already Exists!';
         alert(`Error: ${error}`);
-        setStatus(error);
+        setStatus(`${error} Hint: the provided e-mail is registered`);
         return false;
       };
 
