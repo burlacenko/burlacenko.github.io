@@ -1,0 +1,27 @@
+
+.statement-currentUser {
+    font-weight: bold;
+    text-decoration: underline; 
+  }
+  
+  .statementEntries-entry-positive {
+    padding: 0px 0px 0px 10px;
+  /*     margin-left: 10px; */
+    background-color: lightgrey;
+  /*   list-style-type: disc; */
+  /*   list-style-type: circle; */
+  /*   list-style-type: space-counter; */
+  /*   try https://emojipedia.org/ */
+  /*   list-style-type: "\1F44D"; // thumbs up sign */
+    list-style-type: "➕";
+  }
+  
+  .statementEntries-entry-negative {
+    padding: 0px 0px 0px 10px;
+    background-color: lightgrey;
+    list-style-type: "➖";
+  }
+  
+  .bankStatement--title {
+    font-weight: bold;
+  }
