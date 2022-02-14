@@ -47,4 +47,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 ## Screenshot
+![Animation of GraphQL Playground](Restaurant-GraphQL-Data-Exercise.gif)
 ![Image of GraphQL Playground](Restaurant-Data-Exercise-screenshot-at-2022-02-14.jpg)
