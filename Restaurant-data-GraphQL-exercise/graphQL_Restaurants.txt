@@ -1,0 +1,51 @@
+query getOneRestaurant($iid:Int!)
+{restaurant(id:$iid) {
+  id
+  name
+	description
+      dishes {
+      name
+      price
+    }
+  }
+},
+
+query getAllRestaurants {
+  restaurants {
+    id
+    name
+    description
+  }
+},
+
+mutation setRestaurant {
+  setrestaurant(input: {
+    name: "Granite",
+    description: "American",
+  }) {
+    id
+    name
+    description
+  }
+},
+
+mutation deleteRestaurant($iid: Int!) {
+  deleterestaurant(id: $iid) {
+    ok
+  }
+},
+
+mutation editRestaurantNameById($iid: Int!, $name: String!) {
+  editrestaurant(id: $iid, name: $name) {
+    name
+    description
+  }
+},
+
+
+
+#QUERY VARIABLES
+{
+  "iid": 3,
+  "name":"Dharma" 
+}
