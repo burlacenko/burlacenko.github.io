@@ -13,6 +13,9 @@ This is an <em>exercise</em> to show a small Full Stack project with:
 - [x] Each section of the Holly Grail is a react component and they all react to changes in the values saved in the database
 - [x] Redis on a Docker container holds the data for each Holy Grail section name/value pair
 
+### Improvements:
+- [x] Added syncronization so that each instance of client will change following other running clients
+
 ## View project running
 An animation of the project running is available at the end of this page
 
@@ -48,5 +51,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 ## Animation
+### One Instance Animation
 ![Animation of Holy Grail with Redis database](AnimatedGif_for_Full_Stack_HolyGrail_Docker_And_Client_running.gif)
+### Several Syncronized Instances
 ![Animation of Holy Grail with Redis database + Sync](AnimatedGif_for_Full_Stack_HolyGrail_Docker_And_Client_running_SYNC.gif)
