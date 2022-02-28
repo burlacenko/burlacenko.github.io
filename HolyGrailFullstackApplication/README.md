@@ -49,3 +49,4 @@ SOFTWARE.
 	
 ## Animation
 ![Animation of Holy Grail with Redis database](AnimatedGif_for_Full_Stack_HolyGrail_Docker_And_Client_running.gif)
+![Animation of Holy Grail with Redis database + Sync](AnimatedGif_for_Full_Stack_HolyGrail_Docker_And_Client_running_SYNC.gif)
