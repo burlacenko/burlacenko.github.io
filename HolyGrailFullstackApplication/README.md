@@ -11,13 +11,13 @@ This is an <em>exercise</em> to show a small Full Stack project with:
 - [x] Express server at localhost 3005 serving static files of the Holy Grail
 - [x] Holy Grail web page is divided in 5 sections: header, footer, left, right and article
 - [x] Each section of the Holly Grail is a react component and they all react to changes in the values saved in the database
-- [x] Redis on a Docker container hold the data for each Holy Grail section name/value pair
+- [x] Redis on a Docker container holds the data for each Holy Grail section name/value pair
 
 ## View project running
 An animation of the project running is available at the end of this page
 
 ## How to Run
-If you desire to try it locally, fork and clone the project and:
+If you desire to try it locally:
 - run `npm install` to have dependancies installed
 - start a redis instance with "docker run -p 6379:6379 --name some-redis -d redis"
 - start the server with "npm start"
