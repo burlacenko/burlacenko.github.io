@@ -14,7 +14,7 @@ This is an <em>exercise</em> to show a small Full Stack project with:
 - [x] Redis on a Docker container holds the data for each Holy Grail section name/value pair
 
 ### Improvements:
-- [x] Added syncronization so that each instance of client will change following other running clients
+- [x] Added syncronization so that each client instance will change following other running clients
 
 ## View project running
 An animation of the project running is available at the end of this page
