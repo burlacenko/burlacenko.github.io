@@ -1,3 +1,4 @@
+var { DateTime } = require('luxon');
 var port = 3005;
 var express = require("express");
 var app = express();
@@ -37,13 +38,17 @@ function data() {
 }
 
 // plus
-app.get("/update/:key/:value", function (req, res) {
+app.get("/update/:key/:value/:instanceID", function (req, res) {
   // initial example/test (without db)
   // res.send('update route!');
   
   // now using db we need Promises to help us "wait" for data yo be fetched from database
   const key = req.params.key;
   let value = Number(req.params.value);
+  var instance = req.params.instanceID;
+  if (!instance) {
+    instance = 'anonymous'
+  }
 
   //TODO: use the redis client to update the value associated with the given key
   client.get(key, function(err, reply) {
@@ -64,8 +69,15 @@ app.get("/update/:key/:value", function (req, res) {
 });
 
 // get key data
-app.get("/data", function (req, res) {
+app.get("/data/:instanceID", function (req, res) {
+  var instance = req.params.instanceID;
+  if (!instance) {
+    instance = 'anonymous'
+  }
+
   data().then((data) => {
+    console.log(`Instance ${instance} at ${DateTime.now().toString()}`);
+    console.log(`Current server values:`);
     console.log(data);
     res.send(data);
   });
