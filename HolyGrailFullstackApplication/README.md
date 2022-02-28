@@ -13,6 +13,9 @@ This is an <em>exercise</em> to show a small Full Stack project with:
 - [x] Each section of the Holly Grail is a react component and they all react to changes in the values saved in the database
 - [x] Redis on a Docker container hold the data for each Holy Grail section name/value pair
 
+## View project running
+An animation of the project running is available at the end of this page
+
 ## How to Run
 If you desire to try it locally, fork and clone the project and:
 - run `npm install` to have dependancies installed
@@ -44,5 +47,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
-## Screenshot
+## Animation
 ![Animation of Holy Grail with Redis database](AnimatedGif_for_Full_Stack_HolyGrail_Docker_And_Client_running.gif)
