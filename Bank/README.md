@@ -83,4 +83,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 	
 ## Screenshot
-![Image of ToDoList Exercise](Atm2021-11-09-1.jpg)
+![Image of BankApp Exercise](image_2022_01_10_1.jpg)
